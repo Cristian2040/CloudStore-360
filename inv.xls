@@ -1,0 +1,953 @@
+Codigo	Descripcion	Precio Costo	Precio Venta	Precio Mayoreo	Inventario	Inv. Minimo	Departamento
+ 7501023100034	 Fibra Scotch Brite 	$35.00	$35.00	$35.00	9.00	5	- Sin Departamento -
+ 7501059287938	 NESTLE Media Crema 270g	$22.00	$22.00	$22.00	9.00	5	- Sin Departamento -
+ 7501011167650	 Sabritas Sal 105g.	$23.89	$34.00	$0.00	0.00	0.000	sabritas
+ 7501006721119	 Shampoo Pantene Restauracion 200ML	$28.00	$28.00	$28.00	8.00	5	- Sin Departamento -
+ 7501000911783	 Sobre Nescafe Clasico 14G	$12.00	$12.00	$12.00	26.00	5	- Sin Departamento -
+ 7506425648160	1Pieza Rollo Vogue 	$13.00	$13.00	$13.00	30.00	5	- Sin Departamento -
+ 7501022014615	7 Up 1.75 Ml	$18.33	$22.00	$0.00	N/A	0.000	pepsi
+ 7501022014646	7 Up 3 L	$28.12	$35.00	$0.00	N/A	0.000	pepsi
+ 7501022014585	7 Up 600 Ml	$12.04	$15.00	$0.00	N/A	0.000	pepsi
+ 7500435018791	Ace 1k 	$42.00	$42.00	$42.00	6.00	5	- Sin Departamento -
+ 75005443	Aceite 123 500ml	$27.00	$27.00	$27.00	20.00	3	aceites
+ 75005444	Aceite 123 500ml	$29.00	$32.00	$0.00	0.00	5	aceites
+ 75002343	Aceite 123 Litro	$49.00	$49.00	$49.00	79.00	3	aceites
+ 7501048100163	Aceite Cristal De 1litro	$49.00	$49.00	$49.00	30.00	15	aceites
+ 7501048100200	Aceite Cristal De 500 Ml	$27.00	$27.00	$27.00	24.00	5	aceites
+ 7501035908246	Aceite Mennen 100ml	$28.00	$32.00	$0.00	N/A	0.000	higienico
+ 7501039122846	Aceite Nutrioli 1L	$48.00	$48.00	$48.00	20.00	3	aceites
+ 7501039121993	Aceite Nutrioli 400ml	$26.00	$32.00	$0.00	0.00	2	aceites
+ 759684431050	Acetona 60ML	$13.00	$13.00	$13.00	6.00	5	- Sin Departamento -
+ 11848455570	Achiote 110g	$11.90	$16.00	$0.00	0.00	2	condimentos
+ 7501032398255	Activia Ciruela 	$11.23	$16.00	$0.00	0.00	2	LACTEOS
+ 7501032398071	Activia Fresa 	$11.23	$16.00	$0.00	0.00	2	LACTEOS
+ 7501052470061	Aderezo Mil Islas Clemente 	$25.70	$30.00	$0.00	0.00	1	aderezos
+ 7501055307906	Agua Ciel 600ml	$12.00	$12.00	$12.00	N/A	0.000	coca cola
+ 7501055310883	Agua Ciel De 1 L	$14.00	$14.00	$14.00	50.00	5	coca cola
+ 7501086801121	Agua Epura De 500 Ml	$6.79	$10.00	$0.00	N/A	0.000	pepsi
+ 7501055308248	Agua Mineral Ciel	$18.00	$18.00	$18.00	20.00	5	- Sin Departamento -
+ 7501055304721	Agua Natural Ciel 15 Lt	$11.20	$15.00	$0.00	N/A	0.000	coca cola
+ 7501039430170	Agua Pascual. 1 Litro 	$14.00	$14.00	$14.00	15.00	3	- Sin Departamento -
+ 21136010541	Agua Topochico De 600Ml	$0.00	$20.00	$0.00	1000.00	0.000	- Sin Departamento -
+ AH	Ahuacate	$52.00	$80.00	$0.00	N/A	0.000	frutas y verduras
+ 7501003301895	Ajo En Polvo Mccormick	$31.20	$35.00	$0.00	0.00	1	condimentos
+ 7501008443033	AlkaSeltzer 1pz 	$32.90	$7.00	$0.00	0.00	2	farmacia
+ 7501055900060	Alpura Chocolate 1L	$26.09	$32.00	$0.00	0.00	2	LACTEOS
+ 7501055900077	Alpura Fresa 1L	$26.09	$32.00	$0.00	0.00	1	LACTEOS
+ 7501055900084	Alpura Vainilla 1L	$26.09	$32.00	$0.00	0.00	2	LACTEOS
+ 7503010473114	Alumex Aluminio  10 Modelo	$20.00	$20.00	$20.00	10.00	5	harinas
+ 7506192507349	Amper Energy 	$20.00	$20.00	$20.00	6.00	5	- Sin Departamento -
+ 7501516411173	Araceli Chocolate 	$29.00	$29.00	$29.00	17.00	5	- Sin Departamento -
+ 7503004711048	Arena Para Gato	$20.45	$30.00	$0.00	0.00	2	mascotas
+ 7503004711024	Arena Para Gato 4kg 	$25.00	$30.00	$0.00	N/A	0.000	mascotas
+ 7501007455730	Ariel Bolsa 500gms	$28.00	$28.00	$28.00	2.00	5	- Sin Departamento -
+ 7500435120852	Ariel Poder Y Cuidado 850G 	$46.00	$46.00	$46.00	60.00	5	- Sin Departamento -
+ 7501069214030	Arina De Trigo San Antonio 1K	$35.00	$35.00	$35.00	6.00	5	- Sin Departamento -
+ 613008738822	Arizona Kiwy Con Fresa 680ml	$22.00	$22.00	$22.00	10.00	2	- Sin Departamento -
+ 613008738808	Arizona Mango 680ml 	$22.00	$22.00	$22.00	10.00	5	- Sin Departamento -
+ 7500829000043	Arroz 7 Semillas 	$17.50	$23.00	$0.00	0.00	1	semillas
+ 7501020532036	Arroz Con Leche 125g	$9.00	$15.00	$0.00	0.00	1	yogures
+ 7501071301452	Arroz Verde Valle 	$35.60	$38.00	$0.00	0.00	2	semillas
+ 7501008496152	Aspirina Verde 	$75.98	$3.00	$0.00	0.00	10	farmacia
+ 7501045403915	Atun Dolores Agua 133g	$17.56	$24.00	$0.00	0.00	2	enlatados
+ 7501045400860	Atun Dolores Agua 295g	$37.60	$44.00	$0.00	0.00	2	enlatados
+ 7501045403908	Atun Dolores En Agua Y Aceite 133g	$23.50	$23.50	$23.50	48.00	5	enlatados
+ 7501045400846	Atun Dolores En Agua Y Aceite 295g	$39.00	$45.00	$0.00	0.00	2	enlatados
+ 7502224043557	Atun Nair En Agua	$12.00	$18.00	$0.00	0.00	2	enlatados
+ 7502224043564	Atun Nair En Agua Con Aceite 	$12.00	$18.00	$0.00	0.00	2	enlatados
+ 7500478019069	Avena 3 Minutos 380g	$26.00	$26.00	$26.00	222.00	5	semillas
+ 7509546017143	Axion Liquido 400ml	$19.05	$23.00	$0.00	0.00	2	Detergentes
+ 7501082740158	Azetona 	$10.00	$14.00	$0.00	N/A	0.000	higienico
+ 7503005405113	Baby Fashion 	$16.00	$16.00	$16.00	1.00	5	- Sin Departamento -
+ 6854062540660	Balones Chicos De Fut 	$60.00	$60.00	$60.00	3.00	5	- Sin Departamento -
+ 8719200450615	Barra Mantequilla Iberia 90gr	$11.50	$15.00	$0.00	1.00	2	embutidos
+ 7500478021086	Barras De Coco	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501030427193	Barritas Fresa 	$13.44	$17.00	$0.00	N/A	0.000	marinela
+ 7501030427209	Barritas Piña 	$13.44	$17.00	$0.00	N/A	0.000	marinela
+ 7501030457190	Barritas Tubo Fresa 	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 7501030457183	Barritas Tubo Piña	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 41594231173	Baso Termico N8 Con 25pz	$18.00	$18.00	$18.00	4.00	5	- Sin Departamento -
+ 7500810005033	Big Mix Clasico	$11.67	$15.00	$0.00	0.00	1	barcel
+ 7500810005408	Big Mix Fuego	$11.67	$15.00	$0.00	0.00	1	barcel
+ 7500810005453	Big Mix Queso	$11.67	$15.00	$0.00	0.00	1	barcel
+ 7501000142200	Bigotes tia Rosa Chocolat	$10.63	$16.00	$0.00	0.00	2	tia rosa
+ 7501030472698	Bimbuñuelos	$14.43	$21.00	$0.00	0.00	2	bimbo
+ 7501026027536	Blanca Nieves 1k	$47.00	$47.00	$47.00	36.00	5	- Sin Departamento -
+ 7501026027550	Blanca Nieves 250g	$8.80	$13.00	$0.00	0.00	2	Detergentes
+ 7501026027543	Blanca Nieves 500g	$24.00	$24.00	$24.00	13.00	5	- Sin Departamento -
+ 75001766	Boing 250ml Fresa Te	$12.00	$12.00	$12.00	50.00	5	- Sin Departamento -
+ 75001759	Boing 250ml Mango 	$11.00	$11.00	$11.00	11.00	5	- Sin Departamento -
+ 75001797	Boing 250ml Manzana 	$11.00	$11.00	$11.00	2.00	5	- Sin Departamento -
+ 75001834	Boing 250ml Uva 	$11.00	$11.00	$11.00	2.00	5	- Sin Departamento -
+ 75003166	Boing 500ml Fresa Te	$0.00	$16.00	$0.00	10000.00	0.000	- Sin Departamento -
+ 75003104	Boing 500ml Mango 	$16.00	$16.00	$16.00	1.00	5	- Sin Departamento -
+ 75003159	Boing 500ml Manzana 	$16.00	$16.00	$16.00	4.00	5	- Sin Departamento -
+ 7503008263512	Bomba Para Lavabo	$48.00	$48.00	$48.00	3.00	5	- Sin Departamento -
+ 7500478005833	Bombitos 17.00	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501011136410	Bombiux Metro 40g.	$7.80	$10.00	$0.00	0.00	1	sabritas
+ 7502230944466	Bon O Bon 	$3.50	$6.00	$0.00	0.00	3	dulces
+ 2204	Botana Surtida 	$77.00	$15.00	$0.00	0.00	2	dulces
+ 7509546058962	CAPRICE	$55.00	$55.00	$55.00	10.00	5	- Sin Departamento -
+ 7509546058955	CAPRICE	$55.00	$55.00	$55.00	15.00	5	- Sin Departamento -
+ 7500478028573	Cacahuate Blazin Cruncheese 67g	$13.80	$18.00	$0.00	0.00	2	sabritas
+ 7500478022168	Cacahuate Enchilado 64g.	$9.53	$13.00	$0.00	0.00	2	sabritas
+ 7500478026401	Cacahuate Flamin Hot 130g 	$18.20	$20.00	$0.00	0.00	2	sabritas
+ 7500478026418	Cacahuate Incognita 130g	$17.90	$20.00	$0.00	0.00	2	sabritas
+ 7500478026555	Cacahuate Japones 110g	$13.80	$15.00	$0.00	0.00	1	sabritas
+ 7500478025985	Cacahuate Japones 65g	$7.91	$10.00	$0.00	0.00	2	sabritas
+ 7502271911472	Cacahuate M&ms	$84.50	$18.00	$0.00	0.00	2	dulces
+ 7500478028672	Cacahuates Flamin Hot 67g 	$13.80	$18.00	$0.00	0.00	2	sabritas
+ 7500478019755	Cacahuates Incognita 67g.	$13.80	$18.00	$0.00	0.00	2	sabritas
+ 7500478022144	Cacahuates Japones 67g.	$9.53	$13.00	$0.00	0.00	1	sabritas
+ 7500478022175	Cacahuates Sal Y Limon 64g.	$9.53	$13.00	$0.00	0.00	2	sabritas
+ 7501052417202	Cafe Oro 50g	$26.21	$32.00	$0.00	0.00	2	cafes
+ 7501000383320	Cajeta Quemada Bolsa 250g	$22.00	$28.00	$0.00	0.00	2	mermeladas
+ CZ	Calabaza	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 7509546003108	Calgate Triple Accion 	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7501030491644	Canelitas 	$15.96	$20.00	$0.00	N/A	0.000	marinela
+ 7501030418542	Canelitas Tubo 	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 7509546059006	Caprice	$55.00	$55.00	$55.00	10.00	5	- Sin Departamento -
+ 7509546058986	Caprice Esencia Kiwi 316ML	$55.00	$55.00	$55.00	5.00	5	- Sin Departamento -
+ 7501026000607	Carisma 400g	$28.00	$28.00	$28.00	15.00	5	- Sin Departamento -
+ 75053901	Catsup Del Monte 320g	$19.00	$19.00	$19.00	25.00	5	enlatados
+ 7501063300029	Caza Facil Pega Rato	$38.00	$38.00	$38.00	2.00	5	- Sin Departamento -
+ Cñ	Caña	$12.00	$16.00	$0.00	N/A	0.000	frutas y verduras
+ CB	Cebolla	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 6910021007206	Cepillo Dental Colgate	$16.50	$16.50	$16.50	6.00	6	- Sin Departamento -
+ |7506192504539	Cera Ego Fijacion Media 	$15.00	$20.00	$0.00	N/A	0.000	perfumeria
+ 7501020535266	Cereal Lala Granola 190g	$13.60	$18.00	$0.00	0.00	2	yogures
+ 7503001262086	Cerillos Perla 	$2.50	$2.50	$2.50	60.00	5	- Sin Departamento -
+ 738545020015	Chamoy 500 Ml	$18.00	$18.00	$18.00	5.00	5	- Sin Departamento -
+ 11848330044	Chamoy La Anita 500 Ml 	$18.00	$20.00	$0.00	0.00	1	salsas
+ 738545020626	Chamoy Mega 370 G	$13.00	$20.00	$0.00	0.00	2	dulces
+ CP	Champiñon	$75.00	$90.00	$0.00	N/A	0.000	frutas y verduras
+ 7502208805454	Charola Termica 855	$39.00	$39.00	$39.00	3.00	5	- Sin Departamento -
+ 7500478028405	Cheetos Blazin 50g.	$9.51	$12.00	$0.00	0.00	1	sabritas
+ 7500478015047	Cheetos Bolitas 43g.	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7500478006175	Cheetos Flamin 120g	$17.90	$20.00	$0.00	0.00	1	sabritas
+ 7501011143753	Cheetos Flaminhot 55g.	$9.51	$12.00	$0.00	0.00	2	sabritas
+ 7501011143999	Cheetos Nacho 55g.	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7501011155343	Cheetos Palomitas 29g.	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7500478014606	Cheetos Poffs 40g.	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7501011130975	Cheetos Torciditos 145g.	$23.89	$34.00	$0.00	0.00	1	sabritas
+ 7501011143586	Cheetos Torciditos 55g.	$9.51	$13.00	$0.00	N/A	2	sabritas
+ 7501011151079	Chicharron Sabritas Chico	$12.84	$16.00	$0.00	N/A	1	sabritas
+ CH	Chile Cerrano	$30.00	$60.00	$0.00	N/A	0.000	frutas y verduras
+ 7501017005031	Chile Chipotle 220g La Costeña 	$32.00	$32.00	$32.00	7.00	5	enlatados
+ 7501017004003	Chile Jal enteros 380g	$22.00	$27.00	$0.00	0.00	2	enlatados
+ CJ	Chile Jalapeño	$35.00	$60.00	$0.00	N/A	0.000	frutas y verduras
+ 7501017005000	Chile Jalapeños Enteros 220g	$17.00	$17.00	$17.00	2.00	5	enlatados
+ CM	Chile Morron	$40.00	$60.00	$0.00	N/A	0.000	frutas y verduras
+ 7501017005062	Chile Nachos De Jalapeño Costea  220	$13.00	$18.00	$0.00	0.00	2	enlatados
+ 7501017004027	Chile Rajas Jalapeños 380g 	$25.00	$30.00	$0.00	0.00	2	enlatados
+ 7501017005017	Chile Serrano Enteros 220gCoste	$12.00	$15.00	$0.00	0.00	2	enlatados
+ 7501017006007	Chile Serranos Enteros 105g	$7.00	$11.00	$0.00	0.00	2	enlatados
+ 7501058743121	Chinola Nugget Negra	$22.00	$22.00	$22.00	255.00	5	- Sin Departamento -
+ 7501017006021	Chipotles Adobados 105g La Costeña 	$17.00	$17.00	$17.00	24.00	5	enlatados
+ 7500810005491	Chips Fuego	$11.67	$15.00	$0.00	0.00	2	barcel
+ 757528001889	Chips Fuego 170g.	$39.70	$43.00	$0.00	0.00	1	barcel
+ 757528028985	Chips Jalapeño	$11.67	$15.00	$0.00	0.00	2	barcel
+ 7500810012277	Chips Papatinas Chilix 31g.	$9.33	$13.00	$0.00	0.00	1	barcel
+ 7500810012284	Chips Papatinas Fuego 31g.	$9.33	$13.00	$0.00	0.00	1	barcel
+ 7501000657797	Choco Chokis 84g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 75002275	Choco Roles 67g	$16.20	$21.00	$0.00	N/A	0.000	marinela
+ 724869055550	ChocolNugs por pieza	$5.50	$6.00	$0.00	0.00	2	dulces
+ 7501001656454	Chocolate Abue 90gRedond	$16.00	$16.00	$16.00	9.00	5	- Sin Departamento -
+ 7501073411173	Chocolate Abuelita 	$16.00	$16.00	$16.00	150.00	5	mermeladas
+ 7501058638083	Chocolate Carlos V	$86.11	$10.00	$0.00	1.00	3	dulces
+ 7506205807589	Chocolate Chocomilk	$16.00	$22.00	$0.00	0.00	2	dulces
+ 724869044417	Chocolate Malvabon	$5.20	$6.00	$0.00	0.00	3	dulces
+ 7506174512200	Chocolate Milkyway	$16.00	$18.00	$0.00	0.00	2	dulces
+ 7501059289239	Chocolate Morelia 155g	$20.00	$20.00	$20.00	2.00	2	dulces
+ 7506475113168	Chocolate Morelia 445g 	$42.00	$42.00	$42.00	4.00	5	- Sin Departamento -
+ 7501058618597	Chocolate Nesquik 200g	$20.00	$26.00	$0.00	0.00	2	dulces
+ 7500478013944	Chokis Clasica 180g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7500478014569	Chokis Clasica 76g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7501000604685	Chokis Rellenas 90g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7506205815867	Chovomilk 18g 	$8.00	$8.00	$8.00	37.00	5	- Sin Departamento -
+ 7500478028375	Churrumais Con Limon 	$7.93	$10.00	$0.00	0.00	2	sabritas
+ 7500478028382	Churrumais Flamas 	$7.93	$10.00	$0.00	0.00	2	sabritas
+ 7501075108248	Ciel Agua Mineralizada 	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501055305742	Ciel Mineralizada 2 Lt	$27.00	$27.00	$27.00	50.00	1	- Sin Departamento -
+ 7502252634116	Cigarro Link	$230.00	$35.00	$0.00	0.00	5	cigarros
+ CGL	Cigarro Link	$35.00	$5.00	$0.00	0.00	1	cigarros
+ CGP	Cigarro Pallmall	$65.00	$7.00	$0.00	0.00	2	cigarros
+ 75071295	Cigarro Pallmall Alaska	$59.50	$65.00	$0.00	100.00	1	cigarros
+ 14800515329	Clamato 473Ml	$26.00	$26.00	$26.00	4.00	5	salsas
+ 14800515336	Clamato 946 Ml	$37.00	$42.00	$0.00	0.00	2	salsas
+ 741120000005	Clarasol 1L	$16.00	$16.00	$16.00	15.00	5	Detergentes
+ 724611000760	Clasico Plancha Recta Modelo 	$22.00	$22.00	$22.00	1.00	5	- Sin Departamento -
+ 724611001156	Clasiico Cepillo Practico 	$22.00	$22.00	$22.00	1.00	5	- Sin Departamento -
+ 75000608	Cloralex 500ml	$11.00	$11.00	$11.00	5.00	125	- Sin Departamento -
+ 75000615	Cloralex 950ml	$19.00	$19.00	$19.00	24.00	5	- Sin Departamento -
+ 7501025405007	Cloralex Toallas Desinfectntes 	$45.00	$45.00	$45.00	2.00	5	- Sin Departamento -
+ 7622210624482	Clorets Plus 	$6.20	$7.00	$0.00	0.00	2	dulces
+ 7501071900112	Clorox 460ml	$10.00	$10.00	$10.00	6.00	3	- Sin Departamento -
+ 741120000012	Clorox 500ML	$9.00	$9.00	$9.00	13.00	5	Detergentes
+ 7501071900129	Clorox 930ml	$18.00	$18.00	$18.00	6.00	3	Detergentes
+ 7501055355310	Coca 250 Ml 	$12.00	$12.00	$12.00	50.00	5	coca cola
+ 7501055368570	Coca Cola 	$34.00	$34.00	$34.00	50.00	5	- Sin Departamento -
+ 7501055371655	Coca Cola 1.35	$28.00	$28.00	$28.00	30.00	5	coca cola
+ 7501055313532	Coca Cola 1.75	$32.00	$32.00	$32.00	50.00	5	coca cola
+ 7501055304004	Coca Cola 2.25 L 	$36.00	$39.00	$36.00	50.00	5	coca cola
+ 7501055304745	Coca Cola 3L	$45.00	$45.00	$45.00	25.00	5	coca cola
+ 7501055328345	Coca Cola 400ml	$14.00	$14.00	$14.00	50.00	5	coca cola
+ 75009809	Coca Cola De 500Ml	$13.25	$16.00	$0.00	N/A	0.000	coca cola
+ 7501055313594	Coca Cola Lata 473 Ml	$16.90	$20.00	$0.00	N/A	0.000	coca cola
+ 7501055305360	Coca Cola Light 2L	$39.00	$39.00	$39.00	15.00	3	- Sin Departamento -
+ 7501055305339	Coca Cola Light 600ml	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501055300952	Coca Cola Vidrio 12	$25.00	$25.00	$25.00	30.00	5	coca cola
+ 7501055320639	Coca Cola ZERO	$18.00	$18.00	$18.00	50.00	5	- Sin Departamento -
+ 7501055361540	Coca De Lata De 355ml 	$20.00	$20.00	$20.00	30.00	5	coca cola
+ 75007614	CocaCola 600 ml	$21.00	$21.00	$21.00	25.00	5	coca cola
+ 75004699	CocaCola Medio Litro Envase 	$15.00	$15.00	$15.00	50.00	5	coca cola
+ 7501000913282	Coffemate 34gr	$10.00	$10.00	$10.00	10.00	5	LACTEOS
+ 4710635038212	Colador De Fregadero	$40.00	$40.00	$40.00	2.00	5	- Sin Departamento -
+ 7501000112203	Colchones Bimbo 130g	$10.63	$15.00	$0.00	0.00	1	bimbo
+ 7509546684536	Colgate Max Fresh	$24.00	$28.00	$0.00	N/A	0.000	higienico
+ 7509546068909	Colgate Triple Accion Extra 	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7501032940102	Colorfiel Negra 60ML	$15.00	$15.00	$15.00	5.00	5	- Sin Departamento -
+ 7501030431220	Conchas 	$15.94	$22.00	$0.00	0.00	1	tia rosa
+ 7613287342294	Consomate 	$6.00	$6.00	$6.00	25.00	5	- Sin Departamento -
+ 7501005180306	Consome Knorr Pollo Pz	$6.00	$6.00	$6.00	25.00	5	condimentos
+ 7500478005512	Crackets 135g	$14.00	$16.00	$0.00	N/A	0.000	gamesa
+ 7500478005635	Crackets 95g 	$12.00	$14.00	$0.00	N/A	0.000	gamesa
+ 7501055909520	Crama Alpura 200ml	$22.00	$22.00	$22.00	20.00	5	LACTEOS
+ 37836041259	Crema Hinds Clasica 90ml	$13.09	$20.00	$0.00	0.00	1	perfumeria
+ 37836041297	Crema Hinds Inspiracion 	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7501020561906	Crema Lala 426ml	$26.37	$35.00	$0.00	0.00	2	embutidos
+ 7501020513134	Crema Lala De Vaca 200 Ml	$12.55	$17.00	$0.00	21.00	2	LACTEOS
+ 7503003623014	Crema Narda 110g	$13.00	$13.00	$13.00	2.00	5	higienico
+ 7501054549826	Crema Nivea Express Hydration 	$24.00	$28.00	$0.00	N/A	0.000	higienico
+ 7501056340131	Crema Para Peinar Rizosdefinidos	$34.00	$38.00	$0.00	N/A	0.000	higienico
+ 7506192504065	Crema Para Peinar Savile Control Frizz Cbello Lizo	$34.00	$38.00	$0.00	N/A	0.000	higienico
+ 7506192504072	Crema Para Peinar Savile Rizos Restaurados 	$34.00	$38.00	$0.00	N/A	0.000	higienico
+ 7501056340124	Crema Para Peinar Sedal Brillo Ceramidas 	$34.00	$38.00	$0.00	N/A	0.000	higienico
+ 7501300800237	Crema Queretaro 	$18.00	$18.00	$18.00	20.00	5	- Sin Departamento -
+ 7501000612130	Cremas de Nieve 185g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7501000612147	Cremas de Nieve 185g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7501000606566	Cremax Cholate	$16.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501000606580	Cremax Fresa 	$16.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501000606573	Cremax Vainilla 	$16.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501006733907	Crest Pasta Dental 100ML 	$29.00	$29.00	$29.00	3.00	5	- Sin Departamento -
+ 7503016216012	Croqueta Perron Adulto	$559.90	$28.00	$0.00	N/A	0.000	mascotas
+ 7501011142299	Crujitos Queso Y Chile 42g.	$9.51	$13.00	$0.00	N/A	1	sabritas
+ CKR	Cubo Knor	$6.00	$3.50	$0.00	0.00	2	condimentos
+ 7502238610028	Cuchara Chica Max	$13.60	$20.00	$0.00	0.00	2	desechable
+ 7503019013939	Cuchara Grande Sopera 	$17.00	$17.00	$17.00	5.00	5	- Sin Departamento -
+ 7503004361038	Cuchara Mediana Fantasy 25PZ	$13.00	$13.00	$13.00	6.00	5	- Sin Departamento -
+ 7503021624116	Cuchara Pastelera CLASSY 50pz	$13.00	$13.00	$13.00	6.00	5	- Sin Departamento -
+ 7503004361014	Cuchara Pastelera Fantasy 50pz	$13.00	$13.00	$13.00	4.00	5	- Sin Departamento -
+ 7502238610011	Cucharas Madiana Max 	$11.56	$16.00	$0.00	0.00	2	desechable
+ 7501000142705	Cuernitos Tia Rosa 100g	$12.15	$17.00	$0.00	0.00	1	tia rosa
+ 75036393	Danette Gelatina 	$5.00	$10.00	$0.00	0.00	2	yogures
+ 75036409	Danette Gelatina Vainilla 	$5.00	$10.00	$0.00	0.00	2	yogures
+ 7501032332013	Danone Cereal Chocolate 	$10.00	$15.00	$0.00	0.00	1	yogures
+ 7501032395230	Danone Cereal Colores 	$10.00	$15.00	$0.00	0.00	1	yogures
+ 7501032332020	Danone Cereal Zucaritas	$10.00	$15.00	$0.00	0.00	1	yogures
+ 7501032335052	Danonino 336gr	$6.63	$10.00	$0.00	0.00	2	LACTEOS
+ 7501032398583	Danup	$11.00	$15.00	$0.00	0.00	2	yogures
+ 7501055368617	Del Valle Frut 2 1/2	$18.18	$22.00	$0.00	N/A	0.000	coca cola
+ 7501055330812	Del Valle Frut 3 L	$41.00	$41.00	$41.00	15.00	5	coca cola
+ 7501055304691	Delaware Punch 2 L 	$17.90	$22.00	$0.00	N/A	0.000	coca cola
+ 7501055304653	Delaware Punch 60ml 	$18.00	$18.00	$18.00	30.00	5	coca cola
+ 7500478020508	Delicias 130g	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501055333844	Delvalle Mango 1 L	$29.00	$29.00	$29.00	15.00	5	coca cola
+ 7501001163983	DesodOld Spice Barra 60g	$39.00	$39.00	$39.00	5.00	2	perfumeria
+ 7791293025780	Desodorante Axe Apollo	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 7506306202832	Desodorante Axe Collision	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 4005808630660	Desodorante Nivea Beauty Touch	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 4005900081087	Desodorante Nivea Efectosatin	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 7506495001360	Desodorante Para Pies 	$18.00	$22.00	$0.00	N/A	0.000	higienico
+ 7501030474227	Donas Azucar 6 Pz	$15.19	$21.00	$0.00	0.00	2	bimbo
+ 7501030418399	Donas Espolvoreadas	$15.19	$21.00	$0.00	0.00	2	bimbo
+ 7501030420262	Doners	$16.70	$21.00	$0.00	0.00	1	bimbo
+ 7501000142804	Doraditas tia rosa 110g	$10.63	$16.00	$0.00	100.00	1	tia rosa
+ 7501011163706	Doritos 3D 50g.	$11.10	$16.00	$0.00	N/A	1	sabritas
+ 7501011123595	Doritos Diablo 61g.	$11.10	$16.00	$0.00	N/A	1	sabritas
+ 7500478018512	Doritos Dinamita 70g.	$11.10	$16.00	$0.00	N/A	1	sabritas
+ 7501011130272	Doritos Flamin Hot 61g.	$11.10	$14.00	$0.00	0.00	1	sabritas
+ 7500478008025	Doritos Nacho 105g	$17.90	$20.00	$0.00	0.00	1	sabritas
+ 7501011131064	Doritos Nacho 146g.	$23.89	$34.00	$0.00	0.00	1	sabritas
+ 7501011123588	Doritos Nacho 61g.	$11.10	$16.00	$0.00	N/A	5	sabritas
+ 7501011123380	Doritos Pizzerolas 61g.	$11.10	$16.00	$0.00	N/A	1	sabritas
+ 7501011123878	Doritos incgnita 61g.	$11.10	$16.00	$0.00	N/A	2	sabritas
+ 4005800144615	Dosodorante Nivea Proteccion Seca Rapido}	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 7500435160988	Downy 5 En 1 Amanecer 730ML	$36.00	$36.00	$36.00	12.00	5	- Sin Departamento -
+ 7501001155841	Downy Aroma Floral 800ML	$36.00	$36.00	$36.00	7.00	5	suavizantes
+ 7500435156684	Downy Nature Granada Y Vainilla 	$22.85	$33.00	$0.00	0.00	2	suavizantes
+ 7500435126045	Downy Perfume Elegance 	$22.85	$33.00	$0.00	0.00	2	suavizantes
+ 7500435125987	Downy Perfume Passion 	$22.85	$33.00	$0.00	0.00	2	suavizantes
+ 7590002040003	Downy Pureza Silvestre  800ml	$36.00	$36.00	$36.00	8.00	5	- Sin Departamento -
+ 7500435147460	Downy Sport	$22.85	$33.00	$0.00	0.00	2	suavizantes
+ 75024635	Dulce Cremino 	$59.40	$3.00	$0.00	0.00	5	dulces
+ 7501017003167	Durazno en Almibar 820g	$48.70	$52.00	$0.00	0.00	1	enlatados
+ 2520609	Duvalin Fresa Vainilla 15g	$2.50	$3.00	$0.00	0.00	4	dulces
+ 7501086801015	E Pura Sport 15l	$10.58	$15.00	$0.00	N/A	0.000	pepsi
+ 7501086801046	E Pura Sport 1l	$9.41	$12.00	$0.00	N/A	0.000	pepsi
+ 7501125104268	Electrolit Fresa	$25.00	$25.00	$25.00	5.00	10	- Sin Departamento -
+ 7501125187179	Electrolit Sabor Guayaba 625ml	$25.00	$25.00	$25.00	10.00	5	- Sin Departamento -
+ 7501017005321	Elote Costea 220g	$15.00	$15.00	$15.00	15.00	5	- Sin Departamento -
+ 7500478022496	Emperador Chocolate 109g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500478015238	Emperador Chocolate 200g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7500478021581	Emperador Combinado 109g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500478015085	Emperador Combinado 200g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7500478022540	Emperador Nuez 109g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500478022502	Emperador Piruetas 115g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7501000601776	Emperador Senzo 93g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500478022519	Emperador Vainilla 109g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 834810001458	Encendedor 	$10.00	$10.00	$10.00	29.00	5	- Sin Departamento -
+ 7501017043132	Ensalada Campesina	$16.00	$16.00	$16.00	20.00	3	- Sin Departamento -
+ 7501003124333	Ensalada De Legumbres 220g	$17.00	$17.00	$17.00	15.00	2	enlatados
+ 7501003124340	Ensalada De Legumbres 400g	$22.00	$22.00	$22.00	15.00	5	enlatados
+ 7501017005345	Ensalada De Verduras	$15.00	$15.00	$15.00	20.00	5	- Sin Departamento -
+ 7501025414108	Ensueo 850ml Sens 	$27.00	$27.00	$27.00	30.00	5	- Sin Departamento -
+ 7501025414207	Ensueño Armonia	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025444365	Ensueño Coco	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025401610	Ensueño Frescura Azul	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025443979	Ensueño Mandarina	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025408428	Ensueño Max Frescura Azul 1 Lt 	$27.00	$27.00	$27.00	6.00	2	suavizantes
+ 7501025450144	Ensueño Max Frescura Primaveral 1 Lt 	$27.00	$27.00	$27.00	6.00	2	suavizantes
+ 7501025443825	Ensueño Moras 	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025414450	Ensueño Pepino	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025443849	Ensueño Primaveral	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025414030	Ensueño Verano	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7501025414054	Ensueño Violetas	$20.75	$26.00	$0.00	0.00	2	suavizantes
+ 7500435169035	Espuma Para El Cabello Herbal 	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 7500435169004	Espuma Para El Cabello Ondas Perfectas 	$60.00	$65.00	$0.00	N/A	0.000	perfumeria
+ 7501000912803	FRASCO NESCAFE CLASICO 42G	$35.00	$35.00	$35.00	22.00	5	mermeladas
+ 75001162	Fabuloso 500 ml	$22.00	$22.00	$22.00	6.00	5	Detergentes
+ 7501035906464	Fabuloso Frescura Activa 500ml	$22.00	$22.00	$22.00	8.00	5	- Sin Departamento -
+ 7501035910041	Fabuloso Mar Fresco 1L	$32.00	$32.00	$32.00	1.00	5	- Sin Departamento -
+ 7501055303823	Fanta 1 1/2 L	$24.00	$24.00	$24.00	7.00	5	red cola
+ 7501055368594	Fanta 2 1/2 Retornable 	$25.00	$25.00	$25.00	30.00	5	coca cola
+ 7501055304790	Fanta 3 L	$39.00	$39.00	$39.00	15.00	5	coca cola
+ 7503005409913	Fashion Clean 	$20.00	$20.00	$20.00	5.00	1	- Sin Departamento -
+  7501023100072	Fibra Esponja Scotch	$39.00	$39.00	$39.00	2.00	5	- Sin Departamento -
+ 749968500756	Fibrase Blanca 	$9.00	$9.00	$9.00	4.00	5	- Sin Departamento -
+ 14437002278	Fina Variedad	$20.00	$28.00	$0.00	0.00	1	bimbo
+ 735257002889	Flan D Gari 84g	$9.00	$14.00	$0.00	0.00	2	dulces
+ 75012533	Flan Danette 200g	$5.00	$10.00	$0.00	0.00	2	yogures
+ 7501020510041	Flan Lala 100 G	$5.00	$10.00	$0.00	0.00	2	yogures
+ 7501000624683	Flor De Naranjo 	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501000601745	Florentinas Cajeta	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501000601738	Florentinas Fresa	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7501950006461	Foco Ahorrador 9W Ahorrador	$0.00	$30.00	$0.00	1000.00	0.000	- Sin Departamento -
+ 7503026210451	Foco Ahorrador Mlesso 	$30.00	$30.00	$30.00	2.00	5	- Sin Departamento -
+ 8606010788949	Foco Maxiluz 	$15.00	$15.00	$15.00	11.00	5	- Sin Departamento -
+ 726866050798	Fregon 	$24.00	$24.00	$24.00	6.00	5	- Sin Departamento -
+ FS	Fresa 1/2	$30.00	$35.00	$0.00	0.00	1	frutas y verduras
+ 7501055368631	Fresca 2 1/2 Retornable 	$25.00	$25.00	$25.00	30.00	5	coca cola
+ 7501055304813	Fresca 3 L	$39.00	$39.00	$39.00	30.00	5	coca cola
+ 7501668801464	Frijol Abeto Pinto	$24.10	$32.00	$0.00	0.00	1	semillas
+ 7501017004294	Frijol Costea Enter 560g	$11.67	$19.00	$0.00	0.00	3	enlatados
+ 7501017004423	Frijol Costea Refri Negros 	$15.00	$20.00	$0.00	0.00	2	enlatados
+ 7501052424613	Frijol La Sierra Bayos Enteros 560g	$20.00	$20.00	$20.00	15.00	5	enlatados
+ 7501052420431	Frijol Sierra Bayo Refritos 580g	$20.00	$20.00	$20.00	11.00	5	enlatados
+ 7501052420424	Frijol Sierra Negro Refritos	$15.00	$20.00	$0.00	0.00	2	enlatados
+ 7501017004362	Frijoles Bayos Ent 560g	$20.00	$20.00	$20.00	15.00	10	- Sin Departamento -
+ 7501071307782	Frijoles Isadora 430g	$20.00	$20.00	$20.00	41.00	5	- Sin Departamento -
+ 7501071307799	Frijoles Isadora Negros Refritos 	$12.72	$20.00	$0.00	0.00	2	enlatados
+ 7501071307775	Frijoles Isadora Peruano Refritos	$12.72	$22.00	$0.00	0.00	2	enlatados
+ 604722012664	Friton Sal Y Limon 	$7.80	$10.00	$0.00	0.00	1	botana leo
+ 7501011116252	Fritos Chile y Limn 60g 	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7501011112254	Fritos Chorizo Chipo	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7501011110335	Fritos Sal y Limn	$9.51	$13.00	$0.00	N/A	1	sabritas
+ 7501052424606	Frojoles La Sierra Negros Enteros 616g	$11.99	$19.00	$0.00	0.00	3	enlatados
+ 7500810009055	Galleta Avena ,Linaza Y Choco	$7.78	$11.00	$0.00	0.00	1	bimbo
+ 7500810008782	Galleta Avena,Arandano Y Chia	$7.78	$11.00	$0.00	0.00	1	bimbo
+ 7501000612161	Galletas CremNie185gGa	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7501000128167	Galletas Principe C8 Mar	$14.28	$18.00	$0.00	N/A	0.000	marinela
+ 7501000664221	Galletas Saladas  186	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7501000140855	Galletas Triki Trakes 69g	$13.44	$17.00	$0.00	N/A	0.000	marinela
+ 7501000635726	Galletas arco iris 75 g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7501972405143	Ganchos Ferplast 10pz	$35.00	$35.00	$35.00	8.00	5	- Sin Departamento -
+ 7501059230866	Gastro Protec 110g 	$9.00	$12.00	$0.00	0.00	2	yogures
+ 36731107060	Geitore  Ponche De Frutas 750m	$29.00	$29.00	$29.00	10.00	5	- Sin Departamento -
+ 7501022009857	Geitore Sabor Mora1L	$34.00	$34.00	$34.00	15.00	5	coca cola
+ 759684154140	Gel Antibacterial 	$14.00	$18.00	$0.00	N/A	0.000	perfumeria
+ 7506306215689	Gel Ego Alfa 	$18.00	$22.00	$0.00	N/A	0.000	perfumeria
+ 7506306247505	Gel Ego Black	$18.00	$22.00	$0.00	N/A	0.000	perfumeria
+ 7506192503358	Gel Ego Magnetic	$18.00	$22.00	$0.00	N/A	0.000	perfumeria
+ 7503002163023	Gel Xtreme 250g Tran	$32.00	$32.00	$32.00	8.00	5	- Sin Departamento -
+ 735257002575	Gelatina D Gari Anis 120g	$8.00	$13.00	$0.00	0.00	2	dulces
+ 735257002650	Gelatina D Gari Chocolate 120g	$13.00	$13.00	$13.00	2.00	5	dulces
+ 735257002513	Gelatina D Gari Fresa Agua 120g	$13.00	$13.00	$13.00	5.00	5	dulces
+ 735257002506	Gelatina D Gari Jerez 120g	$8.00	$13.00	$0.00	0.00	2	dulces
+ 735257002490	Gelatina D Gari Limon 120g	$13.00	$13.00	$13.00	5.00	5	dulces
+ 735257002582	Gelatina D Gari Mango 120g	$8.00	$13.00	$0.00	0.00	2	dulces
+ 735257002599	Gelatina D Gari Mora Silvestre 120g	$13.00	$13.00	$13.00	7.00	5	dulces
+ 735257002476	Gelatina D Gari Naranja 120g	$13.00	$13.00	$13.00	3.00	2	dulces
+ 735257002469	Gelatina D Gari Piña 120g	$0.00	$13.00	$0.00	0.00	2	dulces
+ 735257002629	Gelatina D Gari Rompope 120g	$13.00	$13.00	$13.00	5.00	2	dulces
+ 735257002452	Gelatina D Gari Uva 120g	$13.00	$13.00	$13.00	4.00	5	dulces
+ 735257002636	Gelatina D Gari Vainilla 120g	$13.00	$13.00	$13.00	2.00	5	dulces
+ 75009090	Gelatina Danny  125g Limon	$5.10	$9.00	$0.00	0.00	2	yogures
+ 75026202	Gelatina Dany 125g Naranja	$5.10	$9.00	$0.00	0.00	2	yogures
+ 75026196	Gelatina Dany 125g Uva	$5.10	$9.00	$0.00	0.00	2	yogures
+ 735257002520	Gelatina De Fambreusa 	$13.00	$13.00	$13.00	2.00	5	gamesa
+ 735257002643	Gelatina De Gari Fresa Leche 120g	$8.00	$13.00	$0.00	0.00	2	dulces
+ 735257002483	Gelatina De Maderina 120g	$13.00	$13.00	$13.00	2.00	5	- Sin Departamento -
+ 7501020564983	Gelatina Yomi Lala	$5.00	$9.00	$0.00	0.00	2	yogures
+ 7506475102421	Gerber De Manzana 100g	$8.00	$13.00	$0.00	0.00	1	enlatados
+ 7506475102476	Gerber Durazno 100g	$14.00	$14.00	$14.00	6.00	1	enlatados
+ 7506475102469	Gerber Mango 100g	$16.00	$16.00	$16.00	15.00	5	yogures
+ 7506475102452	Gerber Pera 100g	$14.00	$14.00	$14.00	15.00	5	enlatados
+ 7500478021598	Giro	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500810004432	Gomiltas Dientes 	$12.00	$15.00	$0.00	0.00	2	ricolino
+ 7501094510961	Gota Blanca 1L	$29.00	$29.00	$29.00	1.00	5	- Sin Departamento -
+ 7501017004515	Grano De Elote La Costeña 410G	$22.00	$22.00	$22.00	10.00	5	- Sin Departamento -
+ 7501003124234	Granos De Elote Herdez 220g	$9.56	$14.00	$0.00	0.00	2	enlatados
+ 7501003124241	Granos Elote Herdez 400g	$13.36	$19.00	$0.00	0.00	2	enlatados
+ 7506339800661	Guante De Nitrilo 	$43.00	$43.00	$43.00	5.00	5	- Sin Departamento -
+ 7502241124543	Guante Derma Care 	$32.00	$32.00	$32.00	1.00	5	- Sin Departamento -
+ GY	Guayaba	$20.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 7622210267870	Halls Colors 25g	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7622210427106	Halls Extra Strong	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7622210267856	Halls Mora Azul 25g	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7622210267832	Halls Yerba Buena 	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7501069210759	Harina Arroz 500 G 3estrellas 	$31.00	$31.00	$31.00	3.00	1	harinas
+ 7501069210766	Harina De Arroz 250g3 Es	$10.00	$14.00	$0.00	0.00	2	harinas
+ 7501018316006	Harina De Trigo La Modena 	$21.85	$26.00	$0.00	0.00	2	semillas
+ 7501404603116	Harina De Trigo Selecta	$25.00	$25.00	$25.00	15.00	5	- Sin Departamento -
+ 7501200483103	Harina Hot Cakes 500g	$39.00	$39.00	$39.00	4.00	5	- Sin Departamento -
+ 7501069210179	Harina Para Hotcakes 3 Estrellas 	$27.00	$32.00	$0.00	0.00	1	harinas
+ 7501000665747	Harina Para Hotcakes Gamesa 500g 	$35.00	$35.00	$35.00	4.00	5	harinas
+ 7501024579327	Hershesys Chocolate 236Ml	$8.06	$11.00	$0.00	0.00	2	LACTEOS
+ 7501761869149	Hotcakes 800grs	$42.00	$42.00	$42.00	4.00	2	- Sin Departamento -
+ 7501761869156	Hotcakes Gamesa 	$53.00	$53.00	$53.00	5.00	1	- Sin Departamento -
+ 7501030463665	Hotkis	$5.00	$8.00	$0.00	0.00	2	bimbo
+ HEC	Huevo Economico	$39.00	$46.00	$0.00	N/A	0.000	huevo
+ 80050117	Huevo Kinder Niña	$150.00	$25.00	$0.00	0.00	2	dulces
+ 80051121	Huevo Kinder Niño	$150.00	$25.00	$0.00	0.00	2	dulces
+ HSNJ	Huevo San Juan	$43.70	$50.00	$0.00	N/A	0.000	huevo
+ 7501011140776	Inspireka Armable 32g.	$14.46	$19.00	$0.00	0.00	1	sabritas
+ 7501011138865	Inspireka Konstru-Y 49g.	$14.46	$19.00	$0.00	0.00	1	sabritas
+ 7501011147942	Inspireka Moldeable 45g.	$13.46	$18.00	$0.00	0.00	1	sabritas
+ 7501011159969	Inspireka Pinta Frut 20.4g.	$13.46	$19.00	$0.00	0.00	1	sabritas
+ 7501026005374	JABON ZOTE BLANCO 400G	$28.00	$28.00	$28.00	5.00	5	- Sin Departamento -
+ 7501007445557	Jabon Ace 500 G	$25.00	$25.00	$25.00	2.00	5	- Sin Departamento -
+ 7506306246652	Jabon Dove Original 	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7506425606900	Jabon Escudo 150g	$11.00	$19.00	$0.00	0.00	1	higienico
+ 7506425606924	Jabon Escudo Antibacterial 	$19.00	$19.00	$19.00	7.00	5	higienico
+ 7506195196984	Jabon Liquido Salvo 300ml	$180.00	$22.00	$0.00	0.00	2	Detergentes
+ 7509546074658	Jabon Palmolive Naturals 	$16.93	$20.00	$0.00	0.00	1	higienico
+ 7509546074634	Jabon Palmolive Naturals Refrescante 	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7501022150221	Jabon Para Bebe Ricitos De Oro 	$18.00	$23.00	$0.00	N/A	0.000	higienico
+ 7506306205628	Jabon Rexona Antibacterial 10X	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506306206571	Jabon Rexona Antibacterial Fresh 	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7506306215078	Jabon Rexona Tecnologia V8	$15.00	$20.00	$0.00	N/A	0.000	higienico
+ 7501026005688	Jabon Rosa Zote 200g	$15.00	$15.00	$15.00	10.00	5	higienico
+ 7506306245990	Jabon Zest Aqua 	$19.00	$19.00	$19.00	N/A	0.000	higienico
+ 7506306246096	Jabon Zest Hinojo Y Sales Marinas 	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7501026005381	Jabon Zote 200g Blanco	$10.98	$14.00	$0.00	0.00	1	higienico
+ 7501026005978	Jabon Zote Ch Blanco 	$5.00	$10.00	$0.00	N/A	0.000	higienico
+ 7501026005671	Jabon Zote Rosa 400g	$27.00	$27.00	$27.00	15.00	5	- Sin Departamento -
+ JSA	Jamon Sn Antonio	$79.50	$112.00	$0.00	N/A	0.000	embutidos
+ 744886385058	Jarrito 2L Piña	$24.00	$24.00	$24.00	8.00	5	- Sin Departamento -
+ 744886395057	Jarrito 2l Limon	$24.00	$24.00	$24.00	4.00	5	- Sin Departamento -
+ 744886375059	Jarrito 2l Mandarina	$24.00	$24.00	$24.00	2.00	5	- Sin Departamento -
+ 7503006897214	Jarrito 2l Manzana	$24.00	$24.00	$24.00	4.00	5	jarros
+ 744886365050	Jarrito 2l Tamarindo	$24.00	$24.00	$24.00	4.00	5	- Sin Departamento -
+ 7503006897597	Jarrito Uva 2 L 	$23.25	$20.00	$0.00	N/A	0.000	jarros
+ JC	Jicama	$12.00	$16.00	$0.00	N/A	0.000	frutas y verduras
+ JT	Jitomate	$22.00	$30.00	$0.00	N/A	0.000	frutas y verduras
+ 32239052024	Jugo Del Valle Manzana 413ml	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501055356751	Jugo Durazno 1 L	$20.75	$25.00	$0.00	N/A	0.000	coca cola
+ 7501001604103	Jugo Maggi 100 ml	$43.00	$43.00	$43.00	50.00	5	salsas
+ 32239052000	Jugo Valle 413ml Generic	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501013103373	Jumex Arandano 1 L	$27.00	$30.00	$0.00	0.00	1	jugos
+ 7501013104066	Jumex Durazno	$29.00	$29.00	$29.00	50.00	5	- Sin Departamento -
+ 7501013103304	Jumex Durazno Lata 473 Ml	$21.00	$21.00	$21.00	12.00	3	- Sin Departamento -
+ 7501013102796	Jumex Mango De 1L	$29.00	$29.00	$29.00	50.00	5	coca cola
+ 7501013102840	Jumex Mango De Lata 473 Ml	$21.00	$21.00	$21.00	12.00	3	- Sin Departamento -
+ 7501000140473	Karameladas Pop 50gms	$7.78	$10.00	$0.00	0.00	1	barcel
+ 7500478025992	Karate Enchilado 58g	$7.90	$10.00	$0.00	0.00	2	sabritas
+ 7501008019283	Kelloggs Chococrispis 135g	$25.00	$25.00	$25.00	3.00	5	- Sin Departamento -
+ 7501008004661	Kelloggs Froot Loops	$25.00	$25.00	$25.00	3.00	5	- Sin Departamento -
+ 7501008006788	Kelloggs Zucaritas 125g	$25.00	$25.00	$25.00	3.00	5	- Sin Departamento -
+ 7501008052563	Kelloggs Zucaritas Malteada Fresa 	$25.00	$25.00	$25.00	3.00	5	- Sin Departamento -
+ 8000500267035	Kinder Delice Barra	$15.00	$15.00	$15.00	11.00	3	- Sin Departamento -
+ 8607314903175	Kit De Cocina Juguete 	$60.00	$60.00	$60.00	1.00	5	- Sin Departamento -
+ 7501102610003	Kola Loka 2g	$25.00	$25.00	$25.00	13.00	5	farmacia
+ 7501018310523	La  Moderna Codo 2 200g	$11.00	$11.00	$11.00	15.00	5	pastas
+ 7501018310103	La  Moderna Spaghetti 200g 	$11.00	$11.00	$11.00	40.00	1	pastas
+ 7502237250621	La Bonita Cepillo 	$13.00	$13.00	$13.00	6.00	5	- Sin Departamento -
+ 7501017051298	La Costeña Ensalada Campesina	$15.00	$15.00	$15.00	255.00	5	- Sin Departamento -
+ 7501017004157	La Costeña Ensalada De Verduras 410g	$22.00	$22.00	$22.00	15.00	5	- Sin Departamento -
+ 7501017003341	La Costeña Mango En Alnivar 800g	$48.00	$48.00	$48.00	10.00	5	- Sin Departamento -
+ 7501018310547	La Moderna Coda 4 200g	$7.24	$9.00	$0.00	0.00	1	pastas
+ 7501018310738	La Moderna Corbata 200g	$7.21	$9.00	$0.00	0.00	1	pastas
+ 7501018310585	La Moderna Engrane 200g 	$11.00	$11.00	$11.00	3.00	5	pastas
+ 7501018310318	La Moderna Estrella 200g 	$11.00	$11.00	$11.00	11.00	5	pastas
+ 7501018310011	La Moderna Fideo 0 200g	$11.00	$11.00	$111.00	4.00	5	pastas
+ 7501018310035	La Moderna Fideo 2 200g	$11.00	$11.00	$11.00	12.00	4	pastas
+ 7501018310028	La Moderna Fideos1 200g	$7.21	$9.00	$0.00	0.00	1	pastas
+ 7501018310295	La Moderna Lenteja 	$7.24	$9.00	$0.00	0.00	1	pastas
+ 7501018310257	La Moderna Letra  200g 	$11.00	$11.00	$11.00	11.00	5	pastas
+ 7501018310752	La Moderna Moño 200g 	$7.24	$9.00	$0.00	0.00	1	pastas
+ 7501018310264	La Moderna Municion 200g 	$11.00	$11.00	$11.00	7.00	5	pastas
+ 7501018310042	La Moderna Tallarin 1	$7.24	$9.00	$0.00	0.00	1	pastas
+ 7501020561142	Lala Bebible Durazno 	$11.60	$14.00	$0.00	0.00	2	yogures
+ 7501020561159	Lala Bebible Fresa	$11.60	$14.00	$0.00	0.00	2	yogures
+ 7501020561210	Lala Bebible Manzana 	$11.60	$14.00	$0.00	0.00	2	yogures
+ 7501020561234	Lala Bebible Piña Coco 	$11.60	$14.00	$0.00	0.00	2	yogures
+ 7501020565355	Lala Bio 4	$6.00	$12.00	$0.00	0.00	2	yogures
+ 7501020538311	Lala Cerealito Chocolate 	$10.40	$14.00	$0.00	0.00	2	yogures
+ 7501020538304	Lala Cerealito Colores 	$10.40	$14.00	$0.00	0.00	2	yogures
+ 7500435146678	Lasvo Liquido 215ML	$18.00	$18.00	$18.00	4.00	5	- Sin Departamento -
+ 724611001118	Lava Platos	$15.00	$15.00	$15.00	2.00	5	- Sin Departamento -
+ 7501005102735	Leche Ades 	$24.80	$27.00	$0.00	0.00	1	LACTEOS
+ 7501055900039	Leche Alpura Clasica 1L	$29.00	$29.00	$29.00	22.00	5	LACTEOS
+ 7501055901425	Leche Alpura Deslactosada 1 L	$30.00	$30.00	$30.00	13.00	5	LACTEOS
+ 7501058611062	Leche Carnation 360ml	$25.00	$25.00	$25.00	6.00	5	LACTEOS
+ 781159053849	Leche En Bolsa Sabrole	$16.00	$16.00	$16.00	10.00	3	- Sin Departamento -
+ 7501020526066	Leche Lala 1 L	$23.10	$28.00	$0.00	0.00	2	LACTEOS
+ 7501020547047	Leche Lala 1/2 Galom	$38.20	$42.00	$0.00	0.00	2	LACTEOS
+ 7501020548495	Leche Lala 100 1 L	$25.00	$32.00	$0.00	0.00	1	LACTEOS
+ 7501020550672	Leche Lala Deslactosada 1.5	$33.60	$39.00	$0.00	0.00	1	LACTEOS
+ 7501020565935	Leche Lala Entera 1 L	$23.40	$30.00	$0.00	0.00	2	LACTEOS
+ 7501020550733	Leche Lala Entera 1.5	$32.50	$37.00	$0.00	0.00	2	LACTEOS
+ 7501020515350	Leche Lala Ligh 1 Lt	$23.40	$32.00	$0.00	0.00	1	LACTEOS
+ 7501020540666	Leche Nutri Clasica 1L	$24.00	$24.00	$24.00	51.00	5	LACTEOS
+ 7501300800480	Leche Nutrivaquita	$13.80	$15.00	$0.00	0.00	1	LACTEOS
+ 7501300800206	Leche Qro Bolsa 	$19.00	$19.00	$19.00	10.00	3	LACTEOS
+ 7501300801197	Leche Qro Tetrapack 1 L	$25.30	$28.00	$0.00	0.00	1	LACTEOS
+ 7501300800459	Leche Queretaro 	$12.00	$12.00	$12.00	20.00	5	- Sin Departamento -
+ 7501300803146	Leche Queretaro 1/2 Galon	$35.00	$38.00	$0.00	0.00	2	LACTEOS
+ 7501300801012	Leche Queretaro 1l	$20.00	$27.00	$0.00	0.00	2	LACTEOS
+ 7501295600157	Leche Santa Clara Deslactosada 1L	$32.00	$32.00	$32.00	10.00	5	LACTEOS
+ 7501295600126	Leche Santa Clara Entera 1L	$30.00	$30.00	$30.00	6.00	5	LACTEOS
+ 7501295600140	Leche Santa Clara Light	$25.32	$30.00	$0.00	0.00	2	LACTEOS
+ 7501058631961	Lechera De Bolsa 209 G	$20.00	$20.00	$20.00	7.00	2	- Sin Departamento -
+ 7506475104678	Lechera De Bolsa 251g	$20.00	$20.00	$20.00	2.00	5	mermeladas
+ 7506475104722	Lechera Nestle 375g	$32.00	$32.00	$32.00	22.00	2	mermeladas
+ 7501059211209	Lecherita Nestle 100g	$15.00	$15.00	$15.00	10.00	5	- Sin Departamento -
+ 7501055377183	Lechita Santa Clara 180 ML	$14.00	$14.00	$14.00	15.00	3	coca cola
+ LC	Lechuga	$10.00	$15.00	$0.00	N/A	0.000	frutas y verduras
+ 7501668802034	Lenteja Abeto 250g	$7.60	$12.00	$0.00	0.00	2	semillas
+ LM	Limon	$20.00	$40.00	$0.00	N/A	0.000	frutas y verduras
+ 7501841000462	Limpia Hornos Mony 470 G	$22.00	$22.00	$22.00	6.00	5	- Sin Departamento -
+ 7501030469827	Little Bites 	$9.11	$12.00	$0.00	0.00	2	bimbo
+ 7502226815053	Lucas Muecas Cereza	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7502226815022	Lucas Muecas Chamoy	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7502226814995	Lucas Muecas Mango	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7502226819075	Lucas Muecas Manzana Verde 	$8.20	$9.00	$0.00	0.00	2	dulces
+ 7502271911427 	M&ms Chocolate Confitado	$16.00	$18.00	$0.00	0.00	2	dulces
+ 7501030477488	Madalenas 	$15.19	$21.00	$0.00	0.00	1	bimbo
+ 7677280000568	Maiz Pozolero 	$19.00	$22.00	$0.00	0.00	1	semillas
+ 7501005110389	Maizena 160g	$25.00	$25.00	$25.00	4.00	5	- Sin Departamento -
+ 7501005110242	Maizena Natural 95g	$17.00	$17.00	$17.00	25.00	3	harinas
+ 7501300800442	Malteada Queretaro 	$12.00	$12.00	$12.00	20.00	5	- Sin Departamento -
+ MD	Mandarina	$22.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 7501030456124	Manteadas De Chocolate 	$18.22	$25.00	$0.00	0.00	2	tia rosa
+ 7502223774025	Manteca Inca 1 Kg	$60.00	$65.00	$0.00	0.00	1	harinas
+ 7501030420859	Mantecadas Chispas De Chocolate 	$20.50	$28.00	$0.00	0.00	1	bimbo
+ 7501030475514	Mantecadas De Nuez 	$20.50	$28.00	$0.00	0.00	1	bimbo
+ 7501030475521	Mantecadas De Vainillas	$20.50	$28.00	$0.00	0.00	1	bimbo
+ 7501030456322	Mantecadas Vainilla 157g	$19.68	$25.00	$0.00	0.00	1	tia rosa
+ 7503018544847	Mantechox 	$16.70	$22.00	$0.00	0.00	1	bimbo
+ MA	Manzana Amarilla	$22.00	$40.00	$0.00	N/A	0.000	frutas y verduras
+ MR	Manzana Roja	$76.00	$82.00	$0.00	N/A	0.000	frutas y verduras
+ 7501022014479	Manzanita Sol 1.75	$18.33	$22.00	$0.00	N/A	0.000	pepsi
+ 7501031360048	Manzanita Sol 3l	$28.12	$35.00	$0.00	N/A	0.000	pepsi
+ 7501031360024	Manzanita Sol 600 Ml	$12.04	$15.00	$0.00	N/A	0.000	pepsi
+ 7500478028078	Maravilla Chocolate	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7500478023479	Maravilla Nuez 	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7500478023608	Maravillas Vainilla 	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7500478020485	Marias Azucaradas 155g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7500478010592	Marias Clasicas 177g	$17.00	$19.00	$0.00	N/A	0.000	gamesa
+ 7501000664382	Marias Doradas 290g	$29.00	$30.00	$0.00	N/A	0.000	gamesa
+ 7501000658923	Marias Gamesa 170g	$17.00	$17.00	$17.00	20.00	3	- Sin Departamento -
+ 7501077400050	Maseca	$25.00	$25.00	$25.00	2.00	5	harinas
+ 7501003300478	Mayonesa McCORMICK 390g	$0.00	$54.00	$0.00	1000.00	0.000	- Sin Departamento -
+ 7501003300652	Mayonesa Mccormick	$21.00	$21.00	$21.00	14.00	3	aderezos
+ 7501003340122	Mayonesa Mccormick 1	$31.00	$31.00	$31.00	21.00	5	- Sin Departamento -
+ 7501003303240	Mayonesa Mccormick 228g	$26.65	$31.00	$0.00	0.00	2	enlatados
+ 7501003340139	Mayonesa Mccormick 390g	$35.00	$40.00	$0.00	0.00	2	aderezos
+ 724869001397	Mazapan Grande 	$4.05	$7.00	$0.00	0.00	5	dulces
+ 7501001600426	Media Crema Nestle 225g	$21.00	$21.00	$21.00	255.00	5	LACTEOS
+ 7501000111503	Medias Noches Bimbo	$34.86	$44.00	$0.00	0.00	2	bimbo
+ ML	Melon	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 7501052474069	Mermelada Clemente	$20.50	$29.00	$0.00	0.00	0.000	- Sin Departamento -
+ 7501003300300	Mermelada De Fresa Mc Cormick 270 Grs 	$33.00	$33.00	$33.00	255.00	5	- Sin Departamento -
+ 7501003336620	Mermelada De Zarzamora	$24.00	$29.00	$0.00	0.00	1	mermeladas
+ 7501003336125	Mermelada Fresa MC270g	$30.00	$30.00	$30.00	2.00	5	mermeladas
+ 7501003184078	Miel Abeja Carlota 300g	$50.00	$55.00	$0.00	0.00	2	mermeladas
+ 7501030419037	Mini Gansito	$6.80	$8.00	$0.00	0.00	1	marinela
+ 75059934	Mini Gelatina	$1.10	$2.00	$0.00	0.00	10	dulces
+ 706460200157	Mini Milky Way 	$2.30	$4.00	$0.00	0.00	10	dulces
+ 7501030419099	Mini Pinguino	$6.70	$8.00	$0.00	0.00	1	marinela
+ 7501586300018	Minsa 	$17.80	$20.00	$0.00	0.00	1	harinas
+ 7501022014455	Mirinda 1.75	$18.33	$22.00	$0.00	N/A	0.000	- Sin Departamento -
+ 7501031345083	Mirinda 3l	$28.12	$35.00	$0.00	N/A	0.000	pepsi
+ 70847035916	Monster Energy	$40.00	$40.00	$40.00	15.00	5	coca cola
+ 7501003300676	Mostaza Mccormick 	$10.20	$14.00	$0.00	0.00	1	aderezos
+ 7501055343270	Munded	$25.00	$25.00	$25.00	10.00	5	- Sin Departamento -
+ 650240010538	NEXT TABS 1pz	$25.46	$10.00	$0.00	0.00	2	farmacia
+ NJ	Naranja	$13.00	$16.00	$0.00	N/A	0.000	frutas y verduras
+ 7506339394719	Naturella Nocturna 	$26.50	$26.50	$26.50	6.00	5	- Sin Departamento -
+ 7501000112784	Negrito Bimbo	$11.39	$16.00	$0.00	0.00	5	bimbo
+ 7501000912612	Nescafe Clasico 28 G	$26.50	$26.50	$26.50	24.00	24	- Sin Departamento -
+ 7501058628466	Nescafe Decaf	$37.00	$37.00	$37.00	5.00	5	cafes
+ 7501004192270	Nitram Toalla De Baño 	$35.00	$35.00	$35.00	7.00	5	- Sin Departamento -
+ NP	Nopal	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 80051671	Nutella 200gr 	$44.00	$50.00	$0.00	0.00	2	dulces
+ 7501020539981	Nutri Yoghurt Fresa Y Cereal	$12.80	$16.00	$0.00	0.00	2	yogures
+ 7501020539974	Nutri Yoghurt Nuez Y Cereal	$12.80	$16.00	$0.00	0.00	2	yogures
+ 7501020562064	Nutrileche 1 L	$15.20	$19.00	$0.00	0.00	2	LACTEOS
+ 7501020557701	Nutrileche 1/2 Galon	$25.00	$30.00	$0.00	0.00	2	LACTEOS
+ 7501020544398	Nutrileche Deslactosada 	$19.00	$24.00	$0.00	0.00	2	LACTEOS
+ 7501361121500	Odolex Herbal 150g	$22.00	$22.00	$22.00	5.00	5	- Sin Departamento -
+ 7506309839202	Old Spice 	$39.00	$39.00	$39.00	5.00	1	- Sin Departamento -
+ 7500435138048	Old Spice Leña FRescura Natural 150ML	$55.00	$55.00	$55.00	3.00	5	- Sin Departamento -
+ 7509546682471	PALMOLIVE NATURALS 120GRS	$16.00	$16.00	$16.00	35.00	5	- Sin Departamento -
+ 7501006559002	PALOMITAS ADO HORNO	$10.00	$15.00	$0.00	0.00	2	dulces
+ 7501011148963	Paketaxo Mezcladito 70g	$11.89	$17.00	$0.00	N/A	1	sabritas
+ 6931575111232	Palillos 	$12.00	$12.00	$12.00	24.00	5	- Sin Departamento -
+ 7509546074726	Palmolive Naturals Delicada 	$16.93	$20.00	$0.00	N/A	1	higienico
+ 7509546074627	Palmolive Naturals Humectante 	$16.93	$20.00	$0.00	0.00	1	higienico
+ 7501006560299	Palomitas ADO Caramelo	$18.30	$24.00	$0.00	0.00	1	dulces
+ 7501006560428	Palomitas ADO INFIERNO	$18.30	$24.00	$0.00	0.00	1	dulces
+ 7501006559019	Palomitas De Matntequillla 	$15.00	$15.00	$15.00	15.00	5	cualquiera
+ 7501006559026	Palomitas Extra Mantequilla	$15.00	$15.00	$15.00	21.00	5	dulces
+ 7501000111091	Pan Bimbo Chico	$28.22	$36.00	$0.00	0.00	2	bimbo
+ 7501000122332	Pan Blanco Grande 650g	$34.86	$44.00	$0.00	0.00	2	bimbo
+ PNM	Pan De Muerto	$140.00	$10.00	$0.00	0.00	4	pan
+ 7501000111466	Pan Integral  720gms	$41.50	$52.00	$0.00	0.00	2	bimbo
+ 7501000336319	Pan Integral Chico Bimbo	$30.71	$39.00	$0.00	1.00	2	bimbo
+ 7501000111855	Pan Molido Bimbo 210g	$22.14	$28.00	$0.00	0.00	2	bimbo
+ 7501000111800	Pan Tostado Bimbo	$26.56	$34.00	$0.00	0.00	2	bimbo
+ 7501000310647	Panque Marmol 300gBimbo	$27.33	$38.00	$0.00	0.00	1	bimbo
+ 7501000112326	Panque Nuez 255g	$27.33	$38.00	$0.00	0.00	1	bimbo
+ 7501000112302	Panque Pasas 	$27.33	$38.00	$0.00	0.00	1	bimbo
+ 7501000112388	Panquecito cChocolate 2pz	$15.19	$21.00	$0.00	0.00	1	bimbo
+ PA	Papa	$22.00	$30.00	$0.00	N/A	0.000	frutas y verduras
+ PY	Papaya	$22.00	$30.00	$0.00	N/A	0.000	frutas y verduras
+ 7502247335677	Papel Elite 	$18.49	$25.00	$0.00	0.00	1	higienico
+ 7503005663742	Papel Florencia 1pz	$20.91	$10.00	$0.00	0.00	1	higienico
+ 7501943412217	Papel Petalo 300hojas 	$20.20	$26.00	$0.00	0.00	1	higienico
+ 604722006779	Papirringas Ala francesa	$3.91	$5.00	$0.00	0.00	1	botana leo
+ 7501011154865	Paquetaxo Botanero 255g	$47.20	$49.00	$0.00	0.00	1	sabritas
+ 7501011112438	Paquetaxo Botanero 70g	$11.89	$17.00	$0.00	N/A	1	sabritas
+ 7501011144460	Paquetaxo Flamin Hot 	$11.89	$17.00	$0.00	N/A	1	sabritas
+ 7501011154902	Paquetaxo Mezcladito 265g	$47.20	$49.00	$0.00	0.00	1	sabritas
+ 7501011114623	Paquetaxo Queso 70g	$11.89	$17.00	$0.00	N/A	1	sabritas
+ 7506425605330	Paquete Papel  Vogue 4 Rollos 	$43.00	$43.00	$43.00	27.00	5	- Sin Departamento -
+ 604722007424	Parrigingas Llamas 	$3.91	$5.00	$0.00	0.00	1	botana leo
+ 7509546687353	Pasta Colgate Fluoruro 90 Ml 	$38.00	$38.00	$38.00	15.00	5	- Sin Departamento -
+ 7509546062471	Pasta Colgate Luminous White 50ml	$23.87	$28.00	$0.00	0.00	1	higienico
+ 7509546007083	Pasta Colgate Total 50ml	$18.20	$23.00	$0.00	0.00	1	higienico
+ 7509546000985	Pasta Colgate Triple A75m	$19.58	$28.00	$0.00	0.00	1	higienico
+ 7506195100233	Pasta Crest Complete 50ml	$13.98	$20.00	$0.00	0.00	1	higienico
+ 7501035911567	Pasta Dent Colgate 50ml	$19.00	$19.00	$19.00	15.00	5	- Sin Departamento -
+ 7500435115926	Pasta Oral B 	$18.00	$22.00	$0.00	N/A	0.000	higienico
+ 7501070612368	Pastilla Treda 1 Pz 	$129.30	$10.00	$0.00	0.00	5	farmacia
+ 7501030426912	Pay Duo Nuez	$19.44	$25.00	$0.00	N/A	0.000	marinela
+ 7501030426905	Pay Duo Piña 	$19.44	$25.00	$0.00	N/A	0.000	marinela
+ 7506425633753	Pañal Suavelastic	$4.87	$8.00	$0.00	0.00	10	higienico
+ 719886211713	Pelon Pelo Rico 30g	$8.20	$9.00	$0.00	0.00	2	dulces
+ 75064631	Pelon Pelonetes 30g	$8.20	$9.00	$0.00	0.00	2	dulces
+ 823703160150	Pepel Aluminio Tender 10m 	$12.38	$18.00	$0.00	0.00	2	desechable
+ PE	Pepino	$19.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ 7501031311682	Pepsi 1 1/2	$24.00	$24.00	$24.00	7.00	5	pepsi
+ 7501022009321	Pepsi 1.75l 	$27.00	$27.00	$27.00	24.00	5	- Sin Departamento -
+ 7501031310098	Pepsi 3L	$42.00	$42.00	$42.00	50.00	5	pepsi
+ 7501031310012	Pepsi 600 Ml04	$19.00	$19.00	$19.00	5.00	5	pepsi
+ 7501031305629	Pepsi Retornable 2 1/2	$31.00	$31.00	$31.00	10.00	5	- Sin Departamento -
+ PM	Pera Mantequilla	$65.00	$75.00	$0.00	N/A	0.000	frutas y verduras
+ 41333666426	Pila Duracel DobleA	$20.00	$20.00	$20.00	7.00	5	- Sin Departamento -
+ 41333428482	Pila Duracel TripleA	$18.50	$18.50	$18.50	3.00	5	- Sin Departamento -
+ 7501000153800	Pinguinos 80g	$16.20	$21.00	$0.00	N/A	0.000	marinela
+ 7501025462017	Pinol	$29.00	$29.00	$29.00	15.00	5	- Sin Departamento -
+ 7501025403027	Pinol 500ml	$21.00	$21.00	$21.00	20.00	3	Detergentes
+ 7501025400248	Pinol 828 Ml Aroma Fresca Primavera	$28.00	$28.00	$28.00	12.00	3	- Sin Departamento -
+ 7501025400170	Pinol Aromas 500ML	$21.00	$21.00	$21.00	5.00	5	- Sin Departamento -
+ 7501025400101	Pinol Aromas Lavanda 500ML	$21.00	$21.00	$21.00	6.00	5	- Sin Departamento -
+ 7501025400187	Pinol Floral Rosa 828 Ml	$29.00	$29.00	$29.00	20.00	3	- Sin Departamento -
+ 7501025403485	Pinol Original 828ML	$27.00	$27.00	$27.00	4.00	5	- Sin Departamento -
+ Pñ	Piña	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ PT	Platano Tabasco	$10.00	$20.00	$0.00	N/A	0.000	frutas y verduras
+ 7501010414786	Plato De Plasticco Con Division 20pz	$19.00	$19.00	$19.00	1.00	5	- Sin Departamento -
+ 752216051061	Plato Hondo Jaguar C25	$32.00	$32.00	$32.00	2.00	5	- Sin Departamento -
+ 752216081044	Plato No66  PaqC50	$28.00	$28.00	$28.00	1.00	5	- Sin Departamento -
+ 752216051047	Plato Plastico N6	$24.00	$24.00	$24.00	4.00	5	- Sin Departamento -
+ 7501071907647	Poett 1.18ml.	$18.30	$22.00	$0.00	0.00	1	Detergentes
+ 7501071900280	Poett 900ml Primaver	$21.00	$21.00	$21.00	10.00	10	- Sin Departamento -
+ 7501071900204	Poett 900ml.	$15.99	$20.00	$0.00	0.00	1	Detergentes
+ 7501030490951	Polvorones 	$15.96	$20.00	$0.00	N/A	0.000	marinela
+ 7501030458807	Polvorones 1pz	$1.17	$2.00	$0.00	0.00	5	tia rosa
+ 7501030418559	Polvorones Tubo 	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 7501065628121	Pomada Campana 19g	$19.00	$19.00	$19.00	6.00	5	- Sin Departamento -
+ 7501055329373	Power	$34.00	$34.00	$34.00	5.00	15	- Sin Departamento -
+ 7501055317660	Power Ade 	$34.00	$34.00	$34.00	10.00	5	- Sin Departamento -
+ 815154022705	Predator 473ml 	$20.00	$20.00	$20.00	15.00	5	coca cola
+ 7501030462859	Principe Avellana 	$14.28	$18.00	$0.00	N/A	0.000	marinela
+ 7501030418504	Principe Tubo 	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 7501079709984	Pure De Tomate Del Fuerte 	$7.90	$10.00	$0.00	0.00	1	aderezos
+ 7501017005611	Pure De Tomate La Costeña 210g	$15.00	$15.00	$15.00	155.00	2	enlatados
+ 7501032903596	RAIS MAX 400	$70.00	$75.00	$0.00	N/A	0.000	insecticidas
+ 7501032902087	Raid Aparato 	$59.70	$68.00	$0.00	0.00	1	insecticidas
+ 7501032925956	Raid Casa Y Jardin C400ml	$85.00	$85.00	$85.00	25.00	5	insecticidas
+ 7501032925550	Raid Matabichos 400ML	$76.00	$76.00	$76.00	4.00	5	insecticidas
+ 7591005574007	Raidolitos 	$21.00	$21.00	$21.00	3.00	5	- Sin Departamento -
+ 7501017006014	Rajas De Jalapeo 105g	$12.00	$12.00	$12.00	25.00	5	enlatados
+ 7501017003020	Rajas Jalapeo 820g	$32.00	$38.00	$0.00	0.00	2	enlatados
+ 7501017005024	Rajas de Jalapeño 220g	$19.00	$19.00	$19.00	15.00	5	enlatados
+ 7501011111028	Rancheritos 58g	$9.51	$13.00	$0.00	N/A	2	sabritas
+ 7501009222729	Rastrillo  Prestobarba 	$23.00	$23.00	$23.00	19.00	5	- Sin Departamento -
+ 7501000112845	Rebanada Pan Bimbo	$5.31	$8.00	$0.00	0.00	3	bimbo
+ 7501052477206	Rebanadas De Piña Clemente	$48.80	$52.00	$0.00	0.00	1	enlatados
+ 606110023863	Red Cola 1.5 Lo	$21.00	$21.00	$21.00	15.00	5	red cola
+ 606110023870	Red Cola 2.5 L 	$21.00	$28.00	$0.00	N/A	0.000	red cola
+ 793573950079	Red Cola 3 L 	$36.00	$36.00	$36.00	50.00	5	red cola
+ 7503006897016	Red Cola 600ml	$9.29	$13.00	$0.00	N/A	0.000	red cola
+ 75076337	Rexona 48H 45g	$53.00	$53.00	$53.00	5.00	5	- Sin Departamento -
+ 75062897	Rexona 48H BabooY Aloe Vera 45g	$53.00	$53.00	$53.00	1.00	5	- Sin Departamento -
+ 7791293022567	Rexona 72h 150ML	$55.00	$55.00	$55.00	3.00	5	- Sin Departamento -
+ 10900000406	Reynolds Wrap 76m	$37.90	$40.00	$0.00	0.00	2	desechable
+ 7501000628360	Ricanelas 	$17.00	$18.00	$0.00	N/A	0.000	gamesa
+ 7506192505802	Rikopollo 	$5.00	$5.00	$5.00	25.00	5	- Sin Departamento -
+ 7501011145566	Rocka Leta 24g	$7.20	$8.00	$0.00	0.00	2	dulces
+ 7503030199995	Roles De Canela 3 Pz	$17.46	$24.00	$0.00	0.00	1	bimbo
+ 7501000309726	Roles De Canela Con Pasas 365 	$28.85	$40.00	$0.00	0.00	1	bimbo
+ 7503030374002	Roles Glaseados 2pz	$17.46	$24.00	$0.00	0.00	1	bimbo
+ 7501000153459	Rollo Fresa Marinela	$12.96	$17.00	$0.00	N/A	0.000	marinela
+ 7501026004605	Roma 1k	$47.00	$47.00	$47.00	20.00	5	- Sin Departamento -
+ 7501026004629	Roma 250g	$14.00	$14.00	$0.00	13.00	5	Detergentes
+ 7501026004612	Roma 500g	$24.00	$24.00	$24.00	5.00	5	Detergentes
+ 7501001030117	Royal ARINA PARA HORNEAR 	$24.00	$24.00	$24.00	15.00	5	- Sin Departamento -
+ 7500478007974	Ruffles Jalapeño Chicos	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7500478030538	Ruffles Mix 55g.	$11.89	$15.00	$0.00	0.00	1	sabritas
+ 7501011102095	Ruffles Original	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011167674	Ruffles Queso 120g.	$23.89	$34.00	$0.00	0.00	1	sabritas
+ 7500478008032	Ruffles Queso 86g	$17.90	$20.00	$0.00	0.00	1	sabritas
+ 7501011104099	Ruffles Queso Chicos	$11.89	$16.00	$0.00	N/A	5	sabritas
+ 7500478007967	Ruflfles Salsa Roja	$11.89	$15.00	$0.00	0.00	1	sabritas
+ 604722013081	Rugileo	$7.80	$10.00	$0.00	0.00	1	botana leo
+ 604722013067	Rugileo Adobada 	$7.80	$10.00	$0.00	0.00	1	botana leo
+ 604722013104	Rugileo Queso	$7.80	$10.00	$0.00	0.00	1	botana leo
+ 7500810003831	Runers Fuego	$9.33	$12.00	$0.00	0.00	2	barcel
+ 7501019068416	Saba Diariospanti 16pz	$12.08	$17.00	$0.00	0.00	2	higienico
+ 7501019050664	Saba Nocturna 8pz	$26.50	$26.50	$26.50	10.00	5	- Sin Departamento -
+ 735257006016	Saborizante Artificial Vainilla	$8.00	$13.00	$0.00	0.00	2	dulces
+ 7501011167667	Sabritas Adobadas 105g.	$23.89	$34.00	$0.00	0.00	1	sabritas
+ 7501011101463	Sabritas Adobadas 42g.	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011143265	Sabritas Chiles Rojos 160g.	$35.55	$44.00	$0.00	0.00	1	sabritas
+ 7501011118119	Sabritas Crema Y Especias	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011159242	Sabritas Crujiente 49g.	$11.89	$15.00	$0.00	0.00	1	sabritas
+ 7500478007639	Sabritas Crujiente Flamin75g	$17.90	$20.00	$0.00	0.00	1	sabritas
+ 7501011159266	Sabritas Flamin Hot 160g.	$35.55	$44.00	$0.00	0.00	1	sabritas
+ 7501011143739	Sabritas Flaminhot 45g.	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011137431	Sabritas Habanero 45g.	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011143258	Sabritas Jalapeño 160g.	$35.55	$44.00	$0.00	0.00	1	sabritas
+ 7501011145719	Sabritas Jalapeño 49g.	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011101678	Sabritas Limon 42g.	$11.89	$16.00	$0.00	N/A	1	sabritas
+ 7501011165687	Sabritas Sal 171g.	$35.55	$44.00	$0.00	0.00	1	sabritas
+ 7501011101456	Sabritas Sal 42g.	$11.89	$16.00	$0.00	N/A	2	sabritas
+ 7500478007622	Sabritas Sal 72g	$17.90	$20.00	$0.00	0.00	1	sabritas
+ 7500478030309	Sabritas Stax 56g	$21.15	$26.00	$0.00	0.00	1	sabritas
+ 7501011127012	Sabritas Tostitos 65g	$9.51	$13.00	$0.00	N/A	2	sabritas
+ 7501118392108	Sal De Grano Sol 1 Kg 	$10.00	$13.00	$0.00	0.00	1	condimentos
+ 34587020021	Sal La Fina Bote 1Kg	$19.70	$22.00	$0.00	0.00	1	condimentos
+ 34587031010	Sal La Fina De 1 Kg	$21.00	$21.00	$21.00	24.00	10	condimentos
+ SSA	Salchicha Sn Antonio	$45.90	$68.00	$0.00	N/A	0.000	embutidos
+ 7501006584035	Salsa Bbq Hunts 360g 	$29.70	$32.00	$0.00	0.00	1	salsas
+ 7501003303639	Salsa Bufalo 260ml	$13.80	$18.00	$0.00	0.00	1	salsas
+ 7501052472447	Salsa Capsu Clemente  340g 	$18.00	$18.00	$18.00	10.00	1	- Sin Departamento -
+ 7503016134019	Salsa Chimi Chilly	$32.30	$38.00	$0.00	0.00	1	salsas
+ 7500463522130	Salsa El Comalito Chipotle 	$15.00	$20.00	$0.00	0.00	2	salsas
+ 7500463522154	Salsa El Comalito Roja Cascabel 	$15.00	$20.00	$0.00	0.00	1	salsas
+ 7500463522185	Salsa El Comalito Verde Asada	$15.00	$20.00	$0.00	0.00	1	salsas
+ 7501001604318	Salsa Inglesa 145 ml	$44.00	$44.00	$44.00	2.00	5	salsas
+ 7501058628664	Salsa Inglesa 50ml	$23.00	$25.00	$0.00	0.00	1	salsas
+ 7501059297586	Salsa Maggi 45ml	$23.00	$25.00	$0.00	0.00	1	salsas
+ 7501003127556	Salsa Roja Herdez 240ml	$13.98	$20.00	$0.00	0.00	1	salsas
+ 7501340700016	Salsa San Luis 1l	$23.00	$23.00	$23.00	14.00	5	salsas
+ 7501340700023	Salsa Sn Luis 490 Ml	$21.00	$21.00	$21.00	20.00	3	salsas
+ 11210000834	Salsa Tabasco 60ml	$36.30	$40.00	$0.00	0.00	1	salsas
+ 97339000054	Salsa Valentina Amarilla 370ml	$20.00	$20.00	$20.00	30.00	5	salsas
+ 97339000061	Salsa Valentina Negra 	$20.00	$20.00	$20.00	0.00	2	valentina
+ 7501003101952	Salsa Verde Herdez 240ml	$13.98	$20.00	$0.00	0.00	1	salsas
+ 7503005405168	Saluk Toalla De Baño	$20.00	$20.00	$20.00	31.00	5	- Sin Departamento -
+ SD	Sandia	$12.00	$18.00	$0.00	N/A	0.000	frutas y verduras
+ 7501022014486	Sangria Casera 1.75ml 	$18.33	$22.00	$0.00	N/A	0.000	pepsi
+ 7501031305957	Sangria Casera 3 L 	$28.12	$35.00	$0.00	N/A	0.000	pepsi
+ 7502313540066	Sanimax	$37.00	$37.00	$37.00	50.00	5	- Sin Departamento -
+ 7501045403281	Sardina Dolores 425g	$44.00	$44.00	$44.00	3.00	2	enlatados
+ 17479831011	Sardina Yavaros 425g	$35.00	$42.00	$0.00	0.00	2	enlatados
+ 7506192504416	Savile Shampoo	$22.00	$22.00	$22.00	15.00	5	- Sin Departamento -
+ 7501056340117	Sedal Crema Para Peinar 300ML	$45.00	$45.00	$45.00	4.00	5	- Sin Departamento -
+ 7501298215099	Sedalmerck 1pz 	$78.50	$7.00	$0.00	0.00	2	farmacia
+ 7501030425243	Semitas	$13.67	$19.00	$0.00	0.00	1	tia rosa
+ 7501017004010	Serranos Enteros 380g	$22.00	$27.00	$0.00	0.00	1	enlatados
+ 7506425602780	Servilleta Vogue 100pz 	$13.00	$13.00	$13.00	18.00	5	- Sin Departamento -
+ 7509546072364	Shampoo Caprice Aceite Herbal	$38.00	$42.00	$0.00	N/A	0.000	higienico
+ 75064273	Shampoo Caprice Aceite Herbal 200	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7509546073057	Shampoo Caprice Control Caida 200	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7509546072296	Shampoo Caprice Frutos 760	$38.00	$42.00	$0.00	N/A	0.000	higienico
+ 7509546073033	Shampoo Caprice Fuerza 200	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7509546073040	Shampoo Caprice Fuerza Y Crecimiento	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7509546080475	Shampoo Caprice Renovador 200	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7509546073088	Shampoo Caprice Suavidad Intensa 200	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ 7500435022910	Shampoo Cuidado Clasico 300	$28.00	$32.00	$0.00	N/A	0.000	higienico
+ 7500435116534	Shampoo Fuerza Y Reconstruccion 300	$28.00	$32.00	$0.00	N/A	0.000	higienico
+ 7500435019958	Shampoo Head Shoulders 180	$36.00	$36.00	$36.00	15.00	5	higienico
+ 7500435019811	Shampoo Head Shoulders 2 En 1	$30.00	$35.00	$0.00	N/A	0.000	higienico
+ 7500435020008	Shampoo Head Shoulders 375	$55.00	$60.00	$0.00	N/A	0.000	higienico
+ 7506195148686	Shampoo Head Shoulders 90	$12.00	$17.00	$0.00	N/A	0.000	higienico
+ 75002794	Shampoo Palm Optims 	$30.00	$35.00	$0.00	N/A	0.000	higienico
+ 7500435022811	Shampoo Pantene 300 Restauracion 	$28.00	$32.00	$0.00	N/A	0.000	higienico
+ 7506195160435	Shampoo Pantene Restauracion 100	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506192505550	Shampoo Savile Biotina 180	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506192502610	Shampoo Savile Chile 180	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506192503426	Shampoo Savile Fuerza Y Restauracion 180	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506192502603	Shampoo Savile Miel 180	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 7506306221352	Shampoo Savile Nopal 180	$14.00	$18.00	$0.00	N/A	0.000	higienico
+ 6927780363146	Shoot Gun Pistola De Juguete 	$35.00	$35.00	$35.00	1.00	5	- Sin Departamento -
+ 744886195466	Sidral Aga 2.5 Ml 	$20.77	$28.00	$0.00	N/A	0.000	red cola
+ 744886195237	Sidral Aga 600ml 	$11.20	$14.00	$0.00	N/A	0.000	red cola
+ 7501055368600	Sidral Mundet 2 1/2	$18.18	$22.00	$0.00	N/A	0.000	coca cola
+ 7501055340422	Sidral Mundet 3 L	$31.12	$35.00	$0.00	N/A	0.000	coca cola
+ 7501055339983	Sifral Mundet 600 Ml	$18.00	$18.00	$18.00	30.00	5	coca cola
+ 726866012413	Skin Care 	$17.00	$17.00	$17.00	2.00	5	- Sin Departamento -
+ 7506174512248	Snickers	$16.00	$16.00	$16.00	12.00	2	dulces
+ 7506174510732	Sobre Pedigree Adulto Cordero	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 706460249279	Sobre Pedigree Adulto Res	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 706460249316	Sobre Pedigree Cachorro Res	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 706460249361	Sobre Pedigree Cahorropollo	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 7506174506995	Sobre Pedigree Rp Cordero	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 706460249286	Sobre Pedigree Rp Pollo	$9.90	$14.00	$0.00	0.00	1	mascotas
+ 706460000689	Sobre Whiskas Fillets De Res	$13.00	$13.00	$13.00	6.00	3	- Sin Departamento -
+ 7501055303779	Soda Fanta 600ml	$17.00	$17.00	$17.00	7.00	5	coca cola
+ 7501055303786	Soda Fresca 600ml	$17.00	$17.00	$17.00	1.00	5	- Sin Departamento -
+ 7501031345052	Soda Mirinda 600Ml	$12.04	$15.00	$0.00	N/A	0.000	pepsi
+ 7501055305629	Soda Sprite 600ml	$13.29	$16.00	$0.00	N/A	0.000	coca cola
+ 4178900198704178900	Sopa Maruchan CamChile	$20.00	$20.00	$20.00	12.00	3	- Sin Departamento -
+ 41789001864	Sopa Maruchan CamLimHab	$20.00	$20.00	$20.00	83.00	5	pastas
+ 4178900186404178900	Sopa Maruchan CamLimHab	$20.00	$20.00	$20.00	12.00	3	- Sin Departamento -
+ 41789001956	Sopa Maruchan Camaron	$14.00	$18.00	$0.00	0.00	3	pastas
+ 41789001987	Sopa Maruchan Camaron Y Chilepiquin	$20.00	$20.00	$20.00	83.00	5	pastas
+ 41789001918	Sopa Maruchan Pollo	$20.00	$20.00	$20.00	12.00	5	pastas
+ 4178900191804178900	Sopa Maruchan Pollo	$20.00	$20.00	$20.00	12.00	3	- Sin Departamento -
+ 41789001925	Sopa Maruchan Res	$14.00	$18.00	$0.00	0.00	3	pastas
+ 7501018310530	Sopa Moderna Codo N3 200g	$11.00	$11.00	$11.00	1.00	5	- Sin Departamento -
+ 7501018310233	Sopa Moderna Lengua 20g	$11.00	$11.00	$11.00	13.00	5	- Sin Departamento -
+ 7501018310608	Sopa Pluma LaModerna 200g	$11.00	$11.00	$11.00	5.00	5	- Sin Departamento -
+ 7501018310592	Sopa Tornillo La Moderna	$11.00	$11.00	$11.00	15.00	5	- Sin Departamento -
+ 7506475110983	Spbre De Nescafe Capuchino 20g	$11.00	$11.00	$11.00	6.00	5	- Sin Departamento -
+ 7501103300781	Speed Toalla Esponja  Absorvente 	$48.00	$48.00	$48.00	2.00	5	- Sin Departamento -
+ 7501000138944	Sponch 120g	$16.80	$21.00	$0.00	N/A	0.000	marinela
+ 7503030374842	Sponch Tubo 	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ 7506339800616	Sponya Guante Doble Resistencia 	$30.00	$30.00	$30.00	2.00	5	- Sin Departamento -
+ 7509546058979	Spray Caprice Con Extrato De ALGAS 300ML	$60.00	$60.00	$60.00	5.00	5	perfumeria
+ 7501055305643	Sprite 1 1/2 	$25.00	$25.00	$25.00	24.00	5	- Sin Departamento -
+ 7501055304806	Sprite 3l	$31.12	$35.00	$0.00	N/A	0.000	coca cola
+ 7501055311828	Sprite De 25L	$34.00	$34.00	$34.00	30.00	5	- Sin Departamento -
+ 7501071120077	Squirt Toronja 2L	$29.00	$29.00	$29.00	N/A	0.000	red cola
+ 7501071120305	Squirt Toronja 3l	$29.62	$34.00	$0.00	N/A	0.000	red cola
+ 7501071120183	Squirt Toronja 600 Ml	$11.95	$16.00	$0.00	N/A	0.000	red cola
+ 7501030431183	Suavicremas Vainilla 	$12.60	$17.00	$0.00	N/A	0.000	marinela
+ 7509546017808	Suavitel 450ML Cuidado Superior 	$24.00	$24.00	$24.00	6.00	5	- Sin Departamento -
+ 7509546016313	Suavitel 850ml Fresc	$31.00	$31.00	$31.00	13.00	5	- Sin Departamento -
+ 7509546017815	Suavitel Amarillo 450ML	$24.00	$24.00	$24.00	6.00	5	- Sin Departamento -
+ 7509546016306	Suavitel Cuidado Superior 850ML	$31.00	$31.00	$31.00	5.00	5	- Sin Departamento -
+ 7501000156214	Submarinos Chocolate	$15.39	$20.00	$0.00	N/A	0.000	marinela
+ 7501000153374	Submarinos Fresa 105g	$15.39	$20.00	$0.00	N/A	0.000	marinela
+ 7501000153282	Submarinos Vainilla 105g	$15.39	$20.00	$0.00	N/A	0.000	marinela
+ 7501125187131	Suero Electrolit Horchata	$26.00	$26.00	$26.00	15.00	5	- Sin Departamento -
+ 7501030431190	Suevicremas Fresa 	$12.60	$17.00	$0.00	N/A	0.000	marinela
+ 7501008485057	Tabcin Dia 1 Par 	$61.50	$15.00	$0.00	0.00	2	farmacia
+ 7501008485033	Tabcin Noche 1 Par 	$61.50	$15.00	$0.00	0.00	2	farmacia
+ 633148100013	Tajin	$36.00	$36.00	$36.00	8.00	1	- Sin Departamento -
+ 633148100624	Tajin Clasico 	$31.90	$36.00	$0.00	0.00	1	salsas
+ 633148101386	Tajin Dulce 160g	$32.80	$36.00	$0.00	0.00	1	salsas
+ 7500810000465	Takis Fuego	$11.67	$15.00	$0.00	0.00	3	barcel
+ 7500810000489	Takis Huakamole 70g.	$11.67	$15.00	$0.00	0.00	1	barcel
+ 7501035908116	Talco Mennen  Azul 100g	$39.00	$39.00	$39.00	15.00	5	farmacia
+ 7501035908123	Talco Mennen Rosa 100g	$39.00	$39.00	$39.00	15.00	5	farmacia
+ 7622210572387	Tang De Jamaica 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210573216	Tang De Limon 	$7.00	$7.00	$7.00	16.00	5	- Sin Departamento -
+ 7622210572554	Tang De Mango 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210572684	Tang De Melon 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210572639	Tang De Naranja 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210562685	Tang De Piña Colada 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210572943	Tang De Tamarindo 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210573087	Tang De Uva 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7622210572219	Tang Fresa 	$7.00	$7.00	$7.00	8.00	5	- Sin Departamento -
+ 7503028643417	Tartinas Fresa	$13.22	$18.00	$0.00	0.00	1	tia rosa
+ 7503028643431	Tartinas Zarzamora	$13.22	$18.00	$0.00	0.00	2	tia rosa
+ 7501003339171	Te De Manzanilla Mc 50pza	$2.50	$2.50	$2.50	51.00	5	- Sin Departamento -
+ 7501003339133	Te De Manzanilla Sobre C35 	$3.50	$3.50	$3.50	16.00	5	- Sin Departamento -
+ TJ	Tejocote	$40.00	$45.00	$0.00	N/A	0.000	frutas y verduras
+ 7503008668003	Tierra Labo 230g 	$25.00	$25.00	$25.00	3.00	5	- Sin Departamento -
+ 7501027209658	Tinte Para Cabello 10 Negro	$55.00	$60.00	$0.00	N/A	0.000	perfumeria
+ 7509552838831	Tinte Para Cabello 10 Negro 	$55.00	$60.00	$0.00	N/A	0.000	perfumeria
+ 7506078945869	Tinte Para Cabello 677 Chocolate 	$55.00	$60.00	$0.00	N/A	0.000	perfumeria
+ 7506078971028	Tinte Para Cabelo	$55.00	$60.00	$0.00	N/A	0.000	perfumeria
+ 619585800013	Tiny Toallas Humedas 	$26.00	$26.00	$26.00	8.00	5	- Sin Departamento -
+ 7501019006074	Toalla Saba Intima Clip10pz	$25.00	$25.00	$25.00	7.00	5	- Sin Departamento -
+ 7501019006623	Toallas Saba Buenas Nc8	$18.75	$28.00	$0.00	0.00	2	higienico
+ 7501943471900	Toallitas Humedas Absorsec 120	$25.00	$30.00	$0.00	N/A	0.000	higienico
+ 7501028612723	Toallitas Humedas El Chavo 80	$20.00	$25.00	$0.00	N/A	0.000	higienico
+ TM	Tomate	$18.00	$25.00	$0.00	N/A	0.000	frutas y verduras
+ TK2	Tortillas 1/2	$9.00	$10.00	$0.00	N/A	0.000	tostadas
+ TK1	Tortillas De 1 Kg	$18.00	$20.00	$0.00	N/A	0.000	tostadas
+ TC1	Tortillas De Casa 	$12.00	$15.00	$0.00	N/A	0.000	tostadas
+ THP1	Tortillas De Harina Palomas 	$17.00	$22.00	$0.00	0.00	2	tostadas
+ 7501000189212	Tortillinas 10pz	$12.00	$16.00	$0.00	0.00	2	tia rosa
+ 7501030490272	Tortillinas 12pz	$17.60	$23.00	$0.00	100.00	4	tia rosa
+ 7501030486664	Tortillinas 22 Pz	$26.40	$34.00	$0.00	0.00	2	tia rosa
+ 7503011923052	Tostada Loma Linda Ch	$34.00	$34.00	$34.00	11.00	5	tostadas
+ 7503011923069	Tostadas Loma Linda 50 Piezas	$59.00	$59.00	$59.00	12.00	0.000	- Sin Departamento -
+ 7501030431954	Tostadas Sanissimo 120g.	$18.30	$22.00	$0.00	0.00	1	bimbo
+ 7503012278151	Tostadas Tio Beto 	$35.00	$35.00	$35.00	20.00	5	- Sin Departamento -
+ 7501011126879	Tostitos Flamin Hot 65g.	$9.54	$12.00	$0.00	0.00	1	sabritas
+ 604722008971	Totos Extremo 55g	$7.80	$10.00	$0.00	0.00	1	botana leo
+ 604722013012	Totos Queso Jalapeño	$11.70	$15.00	$0.00	0.00	1	botana leo
+ 744358698846	Trenzas De Colores Por Pieza 	$5.00	$5.00	$5.00	30.00	5	- Sin Departamento -
+ 604722013029	Triachos Chile Y Especias 	$11.70	$15.00	$0.00	0.00	1	botana leo
+ 7501030418528	Trikitrakes Tubo	$25.20	$32.00	$0.00	N/A	0.000	marinela
+ CN1	Tubo De Canela 	$402.10	$10.00	$0.00	N/A	0.000	condimentos
+ TN	Tuna	$19.00	$23.00	$0.00	N/A	0.000	frutas y verduras
+ 7500326448911	Ultra Foam 	$15.00	$15.00	$15.00	2.00	5	- Sin Departamento -
+ 7500326448928	Ultra Foam Esponja Multi	$25.00	$25.00	$25.00	4.00	5	- Sin Departamento -
+ 91138000215	Vainilla Paisa 125 Ml	$11.00	$11.00	$11.00	12.00	12	saborizantes
+ 7501055330461	Valle Frut 2l Citrus	$27.00	$27.00	$27.00	50.00	5	- Sin Departamento -
+ 7501055380862	Valle Frut Mandarina 600ML	$17.00	$17.00	$17.00	5.00	5	- Sin Departamento -
+ 7502208800077	Vaso Desechable N8 Con 50pz	$42.00	$42.00	$42.00	3.00	5	desechable
+ VS1	Vaso Desechable Suelto 	$38.00	$1.00	$0.00	0.00	5	desechable
+ PLOG14530	Vasos Por Pieza 	$9.00	$9.00	$9.00	6.00	5	- Sin Departamento -
+ 7502272525029	Veladora Luz Eterna	$33.00	$33.00	$33.00	12.00	3	- Sin Departamento -
+ 7501102212511	Veladora Papel Farol	$24.00	$24.00	$24.00	50.00	2	- Sin Departamento -
+ 744831157051	Veladora SnJudas	$38.16	$45.00	$0.00	0.00	1	velas
+ 7501557202907	Veladora Virgen Vaso Gr	$38.16	$45.00	$0.00	0.00	1	velas
+ 7501055328833	Victoria De Uva 600ml	$18.00	$18.00	$18.00	15.00	2	coca cola
+ 7501055328895	Victoria Grosella 1 1/2	$25.00	$25.00	$25.00	120.00	5	coca cola
+ 7501055377145	Victoria Grosella 2 1/2 Desechable 	$34.00	$34.00	$34.00	30.00	5	coca cola
+ 7501055331987	Victoria Grosella 3 L 	$41.00	$41.00	$41.00	15.00	3	coca cola
+ 7501055328796	Victoria Grosella 600ml	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501055328925	Victoria Manzana 1 1/2	$25.00	$25.00	$25.00	15.00	5	coca cola
+ 7501055377138	Victoria Manzana 2 1/2	$25.00	$25.00	$25.00	30.00	5	coca cola
+ 7501055332014	Victoria Manzana 3 L	$39.00	$39.00	$39.00	25.00	5	coca cola
+ 7501055328826	Victoria Manzana 600ml 	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501055328840	Victoria Piña 600ml	$18.00	$18.00	$18.00	50.00	5	coca cola
+ 7501052475004	Vinagre Blanco Clemente 	$13.30	$15.00	$15.00	15.00	1	aderezos
+ 7501052475011	Vinagre Clemente De 1 Litro	$20.00	$20.00	$20.00	7.00	5	- Sin Departamento -
+ 7501017006229	Vinagre De Manzana	$15.00	$15.00	$15.00	4.00	0.000	aderezos
+ 7501052475202	Vinagre De Manzana	$16.20	$18.00	$0.00	0.00	1	enlatados
+ 7501017004041	Vinagre La Costea 500ml	$15.00	$15.00	$15.00	6.00	3	- Sin Departamento -
+ 7506192506854	Vive 100	$16.00	$16.00	$16.00	10.00	5	- Sin Departamento -
+ 650240017094	XL-3 Extra Par	$40.00	$12.00	$0.00	0.00	2	farmacia
+ 650240017100	Xl-3VR 	$39.27	$6.00	$0.00	0.00	2	farmacia
+ 7501040090967	Yoghurt Yoplait Natural 	$18.41	$23.00	$0.00	0.00	1	yogures
+ 7501020563726	Yogurt Lala 900g Durazno	$32.80	$40.00	$0.00	0.00	1	yogures
+ 7501020563733	Yogurt Lala 900g Fresa	$32.80	$40.00	$0.00	0.00	1	yogures
+ 7501020566994	Yomi Lala Chocolate 960ml	$26.00	$31.00	$0.00	0.00	1	LACTEOS
+ 7501020556964	Yomi Lala Chocolate190g	$6.33	$10.00	$0.00	0.00	2	LACTEOS
+ 7501020567014	Yomi Lala Fresa 960ml	$26.00	$31.00	$0.00	0.00	1	LACTEOS
+ 7501020556988	Yomi Lala Vainilla 190 Ml	$6.33	$10.00	$0.00	0.00	2	LACTEOS
+ 7501020567007	Yomi Lala Vainilla 960ml	$26.00	$31.00	$0.00	0.00	1	LACTEOS
+ 7501020556971	Yomy Lala Fresa 190 Ml	$6.33	$10.00	$0.00	0.00	2	LACTEOS
+ ZH	Zanahoria	$12.00	$22.00	$0.00	N/A	0.000	frutas y verduras
+ 7501000111299	tortillHarina Tia Rc20	$12.96	$17.00	$0.00	N/A	0.000	marinela

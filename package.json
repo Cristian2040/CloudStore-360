@@ -1,0 +1,22 @@
+{
+  "name": "sistema-tienda",
+  "version": "1.0.0",
+  "description": "Sistema de gestión para tienda local con PWA y Firebase",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y live-server --port=3000 --open=/index.html",
+    "start": "npx -y live-server --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "pwa",
+    "firebase",
+    "pos",
+    "tienda",
+    "ventas"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@dataconnect/generated": "file:src/dataconnect-generated"
+  }
+}

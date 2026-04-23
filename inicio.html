@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Inicio - Sistema de gestión para tienda">
+    <meta name="theme-color" content="#ff0040">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sistema Tienda">
+
+    <title>Inicio - Sistema Tienda</title>
+    <link rel="icon" href="/icon-192.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
+
+    <style>
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome-icon svg {
+            width: 1em;
+            height: 1em;
+        }
+
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .products-showcase {
+            display: flex;
+            overflow-x: auto;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+            padding-bottom: var(--spacing-md);
+            /* space for scrollbar/shadows */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: thin;
+            /* Firefox */
+        }
+
+        .products-showcase::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari and Opera (or use thin scrollbar) */
+        }
+
+        .product-showcase-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            min-width: 200px;
+            /* Fixed min width for horizontal scroll */
+            flex: 0 0 auto;
+        }
+
+        .product-showcase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .product-name {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .product-price {
+            color: var(--primary-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .product-stock {
+            font-size: 0.875rem;
+        }
+
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .action-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .action-icon svg {
+            width: 1em;
+            height: 1em;
+            transition: transform var(--transition-fast);
+        }
+
+        .action-card:hover .action-icon {
+            color: var(--primary-color);
+        }
+
+        .action-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .action-description {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon">
+            </div>
+            <span class="sidebar-brand-text">Sistema Tienda</span>
+            <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="inicio.html" class="sidebar-item active">
+                <span class="sidebar-item-icon"><i data-lucide="home"></i></span>
+                <span class="text">Inicio</span>
+            </a>
+            <a href="dashboard.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="bar-chart-2"></i></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <a href="productos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="package"></i></span>
+                <span class="text">Productos</span>
+            </a>
+            <a href="ventas.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="shopping-cart"></i></span>
+                <span class="text">Ventas</span>
+            </a>
+            <a href="gastos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="receipt"></i></span>
+                <span class="text">Gastos</span>
+            </a>
+            <a href="reportes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="pie-chart"></i></span>
+                <span class="text">Reportes</span>
+            </a>
+            <a href="clientes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="users"></i></span>
+                <span class="text">Clientes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Desktop Topbar -->
+    <header class="topbar" id="topbar">
+        <!-- Global Search Bar -->
+        <div class="global-search-container" id="global-search-container">
+            <div class="global-search-wrapper">
+                <input type="text" class="global-search-input" id="global-search-input"
+                    placeholder="Buscar productos, clientes, ventas...">
+                <button class="global-search-btn"><i data-lucide="search" data-anim="pulse"
+                        style="width:1.2em; height:1.2em;"></i></button>
+                <button class="global-search-close" id="global-search-close">✕</button>
+            </div>
+            <div class="global-search-results" id="global-search-results"></div>
+        </div>
+
+        <div class="navbar-user">
+            <!-- User Dropdown -->
+            <div class="navbar-user-dropdown">
+                <button class="navbar-user-btn" id="user-dropdown-btn">
+                    <div class="navbar-user-avatar" id="user-avatar">U</div>
+                    <span id="user-display-name">Usuario</span>
+                    <span class="navbar-user-arrow">▼</span>
+                </button>
+
+                <div class="navbar-dropdown-menu" id="user-dropdown-menu">
+                    <div class="navbar-dropdown-header">
+                        <div class="navbar-dropdown-email" id="dropdown-user-email">usuario@email.com</div>
+                        <div class="navbar-dropdown-role">Administrador</div>
+                    </div>
+
+                    <a href="#" class="navbar-dropdown-item" id="edit-profile-btn">
+                        <span><i data-lucide="user" style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Mi Perfil</span>
+                    </a>
+
+                    <a href="#" class="navbar-dropdown-item" id="settings-btn">
+                        <span><i data-lucide="settings"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Configuración</span>
+                    </a>
+
+                    <div class="navbar-dropdown-divider"></div>
+
+                    <button class="navbar-dropdown-item danger" id="dropdown-logout-btn">
+                        <span><i data-lucide="log-out"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar (Only visible on mobile) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="inicio.html" class="navbar-brand">
+                <img src="images/brand-icon.png" alt="Icono" class="custom-navbar-icon"> Sistema Tienda
+            </a>
+
+            <button class="navbar-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="inicio.html" class="active">Inicio</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="gastos.html">Gastos</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section fade-in">
+                <div class="welcome-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon" style="width: 1em; height: 1em;" data-anim="bounce"></div>
+                <h1 class="welcome-title">Bienvenido a tu Tienda</h1>
+                <p class="text-muted">Gestionemos tu negocio de forma simple y eficiente</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2>Acciones Rápidas</h2>
+                </div>
+
+                <div class="quick-actions-grid">
+                    <a href="ventas.html" class="action-card">
+                        <div class="action-icon"><i data-lucide="shopping-cart" data-anim="bounce"
+                                style="width:1em; height:1em;"></i></div>
+                        <h3 class="action-title">Nueva Venta</h3>
+                        <p class="action-description">Registrar una transacción</p>
+                    </a>
+
+                    <a href="productos.html" class="action-card">
+                        <div class="action-icon"><i data-lucide="plus-circle" data-anim="pulse"
+                                style="width:1em; height:1em;"></i></div>
+                        <h3 class="action-title">Agregar Producto</h3>
+                        <p class="action-description">Añadir al inventario</p>
+                    </a>
+
+                    <a href="dashboard.html" class="action-card">
+                        <div class="action-icon"><i data-lucide="bar-chart-2" data-anim="pulse"
+                                style="width:1em; height:1em;"></i></div>
+                        <h3 class="action-title">Ver Estadísticas</h3>
+                        <p class="action-description">Análisis y reportes</p>
+                    </a>
+
+                    <a href="productos.html" class="action-card">
+                        <div class="action-icon"><i data-lucide="package" data-anim="wiggle"
+                                style="width:1em; height:1em;"></i></div>
+                        <h3 class="action-title">Ver Inventario</h3>
+                        <p class="action-description">Gestionar productos</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Products Overview -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2>Tus Productos</h2>
+                        <p class="text-muted">Vista rápida de tu inventario</p>
+                    </div>
+                    <a href="productos.html" class="btn btn-primary">Ver Todos</a>
+                </div>
+
+                <div class="products-showcase" id="products-showcase">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script type="module">
+        import { initializeFirebase, onAuthStateChanged } from './js/services/firebase.js';
+        import { logout } from './js/services/auth.js';
+        import { getAllProducts } from './js/services/products.js';
+        import { formatCurrency, showAlert, showLoading } from './js/utils/helpers.js';
+
+        // Inicializar Firebase
+        initializeFirebase();
+
+        // Elementos del DOM
+        const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+        const productsShowcase = document.getElementById('products-showcase');
+
+        // Verificar autenticación
+        onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Poblar información del usuario
+            if (window.populateUserInfo) {
+                window.populateUserInfo(user.email);
+            }
+
+            loadProducts();
+        });
+
+        // Cerrar sesión
+        if (dropdownLogoutBtn) {
+            dropdownLogoutBtn.addEventListener('click', async () => {
+                try {
+                    await logout();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    showAlert('Error al cerrar sesión', 'error');
+                }
+            });
+        }
+
+        // Cargar productos
+        async function loadProducts() {
+            try {
+                showLoading(productsShowcase, 'Cargando productos...');
+                const allProducts = await getAllProducts();
+                const activeProducts = allProducts.filter(p => p.activo !== false);
+                displayProducts(activeProducts);
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                showAlert('Error al cargar productos', 'error');
+            }
+        }
+
+        // Mostrar productos
+        function displayProducts(products) {
+            if (!products || products.length === 0) {
+                productsShowcase.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <div class="empty-state-icon"><i data-lucide="package" data-anim="wiggle" style="width:1em; height:1em;"></i></div>
+            <p>No hay productos registrados</p>
+            <a href="productos.html" class="btn btn-primary mt-2">Agregar Primer Producto</a>
+          </div>
+        `;
+                return;
+            }
+
+            // Mostrar los primeros 15 productos
+            const featured = products.slice(0, 15);
+
+            productsShowcase.innerHTML = featured.map(product => {
+                const stockClass = product.stock <= 10 ? 'badge-error' : 'badge-success';
+
+                return `
+          <div class="product-showcase-card fade-in" onclick="window.location.href='productos.html'">
+            <div class="product-icon"><i data-lucide="package" style="width:1em; height:1em;"></i></div>
+            <div class="product-name">${product.nombre}</div>
+            <div class="product-price">${formatCurrency(product.precio)}</div>
+            <div class="product-stock">
+              <span class="badge ${stockClass}">Stock: ${product.stock}</span>
+            </div>
+          </div>
+        `;
+            }).join('');
+
+            if (window.lucide) window.lucide.createIcons({ root: productsShowcase });
+            if (window.initGlobalAnimations) window.initGlobalAnimations(productsShowcase);
+
+            // Auto-scroll loop
+            if (!productsShowcase.dataset.autoScroll) {
+                productsShowcase.dataset.autoScroll = "true";
+                let scrollPos = 0;
+                let isHovered = false;
+
+                productsShowcase.addEventListener('mouseenter', () => isHovered = true);
+                productsShowcase.addEventListener('mouseleave', () => isHovered = false);
+                productsShowcase.addEventListener('touchstart', () => isHovered = true, { passive: true });
+                productsShowcase.addEventListener('touchend', () => isHovered = false, { passive: true });
+
+                function autoScroll() {
+                    if (!isHovered) {
+                        scrollPos += 0.5; // Velocidad del scroll
+                        productsShowcase.scrollLeft = scrollPos;
+
+                        // Si llega al final, regresa al inicio de manera invisible
+                        if (productsShowcase.scrollLeft >= productsShowcase.scrollWidth - productsShowcase.clientWidth - 1) {
+                            scrollPos = 0;
+                            productsShowcase.scrollLeft = 0;
+                        }
+                    } else {
+                        scrollPos = productsShowcase.scrollLeft; // Resincronizar
+                    }
+                    requestAnimationFrame(autoScroll);
+                }
+
+                // Empezar tras un breve retraso para dejar renderizar las imagenes
+                setTimeout(() => requestAnimationFrame(autoScroll), 1000);
+            }
+        }
+    </script>
+
+
+    <!-- User Menu Script -->
+    <script src="/js/user-menu.js"></script>
+
+    <!-- Global Search Script -->
+    <script src="js/global-search.js?v=2.5"></script>
+    <script type="module" src="js/search-services.js"></script>
+
+    <!-- Animation & Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="/js/animations.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script src="js/mobile-menu.js"></script>
+    <script type="module" src="js/notes-widget.js"></script>
+    <script src="js/calc-widget.js"></script>
+    <script src="/js/pwa.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js?v=2.4"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+
+</html>

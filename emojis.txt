@@ -1,0 +1,189 @@
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\clientes.html:68: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\clientes.html:106: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\clientes.html:111: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\clientes.html:118: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\clientes.html:167: placeholder="🔍 Buscar cliente por nombre, teléfono o email..." />
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:157: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:196: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:201: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:208: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:231: <div class="stat-icon">💰</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:238: <div class="stat-icon">📈</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:245: <div class="stat-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:252: <div class="stat-icon">🔔</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:270: <h3 class="chart-title">📈 Tendencia de Ventas</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:278: <h3 class="chart-title">🏆 Productos Más Vendidos</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:286: <h3 class="chart-title">💰 Análisis de Ganancias</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:294: <h3 class="chart-title">💸 Gastos por Categoría</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:476: <div class="empty-state-icon">❌</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:520: <div class="empty-state-icon">🛒</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:553: <div class="empty-state-icon">✅</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\dashboard.html:570: <div style="font-size: 2.5rem; text-align: center; margin-bottom: var(--spacing-sm);">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:84: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:125: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:130: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:137: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:192: <button class="btn btn-outline btn-sm" id="refresh-expenses">🔄 Actualizar</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:259: <option value="efectivo">💵 Efectivo</option>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:260: <option value="tarjeta">💳 Tarjeta</option>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:261: <option value="transferencia">🏦 Transferencia</option>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:457: 'efectivo': '💵 Efectivo',
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:458: 'tarjeta': '💳 Tarjeta',
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\gastos.html:459: 'transferencia': '🏦 Transfer.'
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\index.html:105: <div class="login-logo">🏪</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:151: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:190: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:195: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:202: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:216: <div class="welcome-icon">🏪</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:229: <div class="action-icon">🛒</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:235: <div class="action-icon">➕</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:241: <div class="action-icon">📊</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:247: <div class="action-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:335: <div class="empty-state-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\inicio.html:351: <div class="product-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:93: searchResults.innerHTML = '<div class="search-loading">🔍 Buscando...</div>';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:138: <span>😕</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:151: <div class="search-section-title">📦 Productos (${results.products.length})</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:154: <span class="search-result-icon">📦</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:170: <div class="search-section-title">👥 Clientes (${results.clients.length})</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:173: <span class="search-result-icon">👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:189: <div class="search-section-title">🛒 Ventas (${results.sales.length})</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:192: <span class="search-result-icon">🧾</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:207: <div class="search-section-title">💸 Gastos (${results.gastos.length})</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\global-search.js:210: <span class="search-result-icon">💸</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\notes-widget.js:13: <h3>📝 Mis Notas</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\notes-widget.js:67: btn.innerHTML = '📝';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\pwa.js:8: console.log('✅ Service Worker registrado con éxito:', registration.scope);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\pwa.js:11: console.error('❌ Falló el registro del Service Worker:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\pwa.js:34: toast.innerHTML = '<span class="offline-icon">⚠️</span> <span>Estás desconectado. Trabajando en modo offline.</span>';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\pwa.js:39: toast.innerHTML = '<span class="offline-icon">🟢</span> <span>Conexión restaurada. Sincronizando...</span>';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\search-services.js:96: console.log('✅ Search services registered');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:17: console.log('✅ Login exitoso:', userCredential.user.email);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:20: console.error('❌ Error en login:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:38: console.log('✅ Registro exitoso:', userCredential.user.email);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:41: console.error('❌ Error en registro:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:53: console.log('✅ Sesión cerrada');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:55: console.error('❌ Error al cerrar sesión:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:110: console.log('✅ Email de recuperación enviado');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\auth.js:112: console.error('❌ Error al enviar email de recuperación:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:44: console.log('✅ Cliente creado (Online):', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:46: console.log('⚠️ Cliente guardado offline/lento:', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:52: console.error('❌ Error al crear cliente:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:79: console.log(`✅ ${clientes.length} clientes obtenidos`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:82: console.error('❌ Error al obtener clientes:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:108: console.error('❌ Error al obtener cliente:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:131: console.error('❌ Error al buscar clientes:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:152: console.log('✅ Cliente actualizado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:154: console.error('❌ Error al actualizar cliente:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:171: console.log('✅ Cliente eliminado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:173: console.error('❌ Error al eliminar cliente:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:195: console.log('✅ Compra registrada para cliente:', clienteId);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:197: console.error('❌ Error al registrar compra:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:228: console.error('❌ Error al obtener top clientes:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\clientes.js:254: console.error('❌ Error al obtener estadísticas:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\data-export.js:28: console.log(`📦 Procesando colección: ${collectionName}...`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\data-export.js:75: console.log('✅ Base de datos exportada a Excel correctamente');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\data-export.js:78: console.error('❌ Error al exportar a Excel:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\firebase.js:30: console.log('📦 Persistencia offline habilitada');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\firebase.js:39: console.log('✅ Firebase inicializado correctamente');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\firebase.js:46: console.error('❌ Error al inicializar Firebase:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\firebase.js:87: console.log('🌐 Conexión detectada: Habilitando red de Firestore...');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\firebase.js:90: console.log('📴 Sin conexión: Deshabilitando red de Firestore para evitar errores...');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:55: console.log('✅ Gasto registrado (Online):', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:57: console.log('⚠️ Gasto guardado offline/lento:', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:63: console.error('❌ Error al crear gasto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:91: console.log(`✅ ${gastos.length} gastos obtenidos`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:94: console.error('❌ Error al obtener gastos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:126: console.log(`✅ ${gastos.length} gastos obtenidos en el rango`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:129: console.error('❌ Error al obtener gastos por rango:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:181: console.log('✅ Gasto actualizado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:183: console.error('❌ Error al actualizar gasto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:200: console.log('✅ Gasto eliminado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:202: console.error('❌ Error al eliminar gasto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:285: console.log(`✅ ${gastos.length} gastos encontrados`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\gastos.js:288: console.error('❌ Error al buscar gastos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\movimientos.js:39: console.log('✅ Movimiento registrado:', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\movimientos.js:42: console.error('❌ Error al registrar movimiento:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\movimientos.js:73: console.error('❌ Error al obtener movimientos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\movimientos.js:102: console.error('❌ Error al obtener movimientos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\movimientos.js:137: console.error('❌ Error al obtener estadísticas:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:23: console.log(`✅ ${products.length} productos obtenidos`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:26: console.error('❌ Error al obtener productos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:50: console.error('❌ Error al obtener producto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:83: console.log('✅ Producto creado:', docRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:86: console.error('❌ Error al crear producto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:188: console.log(`✅ Lote procesado.`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:194: console.error('❌ Error en carga masiva:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:219: console.log('✅ Producto actualizado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:221: console.error('❌ Error al actualizar producto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:240: console.log('✅ Producto eliminado:', id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:242: console.error('❌ Error al eliminar producto:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:275: console.log(`✅ Stock actualizado: ${currentStock} → ${newStock}`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:277: console.error('❌ Error al actualizar stock:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:311: console.log(`✅ ${products.length} productos encontrados`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:314: console.error('❌ Error al buscar productos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:340: console.log(`✅ ${products.length} productos con stock bajo`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:343: console.error('❌ Error al obtener productos con stock bajo:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\products.js:385: console.error('❌ Error al obtener productos por categoría:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:79: console.log('✅ Venta registrada (Online - Rápido):', saleRef.id);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:84: console.log('⚠️ Guardando en background (Offline/Lento):', error.message);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:93: console.error('❌ Error al registrar venta:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:120: console.log(`✅ ${sales.length} ventas obtenidas`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:123: console.error('❌ Error al obtener ventas:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:152: console.log(`✅ ${sales.length} ventas obtenidas en el rango`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:155: console.error('❌ Error al obtener ventas por rango:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:194: console.error('❌ Error al obtener venta:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:238: console.log('✅ Estadísticas calculadas:', stats);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:241: console.error('❌ Error al calcular estadísticas:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:283: console.log(`✅ Top ${limit} productos calculados`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\services\sales.js:286: console.error('❌ Error al obtener productos más vendidos:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\js\theme.js:44: <span id="theme-icon">🌓</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:236: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:274: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:279: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:286: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:307: 📥 Importar Excel
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:319: <span class="search-icon">🔍</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:322: <button id="scan-toggle-btn" class="scan-btn" title="Escanear código de barras">📷</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:405: title="Escanear código">📷</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:797: <div class="empty-state-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:815: <div class="product-image">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1076: console.log('✅ Import handlers initialized');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1079: console.log('📂 Import button clicked');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1087: console.log('📄 File selected:', file.name);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1100: console.log(`📦 Encontrados ${products.length} productos`);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1117: console.error('❌ Import error:', error);
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\productos.html:1124: console.error('❌ Import button or file input not found');
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:136: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:175: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:180: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:187: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:207: 💾 Exportar BD
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:210: 📄 Exportar a PDF
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:249: <h3 class="chart-title">📈 Tendencia de Ventas</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:257: <h3 class="chart-title">🏆 Productos Más Vendidos</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:265: <h3 class="chart-title">💰 Análisis de Ganancias</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:273: <h3 class="chart-title">💸 Gastos por Categoría</h3>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:357: exportDbBtn.textContent = '⏳ Exportando...';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:364: exportDbBtn.textContent = '💾 Exportar BD';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\reportes.html:527: exportPdfBtn.textContent = '📄 Exportar a PDF';
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:465: <button class="global-search-btn">🔍</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:503: <span>👤</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:508: <span>⚙️</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:515: <span>🚪</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:534: 📜 Ver Historial
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:544: <span class="search-icon">🔍</span>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:547: <button id="scan-toggle-btn" class="scan-btn" title="Escanear código de barras">📷</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:568: <div class="cart-header">🛒 Carrito</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:572: <div class="empty-state-icon">🛒</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:595: 💵 Efectivo
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:599: 💳 Tarjeta
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:603: 🏦 Transfer.
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:629: <button class="btn btn-outline btn-sm" id="refresh-history">🔄 Actualizar</button>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:943: <div class="empty-state-icon" style="font-size: 2rem;">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:952: <div class="product-item-icon">📦</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:1052: <div class="empty-state-icon">🛒</div>
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:1368: 'efectivo': '💵 Efectivo',
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:1369: 'tarjeta': '💳 Tarjeta',
+C:\Users\hbcri\OneDrive\Documentos\PAW\sistema-tienda\ventas.html:1370: 'transferencia': '🏦 Transfer.'

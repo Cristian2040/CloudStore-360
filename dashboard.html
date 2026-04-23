@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Dashboard - Sistema de gestión para tienda">
+    <meta name="theme-color" content="#ff0040">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sistema Tienda">
+
+    <title>Dashboard - Sistema Tienda</title>
+    <link rel="icon" href="/icon-192.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .stat-change.positive {
+            color: var(--success-color);
+        }
+
+        .stat-change.negative {
+            color: var(--error-color);
+        }
+
+        .dashboard-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .recent-sales-list {
+            list-style: none;
+        }
+
+        .sale-item {
+            padding: var(--spacing-md);
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: all var(--transition-fast);
+        }
+
+        .sale-item:hover {
+            background: var(--bg-secondary);
+            border: 1px solid var(--primary-color);
+            transform: translateX(4px);
+        }
+
+        .sale-info {
+            flex: 1;
+        }
+
+        .sale-time {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .sale-amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--success-color);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon"></div>
+            <span class="sidebar-brand-text">Sistema Tienda</span>
+            <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="inicio.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="home"></i></span>
+                <span class="text">Inicio</span>
+            </a>
+            <a href="dashboard.html" class="sidebar-item active">
+                <span class="sidebar-item-icon"><i data-lucide="bar-chart-2"></i></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <a href="productos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="package"></i></span>
+                <span class="text">Productos</span>
+            </a>
+            <a href="ventas.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="shopping-cart"></i></span>
+                <span class="text">Ventas</span>
+            </a>
+            <a href="gastos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="receipt"></i></span>
+                <span class="text">Gastos</span>
+            </a>
+            <a href="reportes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="pie-chart"></i></span>
+                <span class="text">Reportes</span>
+            </a>
+            <a href="clientes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="users"></i></span>
+                <span class="text">Clientes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Desktop Topbar -->
+    <header class="topbar" id="topbar">
+        <!-- Global Search Bar -->
+        <div class="global-search-container" id="global-search-container">
+            <div class="global-search-wrapper">
+                <input type="text" class="global-search-input" id="global-search-input"
+                    placeholder="Buscar productos, clientes, ventas...">
+                <button class="global-search-btn"><i data-lucide="search" data-anim="pulse"
+                        style="width:1.2em; height:1.2em;"></i></button>
+                <button class="global-search-close" id="global-search-close">✕</button>
+            </div>
+            <div class="global-search-results" id="global-search-results"></div>
+        </div>
+
+        <div class="navbar-user">
+            <!-- User Dropdown -->
+            <div class="navbar-user-dropdown">
+                <button class="navbar-user-btn" id="user-dropdown-btn">
+                    <div class="navbar-user-avatar" id="user-avatar">U</div>
+                    <span id="user-display-name">Usuario</span>
+                    <span class="navbar-user-arrow">▼</span>
+                </button>
+
+                <div class="navbar-dropdown-menu" id="user-dropdown-menu">
+                    <div class="navbar-dropdown-header">
+                        <div class="navbar-dropdown-email" id="dropdown-user-email">usuario@email.com</div>
+                        <div class="navbar-dropdown-role">Administrador</div>
+                    </div>
+
+                    <a href="#" class="navbar-dropdown-item" id="edit-profile-btn">
+                        <span><i data-lucide="user" style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Mi Perfil</span>
+                    </a>
+
+                    <a href="#" class="navbar-dropdown-item" id="settings-btn">
+                        <span><i data-lucide="settings"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Configuración</span>
+                    </a>
+
+                    <div class="navbar-dropdown-divider"></div>
+
+                    <button class="navbar-dropdown-item danger" id="dropdown-logout-btn">
+                        <span><i data-lucide="log-out"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar (Only visible on mobile) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="inicio.html" class="navbar-brand">
+                <img src="images/brand-icon.png" alt="Icono" class="custom-navbar-icon"> Sistema Tienda
+            </a>
+
+            <button class="navbar-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="gastos.html">Gastos</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="section-header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p class="text-muted">Resumen de tu negocio</p>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon"><i data-lucide="circle-dollar-sign" data-anim="pulse"
+                            style="width:1em; height:1em;"></i></div>
+                    <div class="stat-label">Ventas Hoy</div>
+                    <div class="stat-value" id="today-sales">$0.00</div>
+                    <div class="stat-change" id="today-sales-count">0 transacciones</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-icon"><i data-lucide="trending-up" data-anim="pulse"
+                            style="width:1em; height:1em;"></i></div>
+                    <div class="stat-label">Ganancias Hoy</div>
+                    <div class="stat-value" id="today-profit">$0.00</div>
+                    <div class="stat-change positive" id="profit-margin">0% margen</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-icon"><i data-lucide="package" data-anim="pulse"
+                            style="width:1em; height:1em;"></i></div>
+                    <div class="stat-label">Productos</div>
+                    <div class="stat-value" id="total-products">0</div>
+                    <div class="stat-change" id="low-stock-count">0 stock bajo</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-icon"><i data-lucide="bell" data-anim="pulse" style="width:1em; height:1em;"></i>
+                    </div>
+                    <div class="stat-label">Productos Vendidos</div>
+                    <div class="stat-value" id="items-sold">0</div>
+                    <div class="stat-change" id="items-sold-label">Unidades hoy</div>
+                </div>
+            </div>
+
+            <!-- Period Selector -->
+            <div class="period-selector">
+                <button class="period-btn active" data-period="7">Últimos 7 días</button>
+                <button class="period-btn" data-period="30">Últimos 30 días</button>
+                <button class="period-btn" data-period="90">Últimos 3 meses</button>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <!-- Sales Trend Chart -->
+                <div class="chart-card">
+                    <h3 class="chart-title"><i data-lucide="trending-up"
+                            style="width:1em; height:1em; vertical-align: middle;"></i> Tendencia de Ventas</h3>
+                    <div class="chart-container">
+                        <canvas id="sales-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Products Chart -->
+                <div class="chart-card">
+                    <h3 class="chart-title"><i data-lucide="trophy"
+                            style="width:1em; height:1em; vertical-align: middle;"></i> Productos Más Vendidos</h3>
+                    <div class="chart-container">
+                        <canvas id="top-products-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Profit Analysis Chart -->
+                <div class="chart-card">
+                    <h3 class="chart-title"><i data-lucide="circle-dollar-sign"
+                            style="width:1em; height:1em; vertical-align: middle;"></i> Análisis de Ganancias</h3>
+                    <div class="chart-container">
+                        <canvas id="profit-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Expense Categories Chart -->
+                <div class="chart-card">
+                    <h3 class="chart-title"><i data-lucide="banknote"
+                            style="width:1em; height:1em; vertical-align: middle;"></i> Gastos por Categoría</h3>
+                    <div class="chart-container">
+                        <canvas id="expenses-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Sales Section -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="section-header" style="margin-bottom: 0;">
+                            <div>
+                                <h3 class="card-title">Ventas Recientes</h3>
+                                <p class="card-subtitle">Últimas transacciones del día</p>
+                            </div>
+                            <a href="ventas.html" class="btn btn-outline btn-sm">Ver Todas</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <ul class="recent-sales-list" id="recent-sales-list">
+                            <!-- Se llenará dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products Section -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="section-header" style="margin-bottom: 0;">
+                            <div>
+                                <h3 class="card-title">Productos Destacados</h3>
+                                <p class="card-subtitle">Productos con stock bajo que requieren atención</p>
+                            </div>
+                            <a href="productos.html" class="btn btn-outline btn-sm">Ver Todos</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="grid grid-4" id="featured-products">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script type="module">
+        import { initializeFirebase, onAuthStateChanged } from './js/services/firebase.js';
+        import { logout, getCurrentUser } from './js/services/auth.js';
+        import { getAllProducts, getLowStockProducts } from './js/services/products.js';
+        import { getTodaySales, getSalesStats, getAllSales } from './js/services/sales.js';
+        import { getGastosByDateRange, groupGastosByCategory, calculateTotalGastos } from './js/services/gastos.js';
+        import { formatCurrency, formatDate, showAlert, showLoading } from './js/utils/helpers.js';
+
+        // Inicializar Firebase
+        initializeFirebase();
+
+        // Charts
+        let salesChart, topProductsChart, profitChart, expensesChart;
+        let currentPeriod = 7;
+
+        // Elementos del DOM
+        const userDropdownBtn = document.getElementById('user-dropdown-btn');
+        const userDropdownMenu = document.getElementById('user-dropdown-menu');
+        const dropdownUserEmail = document.getElementById('dropdown-user-email');
+        const userDisplayName = document.getElementById('user-display-name');
+        const userAvatar = document.getElementById('user-avatar');
+        const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+        const editProfileBtn = document.getElementById('edit-profile-btn');
+        const settingsBtn = document.getElementById('settings-btn');
+        const recentSalesList = document.getElementById('recent-sales-list');
+
+        // Verificar autenticación
+        onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Poblar información del usuario
+            const email = user.email || 'usuario@ejemplo.com';
+            const firstName = email.split('@')[0];
+            const initials = firstName.charAt(0).toUpperCase();
+
+            dropdownUserEmail.textContent = email;
+            userDisplayName.textContent = firstName;
+            userAvatar.textContent = initials;
+
+            loadDashboardData();
+            loadReports(); // Cargar reportes y gráficas
+        });
+
+        // User dropdown toggle
+        userDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdownBtn.classList.toggle('active');
+            userDropdownMenu.classList.toggle('active');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!userDropdownBtn.contains(e.target) && !userDropdownMenu.contains(e.target)) {
+                userDropdownBtn.classList.remove('active');
+                userDropdownMenu.classList.remove('active');
+            }
+        });
+
+        // Cerrar sesión desde dropdown
+        dropdownLogoutBtn.addEventListener('click', async () => {
+            try {
+                await logout();
+                window.location.href = 'index.html';
+            } catch (error) {
+                showAlert('Error al cerrar sesión', 'error');
+            }
+        });
+
+        // Editar perfil (placeholder)
+        editProfileBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showAlert('Función en desarrollo', 'info');
+        });
+
+        // Configuración (placeholder)
+        settingsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showAlert('Función en desarrollo', 'info');
+        });
+
+        // Period selector
+        document.querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentPeriod = parseInt(btn.dataset.period);
+                loadReports();
+            });
+        });
+
+
+        // Cargar datos del dashboard
+        async function loadDashboardData() {
+            try {
+                showLoading(recentSalesList, 'Cargando datos...');
+
+                // Obtener datos en paralelo
+                const [todaySales, products, lowStockProducts] = await Promise.all([
+                    getTodaySales(),
+                    getAllProducts(),
+                    getLowStockProducts(10)
+                ]);
+
+                // Actualizar estadísticas de ventas
+                updateSalesStats(todaySales);
+
+                // Actualizar estadísticas de productos
+                updateProductStats(products, lowStockProducts);
+
+                // Mostrar ventas recientes
+                displayRecentSales(todaySales);
+
+                // Mostrar productos destacados
+                displayFeaturedProducts(lowStockProducts);
+
+            } catch (error) {
+                console.error('Error al cargar datos del dashboard:', error);
+                showAlert('Error al cargar datos del dashboard', 'error');
+                recentSalesList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon"><i data-lucide="x-circle" style="width:1em; height:1em;"></i></div>
+            <p>Error al cargar los datos</p>
+          </div>
+        `;
+            }
+        }
+
+        // Actualizar estadísticas de ventas
+        function updateSalesStats(sales) {
+            const totalSales = sales.reduce((sum, sale) => sum + (sale.total || 0), 0);
+            const totalProfit = sales.reduce((sum, sale) => sum + (sale.ganancia || 0), 0);
+            const totalItems = sales.reduce((sum, sale) => {
+                return sum + (sale.items || []).reduce((itemSum, item) => itemSum + item.cantidad, 0);
+            }, 0);
+
+            document.getElementById('today-sales').textContent = formatCurrency(totalSales);
+            document.getElementById('today-sales-count').textContent = `${sales.length} transacciones`;
+            document.getElementById('today-profit').textContent = formatCurrency(totalProfit);
+
+            const profitMargin = totalSales > 0 ? ((totalProfit / totalSales) * 100).toFixed(1) : 0;
+            document.getElementById('profit-margin').textContent = `${profitMargin}% margen`;
+
+            document.getElementById('items-sold').textContent = totalItems;
+        }
+
+        // Actualizar estadísticas de productos
+        function updateProductStats(products, lowStockProducts) {
+            const activeProducts = products.filter(p => p.activo !== false);
+
+            document.getElementById('total-products').textContent = activeProducts.length;
+
+            const lowStockEl = document.getElementById('low-stock-count');
+            lowStockEl.textContent = `${lowStockProducts.length} stock bajo`;
+
+            if (lowStockProducts.length > 0) {
+                lowStockEl.classList.add('negative');
+            }
+        }
+
+        // Mostrar ventas recientes
+        function displayRecentSales(sales) {
+            if (!sales || sales.length === 0) {
+                recentSalesList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon"><i data-lucide="shopping-cart" style="width:1em; height:1em;"></i></div>
+            <p>No hay ventas registradas hoy</p>
+            <a href="ventas.html" class="btn btn-primary mt-2">Registrar Primera Venta</a>
+          </div>
+        `;
+                return;
+            }
+
+            const recentSales = sales.slice(0, 5);
+
+            recentSalesList.innerHTML = recentSales.map(sale => `
+        <li class="sale-item">
+          <div class="sale-info">
+            <div><strong>${sale.items?.length || 0} productos</strong></div>
+            <div class="sale-time">${formatDate(sale.fecha, 'time')}</div>
+          </div>
+          <div>
+            <div class="sale-amount">${formatCurrency(sale.total)}</div>
+            <div class="text-muted" style="font-size: 0.75rem; text-align: right;">
+              ${formatCurrency(sale.ganancia)} ganancia
+            </div>
+          </div>
+        </li>
+      `).join('');
+
+            if (window.lucide) window.lucide.createIcons({ root: recentSalesList });
+            if (window.initGlobalAnimations) window.initGlobalAnimations(recentSalesList);
+        }
+
+        // Mostrar productos destacados
+        function displayFeaturedProducts(products) {
+            const featuredContainer = document.getElementById('featured-products');
+
+            if (!products || products.length === 0) {
+                featuredContainer.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <div class="empty-state-icon"><i data-lucide="check-circle" style="width:1em; height:1em;"></i></div>
+            <p>Todos los productos tienen stock suficiente</p>
+          </div>
+        `;
+                return;
+            }
+
+            const featured = products.slice(0, 4);
+
+            featuredContainer.innerHTML = featured.map(product => {
+                const stockClass = product.stock <= 5 ? 'badge-error' : 'badge-warning';
+                const profitMargin = product.costo > 0
+                    ? (((product.precio - product.costo) / product.precio) * 100).toFixed(0)
+                    : 0;
+
+                return `
+          <div class="card" style="padding: var(--spacing-md);">
+            <div style="font-size: 2.5rem; text-align: center; margin-bottom: var(--spacing-sm);"><i data-lucide="package" style="width:1em; height:1em;"></i></div>
+            <h4 style="font-size: 1rem; margin-bottom: var(--spacing-xs);">${product.nombre}</h4>
+            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: var(--spacing-sm);">${product.categoria || 'General'}</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm);">
+              <span style="font-size: 1.25rem; font-weight: 700; color: var(--primary-light);">${formatCurrency(product.precio)}</span>
+              <span class="badge ${stockClass}">Stock: ${product.stock}</span>
+            </div>
+            ${profitMargin > 0 ? `<p class="text-muted" style="font-size: 0.75rem;">Margen: ${profitMargin}%</p>` : ''}
+            <a href="productos.html" class="btn btn-outline btn-sm" style="width: 100%; margin-top: var(--spacing-sm);">Reabastecer</a>
+          </div>
+        `;
+            }).join('');
+
+            if (window.lucide) window.lucide.createIcons({ root: featuredContainer });
+            if (window.initGlobalAnimations) window.initGlobalAnimations(featuredContainer);
+        }
+
+        // Cargar reportes y gráficas
+        async function loadReports() {
+            try {
+                const endDate = new Date();
+                const startDate = new Date();
+                startDate.setDate(startDate.getDate() - currentPeriod);
+
+                // Obtener datos
+                const [allSales, expenses] = await Promise.all([
+                    getAllSales(1000),
+                    getGastosByDateRange(startDate, endDate)
+                ]);
+
+                // Filtrar ventas por período
+                const sales = allSales.filter(sale => {
+                    const saleDate = sale.fecha instanceof Date ? sale.fecha : new Date(sale.fecha);
+                    return saleDate >= startDate && saleDate <= endDate;
+                });
+
+                // Crear gráficas
+                createSalesChart(sales);
+                createTopProductsChart(sales);
+                createProfitChart(sales);
+                createExpensesChart(expenses);
+
+            } catch (error) {
+                console.error('Error al cargar reportes:', error);
+            }
+        }
+
+        // Crear gráfica de ventas
+        function createSalesChart(sales) {
+            const days = currentPeriod;
+            const labels = [];
+            const data = [];
+
+            for (let i = days - 1; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                labels.push(date.toLocaleDateString('es-MX', { month: 'short', day: 'numeric' }));
+                data.push(0);
+            }
+
+            sales.forEach(sale => {
+                const saleDate = sale.fecha instanceof Date ? sale.fecha : new Date(sale.fecha);
+                const dayIndex = Math.floor((new Date() - saleDate) / (1000 * 60 * 60 * 24));
+                if (dayIndex >= 0 && dayIndex < days) {
+                    data[days - 1 - dayIndex] += sale.total || 0;
+                }
+            });
+
+            if (salesChart) salesChart.destroy();
+
+            const ctx = document.getElementById('sales-chart').getContext('2d');
+            salesChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Ventas',
+                        data: data,
+                        borderColor: '#ff0040', // Neon Red
+                        backgroundColor: 'rgba(255, 0, 64, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => formatCurrency(value),
+                                color: '#a0a0a0'
+                            },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a0a0' },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Crear gráfica de productos más vendidos
+        function createTopProductsChart(sales) {
+            const productSales = {};
+
+            sales.forEach(sale => {
+                (sale.items || []).forEach(item => {
+                    if (!productSales[item.nombre]) {
+                        productSales[item.nombre] = 0;
+                    }
+                    productSales[item.nombre] += item.cantidad;
+                });
+            });
+
+            const sorted = Object.entries(productSales)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            const labels = sorted.map(([name]) => name);
+            const data = sorted.map(([, qty]) => qty);
+
+            if (topProductsChart) topProductsChart.destroy();
+
+            const ctx = document.getElementById('top-products-chart').getContext('2d');
+            topProductsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Unidades Vendidas',
+                        data: data,
+                        backgroundColor: [
+                            '#ff0040', // Red
+                            '#ff3333',
+                            '#ff6600', // Orange-ish
+                            '#ff9933',
+                            '#ffcc00'  // Yellow
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#a0a0a0' },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a0a0' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Crear gráfica de ganancias
+        function createProfitChart(sales) {
+            const days = Math.min(currentPeriod, 30);
+            const labels = [];
+            const profitData = [];
+
+            for (let i = days - 1; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                labels.push(date.toLocaleDateString('es-MX', { month: 'short', day: 'numeric' }));
+                profitData.push(0);
+            }
+
+            sales.forEach(sale => {
+                const saleDate = sale.fecha instanceof Date ? sale.fecha : new Date(sale.fecha);
+                const dayIndex = Math.floor((new Date() - saleDate) / (1000 * 60 * 60 * 24));
+                if (dayIndex >= 0 && dayIndex < days) {
+                    profitData[days - 1 - dayIndex] += sale.ganancia || 0;
+                }
+            });
+
+            if (profitChart) profitChart.destroy();
+
+            const ctx = document.getElementById('profit-chart').getContext('2d');
+            profitChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Ganancia',
+                        data: profitData,
+                        backgroundColor: '#22c55e'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: (value) => formatCurrency(value)
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Crear gráfica de gastos por categoría
+        function createExpensesChart(expenses) {
+            const grouped = groupGastosByCategory(expenses);
+            const categories = Object.values(grouped);
+
+            if (categories.length === 0) {
+                const canvas = document.getElementById('expenses-chart');
+                const ctx = canvas.getContext('2d');
+                if (expensesChart) expensesChart.destroy();
+
+                // Limpiar canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = '16px Inter';
+                ctx.fillStyle = '#94a3b8';
+                ctx.textAlign = 'center';
+                ctx.fillText('No hay gastos en este período', canvas.width / 2, canvas.height / 2);
+                return;
+            }
+
+            const labels = categories.map(c => c.categoria);
+            const data = categories.map(c => c.total);
+
+            if (expensesChart) expensesChart.destroy();
+
+            const ctx = document.getElementById('expenses-chart').getContext('2d');
+            expensesChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: [
+                            '#ef4444',
+                            '#f97316',
+                            '#f59e0b',
+                            '#eab308',
+                            '#84cc16',
+                            '#22c55e',
+                            '#10b981',
+                            '#14b8a6',
+                            '#06b6d4'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <!-- Global Search Script -->
+    <script src="js/global-search.js?v=2.5"></script>
+    <script type="module" src="js/search-services.js"></script>
+
+    <!-- Animation & Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="/js/animations.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script src="js/mobile-menu.js?v=2.3"></script>
+    <script type="module" src="js/notes-widget.js?v=2.3"></script>
+    <script src="js/calc-widget.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js?v=2.4"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Punto de Venta - Sistema de gestión para tienda">
+    <meta name="theme-color" content="#ff0040">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sistema Tienda">
+
+    <title>Ventas - Sistema Tienda</title>
+    <link rel="icon" href="/icon-192.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
+
+    <style>
+        /* Fix for full screen layout */
+        /*
+          RE-ENABLE FLEX FOR BODY FOR STRICT FULL HEIGHT
+          Fixing the menu disorder by scoping .container previously allows this.
+        */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .navbar,
+        .global-search-container {
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            padding: var(--spacing-sm) 0;
+            height: auto;
+            flex: 1;
+            /* Consume remaining space */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Scoped container override */
+        .main-content .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 95%;
+        }
+
+        .pos-layout {
+            display: grid;
+            grid-template-columns: 3fr 1.2fr;
+            gap: var(--spacing-md);
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .products-panel {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Search styling optimization */
+        .search-bar {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Product Grid */
+        .products-list {
+            display: grid;
+            /* Default: large screens get 5 columns */
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-sm);
+            overflow-y: auto;
+            padding: var(--spacing-xs);
+            flex: 1;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1400px) {
+            .products-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .products-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pos-layout {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .products-panel {
+                display: flex;
+                flex: 1;
+            }
+
+            .cart-panel {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                height: auto;
+                max-height: 85vh;
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+                transform: translateY(110%);
+                transition: transform 0.3s ease-in-out;
+                margin-bottom: 0;
+                padding-bottom: env(safe-area-inset-bottom, 20px);
+            }
+
+            .cart-panel.active {
+                transform: translateY(0);
+            }
+
+            .floating-cart-btn {
+                display: flex;
+                position: fixed;
+                bottom: 30px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+                color: white;
+                box-shadow: 0 4px 12px rgba(255, 0, 64, 0.4);
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                z-index: 999;
+                border: none;
+                cursor: pointer;
+                touch-action: none;
+            }
+
+            .floating-cart-badge {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: #000;
+                color: white;
+                font-size: 0.75rem;
+                font-weight: bold;
+                padding: 2px 6px;
+                border-radius: 10px;
+                border: 2px solid var(--bg-primary);
+            }
+
+            .cart-panel-close {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-muted);
+            }
+
+            /* Products List Mobile Layout */
+            .products-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-sm);
+                padding-bottom: 90px; /* Space for FAB */
+            }
+
+            .product-item {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                height: 100%;
+                padding: var(--spacing-sm);
+                /* Remove grid properties that were for the row view */
+            }
+
+            .product-item-icon {
+                font-size: 2.5rem;
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .product-item-name { 
+                font-size: 0.875rem; 
+                margin-bottom: var(--spacing-xs); 
+                /* Allow multiple lines instead of one line */
+            }
+            .product-item-price { 
+                font-size: 1rem; 
+            }
+            .product-item-stock { 
+                font-size: 0.75rem; 
+                margin-top: var(--spacing-xs); 
+            }
+            .product-item .edit-btn {
+                position: absolute !important;
+                top: 5px !important;
+                right: 5px !important;
+                width: 28px !important;
+                height: 28px !important;
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .cart-panel-close, .floating-cart-btn {
+                display: none !important;
+            }
+        }
+
+        .product-item {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+        }
+
+        .product-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-item-icon {
+            font-size: 2.5rem;
+            /* Bigger icon */
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .product-item-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .product-item-price {
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        .product-item-stock {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        .cart-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .cart-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 2px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cart-item {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--primary-color);
+            /* Nice accent */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--error-color);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .qty-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .qty-btn:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary-color);
+        }
+
+        .qty-display {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .cart-item-total {
+            text-align: right;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        /* Compact Footer */
+        .cart-summary {
+            border-top: 2px solid var(--border-color);
+            padding-top: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            flex-shrink: 0;
+        }
+
+        .summary-row.total {
+            font-size: 1.25rem;
+            /* Smaller font */
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .payment-methods {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .payment-option {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            /* Tighter padding */
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .payment-option:hover,
+        .payment-option.active {
+            border-color: var(--primary-color);
+            background: var(--bg-primary);
+        }
+
+        .payment-option input[type="radio"] {
+            cursor: pointer;
+        }
+
+        /* Removed previous responsive block as it's now integrated above */
+
+        /* History Overlay */
+        .history-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            z-index: 50;
+            padding: var(--spacing-md);
+            overflow-y: auto;
+            display: none;
+        }
+
+        .history-overlay.active {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+            .scanner-wrapper {
+                max-width: 300px;
+            }
+        }
+
+        /* Scanner Styles */
+        /* .scan-btn styles moved to global styles.css */
+
+
+
+        .scanner-wrapper {
+            margin-top: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 0;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            position: relative;
+            animation: slideDown 0.3s ease-out;
+
+            /* Limit size and center */
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 100;
+        }
+
+        .scanner-wrapper.hidden {
+            display: none;
+        }
+
+        .scanner-instructions {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #reader {
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        #reader video {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+    </style>
+
+    <!-- User Menu Script -->
+    <script src="/js/user-menu.js"></script>
+
+</head>
+
+<body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon"></div>
+            <span class="sidebar-brand-text">Sistema Tienda</span>
+            <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="inicio.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="home"></i></span>
+                <span class="text">Inicio</span>
+            </a>
+            <a href="dashboard.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="bar-chart-2"></i></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <a href="productos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="package"></i></span>
+                <span class="text">Productos</span>
+            </a>
+            <a href="ventas.html" class="sidebar-item active">
+                <span class="sidebar-item-icon"><i data-lucide="shopping-cart"></i></span>
+                <span class="text">Ventas</span>
+            </a>
+            <a href="gastos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="receipt"></i></span>
+                <span class="text">Gastos</span>
+            </a>
+            <a href="reportes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="pie-chart"></i></span>
+                <span class="text">Reportes</span>
+            </a>
+            <a href="clientes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="users"></i></span>
+                <span class="text">Clientes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Desktop Topbar -->
+    <header class="topbar" id="topbar">
+        <!-- Global Search Bar -->
+        <div class="global-search-container" id="global-search-container">
+            <div class="global-search-wrapper">
+                <input type="text" class="global-search-input" id="global-search-input"
+                    placeholder="Buscar productos, clientes, ventas...">
+                <button class="global-search-btn"><i data-lucide="search" data-anim="pulse"
+                        style="width:1.2em; height:1.2em;"></i></button>
+                <button class="global-search-close" id="global-search-close">✕</button>
+            </div>
+            <div class="global-search-results" id="global-search-results"></div>
+        </div>
+
+        <div class="navbar-user">
+            <!-- User Dropdown -->
+            <div class="navbar-user-dropdown">
+                <button class="navbar-user-btn" id="user-dropdown-btn">
+                    <div class="navbar-user-avatar" id="user-avatar">U</div>
+                    <span id="user-display-name">Usuario</span>
+                    <span class="navbar-user-arrow">▼</span>
+                </button>
+
+                <div class="navbar-dropdown-menu" id="user-dropdown-menu">
+                    <div class="navbar-dropdown-header">
+                        <div class="navbar-dropdown-email" id="dropdown-user-email">usuario@email.com</div>
+                        <div class="navbar-dropdown-role">Administrador</div>
+                    </div>
+
+                    <a href="#" class="navbar-dropdown-item" id="edit-profile-btn">
+                        <span><i data-lucide="user" style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Mi Perfil</span>
+                    </a>
+
+                    <a href="#" class="navbar-dropdown-item" id="settings-btn">
+                        <span><i data-lucide="settings"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Configuración</span>
+                    </a>
+
+                    <div class="navbar-dropdown-divider"></div>
+
+                    <button class="navbar-dropdown-item danger" id="dropdown-logout-btn">
+                        <span><i data-lucide="log-out"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar (Only visible on mobile) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="inicio.html" class="navbar-brand">
+                <img src="images/brand-icon.png" alt="Icono" class="custom-navbar-icon"> Sistema Tienda
+            </a>
+
+            <button class="navbar-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="ventas.html" class="active">Ventas</a></li>
+                <li><a href="gastos.html">Gastos</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header (Compact) -->
+            <div class="section-header"
+                style="flex-shrink: 0; margin-bottom: var(--spacing-sm); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1 style="font-size: 1.5rem; margin: 0;">Punto de Venta</h1>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button id="cierre-caja-btn" class="btn btn-primary btn-sm">
+                        <i data-lucide="lock" style="width:1em; height:1em; vertical-align: middle;"></i> Cierre de Caja
+                    </button>
+                    <button id="toggle-history-btn" class="btn btn-outline btn-sm">
+                        <i data-lucide="history" style="width:1em; height:1em; vertical-align: middle;"></i> Ver Historial
+                    </button>
+                </div>
+            </div>
+
+            <!-- POS Layout -->
+            <div class="pos-layout">
+                <!-- Products Panel -->
+                <div class="products-panel">
+                    <div class="search-bar">
+                        <div style="position: relative;">
+                            <span class="search-icon"><i data-lucide="search" style="width:1em; height:1em;"></i></span>
+                            <input type="text" id="product-search" class="form-input" placeholder="Buscar producto..."
+                                autofocus style="padding-right: 5rem;">
+                            <div style="position: absolute; right: 4px; top: 0; bottom: 0; display: flex; align-items: center; gap: 4px; z-index: 10;">
+                                <button id="reset-search-btn" class="scan-btn" style="position: static; transform: none; background: transparent; border-color: transparent; color: var(--text-muted);" title="Limpiar búsqueda"><i data-lucide="x" style="width:1.2em; height:1.2em;"></i></button>
+                                <button id="scan-toggle-btn" class="scan-btn" style="position: static; transform: none;" title="Escanear código de barras"><i
+                                        data-lucide="camera" data-anim="pulse" style="width:1em; height:1em;"></i></button>
+                            </div>
+                        </div>
+                        <!-- Scanner Container -->
+                        <div id="scanner-container" class="scanner-wrapper hidden">
+                            <div id="reader" style="width: 100%;"></div>
+                            <p class="scanner-instructions">Apunta la cámara al código de barras</p>
+                        </div>
+                    </div>
+
+                    <div class="card" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                        <div class="card-header" style="padding: var(--spacing-sm) var(--spacing-md);">
+                            <h3 class="card-title" style="font-size: 1rem;">Productos Disponibles</h3>
+                        </div>
+                        <div class="products-list" id="products-list">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Overlay Background -->
+                <div id="cart-overlay-bg" class="modal-overlay hidden" style="z-index: 998; background: rgba(0,0,0,0.5); position: fixed; inset: 0;"></div>
+                
+                <!-- Floating Cart Button (Mobile) -->
+                <button id="floating-cart-btn" class="floating-cart-btn">
+                    <i data-lucide="shopping-cart" style="width:1.5em; height:1.5em; vertical-align: middle;"></i>
+                    <span class="floating-cart-badge" id="floating-cart-badge">0</span>
+                </button>
+
+                <!-- Cart Panel -->
+                <div class="cart-panel">
+                    <div class="cart-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div><i data-lucide="shopping-cart" style="width:1em; height:1em; vertical-align: middle;"></i> Carrito</div>
+                        <button class="cart-panel-close" id="cart-panel-close">✕</button>
+                    </div>
+
+                    <div class="cart-items" id="cart-items">
+                        <div class="empty-state">
+                            <div class="empty-state-icon"><i data-lucide="shopping-cart" data-anim="bounce"
+                                    style="width:1em; height:1em;"></i></div>
+                            <p>El carrito está vacío</p>
+                            <p class="text-muted" style="font-size: 0.875rem;">
+                                Busca y selecciona productos
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary" id="cart-summary" style="display: none;">
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                        <p class="text-muted" style="font-size: 0.75rem; margin-top: var(--spacing-xs);">
+                            *Precios incluyen IVA
+                        </p>
+                    </div>
+
+                    <div class="payment-methods" id="payment-section" style="display: none;">
+                        <label class="form-label">Método de Pago</label>
+                        <div>
+                            <label class="payment-option active">
+                                <input type="radio" name="payment" value="efectivo" checked>
+                                <i data-lucide="coins" style="width:1em; height:1em; vertical-align: middle;"></i>
+                                Efectivo
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="tarjeta">
+                                <i data-lucide="credit-card" style="width:1em; height:1em; vertical-align: middle;"></i>
+                                Tarjeta
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="transferencia">
+                                <i data-lucide="landmark" style="width:1em; height:1em; vertical-align: middle;"></i>
+                                Transfer.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--spacing-sm);">
+                        <button class="btn btn-outline flex-1" id="clear-cart" style="display: none;">
+                            Limpiar
+                        </button>
+                        <button class="btn btn-primary flex-1" id="process-sale" style="display: none;">
+                            Procesar Venta
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales History Section (In Overlay) -->
+            <div id="history-section" class="history-overlay" style="overflow-x: hidden; max-width: 100vw;">
+                <div class="container" style="height: auto; max-width: 100%; overflow-x: hidden;">
+                    <div class="section-header"
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <h3 style="margin: 0;">Historial de Ventas</h3>
+                            <p class="text-muted" style="margin: 0;">Últimas transacciones</p>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <label style="display: flex; align-items: center; gap: 5px; cursor: pointer; color: var(--text-muted); font-size: 0.9rem;">
+                                <input type="checkbox" id="filter-pending-sales" style="cursor: pointer; accent-color: var(--primary-color);"> Solo Fiados
+                            </label>
+                            <button class="btn btn-outline btn-sm" id="refresh-history"><i data-lucide="refresh-cw"
+                                    style="width:1em; height:1em; vertical-align: middle;"></i> Actualizar</button>
+                            <button class="btn btn-primary btn-sm" id="close-history-btn">Cerrar</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="table" id="sales-history-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha y Hora</th>
+                                            <th>Productos</th>
+                                            <th>Método</th>
+                                            <th>Total</th>
+                                            <th>Ganancia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sales-history-body">
+                                        <!-- Se llenará dinámicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Producto (Edición Rápida) -->
+    <div id="product-modal" class="modal-overlay hidden" style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card fade-in modal" style="width: 90%; max-width: 600px; padding: 20px; max-height: 90vh; overflow-y: auto;">
+            <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 id="modal-title">Editar Producto</h3>
+                <button class="btn btn-outline btn-sm" id="close-modal-btn">✕</button>
+            </div>
+
+            <form id="product-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="product-name">Nombre del Producto *</label>
+                        <input type="text" id="product-name" class="form-input" placeholder="Ej. Manzana Golden" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                        <div class="form-group">
+                            <label class="form-label" for="product-price">Precio de Venta *</label>
+                            <div style="display: flex; align-items: center;">
+                                <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);">$</span>
+                                <input type="number" id="product-price" class="form-input" style="border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-unit">Unidad de Medida</label>
+                            <select id="product-unit" class="form-input">
+                                <option value="pza">Pieza (Unidad)</option>
+                                <option value="kg">Kilogramo (Kg)</option>
+                                <option value="lt">Litro (Lt)</option>
+                                <option value="m">Metro (m)</option>
+                                <option value="granel">Granel</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                        <div class="form-group">
+                            <label class="form-label" for="product-category">Categoría</label>
+                            <input type="text" id="product-category" class="form-input" list="category-list" placeholder="Ej. General">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-stock">Stock</label>
+                            <input type="number" id="product-stock" class="form-input" placeholder="0" min="0" step="0.001">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                        <div class="form-group">
+                            <label class="form-label" for="product-barcode">Código / PLU</label>
+                            <input type="text" id="product-barcode" class="form-input" placeholder="Escanea o escribe código">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-cost">Costo</label>
+                            <div style="display: flex; align-items: center;">
+                                <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);">$</span>
+                                <input type="number" id="product-cost" class="form-input" style="border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;" step="0.01" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="product-description">Descripción</label>
+                        <textarea id="product-description" class="form-input" rows="2" placeholder="Detalles adicionales..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" class="btn btn-outline flex-1" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary flex-1" id="save-btn">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Cantidad (Para productos a granel) -->
+    <div id="quantity-modal" class="modal-overlay hidden"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card fade-in" style="width: 90%; max-width: 400px; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3 id="qty-modal-title" style="margin-bottom: 10px;">Cantidad</h3>
+                <p id="qty-modal-product" class="text-muted"></p>
+            </div>
+
+            <div class="form-group">
+                <input type="number" id="qty-modal-input" class="form-input" step="0.001" min="0.001"
+                    placeholder="Ej. 0.5" style="font-size: 1.5rem; text-align: center;">
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-outline flex-1" id="qty-modal-cancel">Cancelar</button>
+                <button class="btn btn-primary flex-1" id="qty-modal-confirm">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay hidden"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card fade-in" style="width: 90%; max-width: 400px; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3 id="checkout-modal-title" style="margin-bottom: 10px;">Cobrar en Efectivo</h3>
+                <p class="text-muted" style="font-size: 1.25rem;">Total a Pagar: <strong id="checkout-total-display" style="color: var(--text-primary);">$0.00</strong></p>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="text-align: center; display: block;">Recibes:</label>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm); font-size: 1.5rem;">$</span>
+                    <input type="number" id="checkout-received-input" class="form-input" step="0.01" min="0" placeholder="0.00" style="font-size: 1.5rem; text-align: center; border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0; height: auto; padding: 0.5rem; max-width: 150px;">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px; text-align: center;">
+                <p id="checkout-change-label" style="font-size: 1.1rem; margin-bottom: 5px;">Debes dar (Cambio):</p>
+                <p id="checkout-change-display" style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin: 0;">$0.00</p>
+            </div>
+
+            <div id="checkout-debt-section" class="hidden" style="margin-top: 15px; text-align: center;">
+                <label class="form-label" style="text-align: center; display: block;">Nombre del Deudor / Cliente (Fiado):</label>
+                <input type="text" id="checkout-debt-client" class="form-input" list="clients-list" placeholder="Obligatorio si falta dinero">
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-outline flex-1" id="checkout-modal-cancel">Cancelar</button>
+                <button class="btn btn-primary flex-1" id="checkout-modal-confirm">Confirmar Venta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cierre de Caja Modal -->
+    <div id="cierre-modal" class="modal-overlay hidden" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card fade-in" style="width: 90%; max-width: 450px; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 10px;"><i data-lucide="lock" style="width:1em; height:1em; vertical-align: middle;"></i> Cierre de Caja</h3>
+                <p class="text-muted">Resumen del Día</p>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 15px; border-radius: var(--border-radius); margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;"><span>Ventas Totales:</span><strong id="cierre-ventas-totales">$0.00</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px; color: var(--text-muted); font-size: 0.9em;"><span>- En Efectivo:</span><span id="cierre-ventas-efectivo">$0.00</span></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px; color: var(--text-muted); font-size: 0.9em;"><span>- Tarjeta/Transfer:</span><span id="cierre-ventas-otros">$0.00</span></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px; margin-top: 10px; border-top: 1px dashed var(--border-color); padding-top: 5px;"><span>Gastos (Efectivo):</span><strong id="cierre-gastos" style="color: var(--error-color);">-$0.00</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px; border-top: 2px solid var(--border-color); padding-top: 10px; font-size: 1.1rem;">
+                    <span>Efectivo Esperado:</span>
+                    <strong id="cierre-esperado" style="color: var(--primary-light);">$0.00</strong>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label class="form-label">Fondo de Caja Inicial:</label>
+                <div style="display: flex; align-items: center;">
+                    <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);">$</span>
+                    <input type="number" id="cierre-fondo-input" class="form-input" step="0.01" min="0" placeholder="0.00" value="0" style="border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Efectivo Real en Caja (Al cierre):</label>
+                <div style="display: flex; align-items: center;">
+                    <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);">$</span>
+                    <input type="number" id="cierre-real-input" class="form-input" step="0.01" min="0" placeholder="0.00" style="border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;">
+                </div>
+            </div>
+
+            <div class="form-group" style="text-align: center; margin-top: 10px;">
+                <p style="font-size: 0.9rem; margin-bottom: 5px;">Diferencia:</p>
+                <p id="cierre-diferencia" style="font-size: 1.25rem; font-weight: bold;">$0.00</p>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-outline flex-1" id="cierre-modal-cancel">Cancelar</button>
+                <button class="btn btn-primary flex-1" id="cierre-modal-confirm">Guardar Cierre</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Abonar / Saldar Deuda -->
+    <div id="abono-modal" class="modal-overlay hidden" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card fade-in" style="width: 90%; max-width: 400px; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 10px;">Registrar Abono</h3>
+                <p class="text-muted" style="font-size: 1rem;">Saldo Pendiente: <strong id="abono-saldo-display" style="color: var(--error-color);">$0.00</strong></p>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="text-align: center; display: block;">Monto a Abonar (Recibes):</label>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <span style="background: var(--bg-primary); padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-right: none; border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm); font-size: 1.5rem;">$</span>
+                    <input type="number" id="abono-monto-input" class="form-input" step="0.01" min="0" placeholder="0.00" style="font-size: 1.5rem; text-align: center; border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0; height: auto; padding: 0.5rem; max-width: 150px;">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-outline flex-1" id="abono-modal-cancel">Cancelar</button>
+                <button class="btn btn-primary flex-1" id="abono-modal-confirm">Confirmar Abono</button>
+            </div>
+        </div>
+    </div>
+    
+    <datalist id="clients-list"></datalist>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Barcode Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <!-- App Scripts -->
+    <script type="module">
+        import { initializeFirebase, onAuthStateChanged } from './js/services/firebase.js';
+        import { logout } from './js/services/auth.js';
+        import { getAllProducts, searchProducts, updateProduct } from './js/services/products.js';
+        import { createSale, getTodaySales, getAllSales, getSalesPaginated, getSaleById, registrarAbonoVenta, deleteSale } from './js/services/sales.js?v=2';
+        import { getAllClientes, createCliente } from './js/services/clientes.js';
+        import { getTodayGastos } from './js/services/gastos.js';
+        import { createCorteCaja } from './js/services/caja.js';
+        import {
+            formatCurrency,
+            showAlert,
+            showLoading,
+            showConfirm,
+            debounce
+        } from './js/utils/helpers.js';
+
+        // Html5Qrcode reference
+        let html5QrCode = null;
+        let isScanning = false;
+
+        // Inicializar Firebase
+        initializeFirebase();
+
+        // Estado de la aplicación
+        let allProducts = [];
+        let cart = [];
+        let allClientsData = [];
+
+        // Elementos del DOM
+
+        const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+        const productsList = document.getElementById('products-list');
+        const productSearch = document.getElementById('product-search');
+        const cartItems = document.getElementById('cart-items');
+        const cartSummary = document.getElementById('cart-summary');
+        const paymentSection = document.getElementById('payment-section');
+        const clearCartBtn = document.getElementById('clear-cart');
+        const processSaleBtn = document.getElementById('process-sale');
+        const scanToggleBtn = document.getElementById('scan-toggle-btn');
+        const scannerContainer = document.getElementById('scanner-container');
+
+        // --- SCANNER LOGIC ---
+        if (scanToggleBtn) {
+            scanToggleBtn.addEventListener('click', () => {
+                if (isScanning) {
+                    stopScanner();
+                } else {
+                    startScanner();
+                }
+            });
+        }
+
+        async function startScanner() {
+            try {
+                if (!html5QrCode) {
+                    html5QrCode = new Html5Qrcode("reader");
+                }
+
+                scannerContainer.classList.remove('hidden');
+                scanToggleBtn.classList.add('active');
+                isScanning = true;
+
+                const config = { fps: 10, qrbox: { width: 250, height: 150 }, aspectRatio: 1.0 };
+
+                await html5QrCode.start(
+                    { facingMode: "environment" },
+                    config,
+                    (decodedText, decodedResult) => {
+                        // Success callback
+                        console.log(`Code matched = ${decodedText}`, decodedResult);
+                        playBeep();
+                        productSearch.value = decodedText;
+                        stopScanner();
+
+                        // Trigger search and potentially auto-add
+                        // First trigger input for filtering
+                        productSearch.dispatchEvent(new Event('input'));
+
+                        // Try to auto-select if exact match
+                        setTimeout(() => {
+                            // Use the existing exact match logic by simulating Enter
+                            const enterEvent = new KeyboardEvent('keydown', {
+                                key: 'Enter',
+                                code: 'Enter',
+                                which: 13,
+                                bubbles: true
+                            });
+                            productSearch.dispatchEvent(enterEvent);
+                        }, 300);
+
+                        showAlert(`Código escaneado: ${decodedText}`, 'success');
+                    },
+                    (errorMessage) => {
+                        // parse error, ignore it.
+                    }
+                );
+            } catch (err) {
+                console.error("Error starting scanner", err);
+                showAlert("No se pudo acceder a la cámara. Verifique los permisos.", "error");
+                stopScanner();
+            }
+        }
+
+        async function stopScanner() {
+            if (html5QrCode && isScanning) {
+                try {
+                    await html5QrCode.stop();
+                    isScanning = false;
+                } catch (err) {
+                    console.error("Failed to stop scanner", err);
+                }
+            }
+            scannerContainer.classList.add('hidden');
+            scanToggleBtn.classList.remove('active');
+            isScanning = false;
+        }
+
+        function playBeep() {
+            const audio = new AudioContext();
+            const oscillator = audio.createOscillator();
+            const gainNode = audio.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audio.destination);
+
+            oscillator.type = "sine";
+            oscillator.frequency.value = 1000;
+            gainNode.gain.value = 0.1;
+
+            oscillator.start();
+            setTimeout(() => oscillator.stop(), 200);
+        }
+
+        // --- LÓGICA DE ESCANEO / BÚSQUEDA ---
+        productSearch.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const term = productSearch.value.trim();
+
+                if (term) {
+                    // Intento 1: Buscar coincidencia exacta de código de barras
+                    let product = allProducts.find(p => String(p.codigoBarras) === term && p.activo !== false);
+
+                    // Si es un escaneo / coincidencia exacta y hay stock
+                    if (product && product.stock > 0) {
+                        addToCart(product, 1);
+                        productSearch.value = ''; // Limpiar la caja de búsqueda
+                        filterProducts('');       // Resetear los productos
+                        
+                        // Feedback
+                        const row = document.querySelector(`.cart-item:last-child`);
+                        if (row) row.classList.add('flash-success');
+                        playBeep();
+                        return; // Termina aquí
+                    }
+
+                    // Intento 2: Si no hay código exacto, buscar el primer producto visible y seleccionarlo
+                    if (!product) {
+                        const visibleProducts = getVisibleProducts(term);
+                        if (visibleProducts.length > 0) {
+                            product = visibleProducts[0];
+                        }
+                    }
+
+                    if (product && product.stock > 0) {
+                        handleProductClick(product);
+                        // Cuando no es coincidencia exacta, tal vez dejar en pantalla o limpiarlo? 
+                        // Generalmente limpiamos la caja en POS.
+                        productSearch.value = '';
+                        filterProducts(''); 
+                    } else if (product) {
+                        showAlert('No hay stock de este producto', 'error');
+                    } else {
+                        showAlert('Producto no encontrado', 'warning');
+                    }
+                } else {
+                    // Si el input está vacío y hay productos en el carrito, procesar venta
+                    if (cart.length > 0) {
+                        processSaleBtn.click();
+                    }
+                }
+            }
+        });
+
+        function filterProducts(term) {
+            const termLower = term.toLowerCase();
+            const filtered = allProducts.filter(p =>
+                p.activo !== false &&
+                p.stock > 0 &&
+                (p.nombre.toLowerCase().includes(termLower) || (p.codigoBarras && p.codigoBarras.includes(termLower)))
+            );
+            displayProducts(filtered);
+        }
+
+        function getVisibleProducts(term) {
+            const termLower = term.toLowerCase();
+            return allProducts.filter(p =>
+                p.activo !== false &&
+                p.stock > 0 &&
+                (p.nombre.toLowerCase().includes(termLower) || (p.codigoBarras && p.codigoBarras.includes(termLower)))
+            );
+        }
+        // ---------------------------
+
+        // Verificar autenticación
+        onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Poblar información del usuario
+            if (window.populateUserInfo) {
+                window.populateUserInfo(user.email);
+            }
+
+            loadProducts();
+            loadClients();
+
+            // Manejar parámetros de URL para búsqueda global
+            const urlParams = new URLSearchParams(window.location.search);
+            const highlightSaleId = urlParams.get('highlight');
+
+            if (highlightSaleId && typeof historySection !== 'undefined') {
+                historySection.classList.add('active');
+                loadSalesHistory(highlightSaleId);
+            } else {
+                loadSalesHistory();
+            }
+        });
+
+        // Cerrar sesión
+        if (dropdownLogoutBtn) {
+            dropdownLogoutBtn.addEventListener('click', async () => {
+                try {
+                    await logout();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    showAlert('Error al cerrar sesión', 'error');
+                }
+            });
+        }
+
+        // Cargar clientes
+        async function loadClients() {
+            try {
+                allClientsData = await getAllClientes();
+                const datalist = document.getElementById('clients-list');
+                if (datalist && allClientsData) {
+                    datalist.innerHTML = allClientsData.map(c => `<option value="${c.nombre}"></option>`).join('');
+                }
+            } catch (error) {
+                console.error('Error al cargar clientes:', error);
+            }
+        }
+
+        // Cargar productos
+        async function loadProducts() {
+            try {
+                showLoading(productsList, 'Cargando productos...');
+                allProducts = await getAllProducts();
+                const activeProducts = allProducts.filter(p => p.activo !== false && p.stock > 0);
+                displayProducts(activeProducts);
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                showAlert('Error al cargar productos', 'error');
+            }
+        }
+
+        // Elementos del Modal de Cantidad
+        const qtyModal = document.getElementById('quantity-modal');
+        const qtyModalInput = document.getElementById('qty-modal-input');
+        const qtyModalTitle = document.getElementById('qty-modal-title');
+        const qtyModalProduct = document.getElementById('qty-modal-product');
+        const qtyModalConfirm = document.getElementById('qty-modal-confirm');
+        const qtyModalCancel = document.getElementById('qty-modal-cancel');
+        let currentProductToAdd = null;
+
+        // Elementos del Modal de Editar
+        const productModal = document.getElementById('product-modal');
+        const productForm = document.getElementById('product-form');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        let editingProductId = null;
+
+        // Mostrar productos
+        function displayProducts(products) {
+            if (!products || products.length === 0) {
+                productsList.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1; padding: var(--spacing-xl);">
+            <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="package" data-anim="wiggle" style="width:1em; height:1em; vertical-align: middle;"></i></div>
+            <p>No hay productos</p>
+          </div>
+        `;
+                if (window.lucide) window.lucide.createIcons({ root: productsList });
+                return;
+            }
+
+            productsList.innerHTML = products.map(product => `
+        <div class="product-item" data-id="${product.id}" data-product='${JSON.stringify(product).replace(/'/g, "&#39;")}'>
+          <div class="product-item-icon"><i data-lucide="package" style="width:1em; height:1em; vertical-align: middle;"></i></div>
+          <div class="product-item-name">${product.nombre}</div>
+          <div class="product-item-price">${formatCurrency(product.precio)} <span style="font-size:0.8em; color:var(--text-muted);">/ ${product.unidad || 'pza'}</span></div>
+          <div class="product-item-stock">Stock: ${product.stock} ${product.unidad || 'pza'}</div>
+          <button class="btn btn-outline btn-sm edit-btn" style="position: absolute; top: 10px; right: 10px; padding: 4px; font-size: 0.75rem; z-index: 10;" data-id="${product.id}" title="Editar Producto">
+              <i data-lucide="edit-3" style="width: 1em; height: 1em;"></i>
+          </button>
+        </div>
+      `).join('');
+
+            if (window.lucide) window.lucide.createIcons({ root: productsList });
+
+            // Event listeners
+            document.querySelectorAll('.product-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('.edit-btn')) return; // ignora clics en botón editar
+                    const productStr = item.dataset.product.replace(/&#39;/g, "'");
+                    const product = JSON.parse(productStr);
+                    handleProductClick(product);
+                });
+            });
+
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = btn.dataset.id;
+                    openEditModal(id);
+                });
+            });
+        }
+
+        // --- FUNCIONES MODAL EDITAR ---
+        function openEditModal(id) {
+            const product = allProducts.find(p => p.id === id);
+            if (!product) return;
+
+            editingProductId = id;
+            document.getElementById('product-name').value = product.nombre || '';
+            document.getElementById('product-category').value = product.categoria || '';
+            document.getElementById('product-unit').value = product.unidad || 'pza';
+            document.getElementById('product-description').value = product.descripcion || '';
+            document.getElementById('product-price').value = product.precio || '';
+            document.getElementById('product-cost').value = product.costo || '';
+            document.getElementById('product-stock').value = product.stock || 0;
+            document.getElementById('product-barcode').value = product.codigoBarras || '';
+
+            productModal.style.display = 'flex';
+            productModal.classList.remove('hidden');
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            productModal.style.display = 'none';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            productModal.style.display = 'none';
+        });
+
+        productForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!editingProductId) return;
+
+            const productData = {
+                nombre: document.getElementById('product-name').value,
+                categoria: document.getElementById('product-category').value,
+                unidad: document.getElementById('product-unit').value || 'pza',
+                descripcion: document.getElementById('product-description').value,
+                precio: parseFloat(document.getElementById('product-price').value),
+                costo: parseFloat(document.getElementById('product-cost').value) || 0,
+                stock: parseFloat(document.getElementById('product-stock').value) || 0,
+                codigoBarras: document.getElementById('product-barcode').value
+            };
+
+            try {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Guardando...';
+
+                await updateProduct(editingProductId, productData);
+                showAlert('Producto actualizado correctamente', 'success');
+
+                productModal.style.display = 'none';
+                
+                // Actualizar localmente sin llamar todo al servidor para ser rápido
+                const index = allProducts.findIndex(p => p.id === editingProductId);
+                if (index !== -1) {
+                    allProducts[index] = { ...allProducts[index], ...productData };
+                }
+                
+                // Refrescar vista y mantener búsqueda
+                const searchTerm = productSearch.value.trim().toLowerCase();
+                let productsToShow = allProducts.filter(p => p.activo !== false && p.stock > 0);
+                
+                if (searchTerm) {
+                    productsToShow = productsToShow.filter(p => 
+                        p.nombre.toLowerCase().includes(searchTerm) || 
+                        (p.codigoBarras && String(p.codigoBarras).toLowerCase().includes(searchTerm))
+                    );
+                }
+                displayProducts(productsToShow);
+
+            } catch (error) {
+                console.error('Error al guardar producto:', error);
+                showAlert(error.message || 'Error al guardar producto', 'error');
+            } finally {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Guardar Cambios';
+            }
+        });
+
+
+        // Manejar clic en producto
+        function handleProductClick(product) {
+            // Si es a granel (no pieza), pedir cantidad
+            if (product.unidad && product.unidad !== 'pza') {
+                openQtyModal(product);
+            } else {
+                addToCart(product, 1);
+            }
+        }
+
+        // Lógica del Modal
+        function openQtyModal(product) {
+            currentProductToAdd = product;
+            qtyModalTitle.textContent = `Agregar ${product.nombre}`;
+            qtyModalProduct.textContent = `Unidad: ${product.unidad} | Precio: ${formatCurrency(product.precio)}`;
+            qtyModalInput.value = '';
+            qtyModal.style.display = 'flex';
+            qtyModal.classList.remove('hidden');
+            qtyModalInput.focus();
+        }
+
+        function closeQtyModal() {
+            qtyModal.style.display = 'none';
+            qtyModal.classList.add('hidden');
+            currentProductToAdd = null;
+        }
+
+        qtyModalCancel.addEventListener('click', closeQtyModal);
+
+        qtyModalConfirm.addEventListener('click', () => {
+            const qty = parseFloat(qtyModalInput.value);
+            if (!qty || qty <= 0) {
+                showAlert('Ingresa una cantidad válida', 'warning');
+                return;
+            }
+            if (currentProductToAdd) {
+                addToCart(currentProductToAdd, qty);
+                closeQtyModal();
+            }
+        });
+
+        qtyModalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                qtyModalConfirm.click();
+            }
+            if (e.key === 'Escape') {
+                closeQtyModal();
+            }
+        });
+
+        // Agregar al carrito
+        function addToCart(product, cantidad = 1) {
+            const existingItem = cart.find(item => item.productoId === product.id);
+
+            if (existingItem) {
+                if (existingItem.cantidad + cantidad > product.stock) {
+                    showAlert('No hay suficiente stock', 'warning');
+                    return;
+                }
+                existingItem.cantidad += cantidad;
+            } else {
+                if (cantidad > product.stock) {
+                    showAlert('No hay suficiente stock', 'warning');
+                    return;
+                }
+                cart.push({
+                    productoId: product.id,
+                    nombre: product.nombre,
+                    unidad: product.unidad || 'pza',
+                    precio: product.precio,
+                    costo: product.costo || 0,
+                    cantidad: cantidad,
+                    stock: product.stock
+                });
+            }
+
+            updateCart();
+        }
+
+        // Actualizar carrito
+        function updateCart() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon"><i data-lucide="shopping-cart" data-anim="bounce" style="width:1em; height:1em; vertical-align: middle;"></i></div>
+            <p>El carrito está vacío</p>
+          </div>
+        `;
+                cartSummary.style.display = 'none';
+                paymentSection.style.display = 'none';
+                clearCartBtn.style.display = 'none';
+                processSaleBtn.style.display = 'none';
+                if (window.lucide) window.lucide.createIcons({ root: cartItems });
+                // Animaciones desactivadas para rendimiento`n                // if (window.initGlobalAnimations) window.initGlobalAnimations(cartItems);
+                return;
+            }
+
+            cartItems.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div class="cart-item-header">
+            <div class="cart-item-name">${item.nombre}</div>
+            <button class="remove-item" data-index="${index}">×</button>
+          </div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" data-index="${index}" data-action="decrease">−</button>
+            <input type="number" class="qty-input form-input" data-index="${index}" value="${item.cantidad}" step="0.01" min="0.01" style="width: 60px; padding: 4px; text-align: center;">
+            <button class="qty-btn" data-index="${index}" data-action="increase">+</button>
+            <span style="flex: 1; text-align: right;">${formatCurrency(item.precio)}</span>
+            <span style="font-size: 0.7em; color: #888; margin-left: 5px;">(${item.unidad || 'pza'})</span>
+          </div>
+          <div class="cart-item-total">${formatCurrency(item.precio * item.cantidad)}</div>
+        </div>
+      `).join('');
+
+            // Event listeners para el carrito
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    cart.splice(parseInt(btn.dataset.index), 1);
+                    updateCart();
+                });
+            });
+
+            document.querySelectorAll('.qty-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    let newQty = parseFloat(e.target.value);
+
+                    if (isNaN(newQty) || newQty <= 0) newQty = 1;
+
+                    if (newQty > cart[index].stock) {
+                        showAlert('No hay suficiente stock', 'warning');
+                        e.target.value = cart[index].cantidad;
+                        return;
+                    }
+
+                    updateCart();
+                });
+            });
+
+            document.querySelectorAll('.qty-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const index = parseInt(btn.dataset.index);
+                    const action = btn.dataset.action;
+                    const item = cart[index];
+                    const isBulk = item.unidad && item.unidad !== 'pza';
+                    const step = isBulk ? 0.5 : 1;
+
+                    if (action === 'increase') {
+                        if (item.cantidad + step > item.stock) {
+                            showAlert('No hay suficiente stock', 'warning');
+                            return;
+                        }
+                        item.cantidad = parseFloat((item.cantidad + step).toFixed(2));
+                    } else {
+                        item.cantidad = parseFloat((item.cantidad - step).toFixed(2));
+                        if (item.cantidad <= 0) {
+                            cart.splice(index, 1);
+                        }
+                    }
+                    updateCart();
+                });
+            });
+
+            // En México, los precios ya incluyen IVA
+            const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+
+            document.getElementById('total').textContent = formatCurrency(total);
+
+            // Update Mobile Badge
+            const totalItems = cart.reduce((sum, item) => sum + item.cantidad, 0);
+            const badge = document.getElementById('floating-cart-badge');
+            if (badge) badge.textContent = totalItems;
+
+            cartSummary.style.display = 'block';
+            paymentSection.style.display = 'block';
+            clearCartBtn.style.display = 'block';
+            processSaleBtn.style.display = 'block';
+
+            if (window.lucide) window.lucide.createIcons({ root: cartItems });
+            // Animaciones desactivadas para rendimiento`n                // if (window.initGlobalAnimations) window.initGlobalAnimations(cartItems);
+        }
+
+        // --- HISTORY TOGGLE LOGIC ---
+        const historySection = document.getElementById('history-section');
+        const toggleHistoryBtn = document.getElementById('toggle-history-btn');
+        const closeHistoryBtn = document.getElementById('close-history-btn');
+
+        if (toggleHistoryBtn && historySection) {
+            toggleHistoryBtn.addEventListener('click', () => {
+                historySection.classList.add('active');
+            });
+        }
+
+        if (closeHistoryBtn && historySection) {
+            closeHistoryBtn.addEventListener('click', () => {
+                historySection.classList.remove('active');
+            });
+        }
+
+
+        // Limpiar carrito
+        clearCartBtn.addEventListener('click', () => {
+            showConfirm('¿Limpiar el carrito?', () => {
+                cart = [];
+                updateCart();
+            });
+        });
+
+        // Procesar venta
+        processSaleBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showAlert('El carrito está vacío', 'warning');
+                return;
+            }
+
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+            if (paymentMethod === 'efectivo') {
+                const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+                document.getElementById('checkout-total-display').textContent = formatCurrency(total);
+                document.getElementById('checkout-received-input').value = '';
+                document.getElementById('checkout-change-display').textContent = formatCurrency(0);
+                document.getElementById('checkout-change-display').style.color = 'var(--text-muted)';
+                
+                const checkoutModal = document.getElementById('checkout-modal');
+                checkoutModal.style.display = 'flex';
+                checkoutModal.classList.remove('hidden');
+                setTimeout(() => document.getElementById('checkout-received-input').focus(), 100);
+            } else {
+                executeSaleProcess(paymentMethod);
+            }
+        });
+
+        // Eventos del Checkout Modal
+        const checkoutModal = document.getElementById('checkout-modal');
+        const checkoutInput = document.getElementById('checkout-received-input');
+        const checkoutCancel = document.getElementById('checkout-modal-cancel');
+        const checkoutConfirm = document.getElementById('checkout-modal-confirm');
+        const checkoutChangeDisplay = document.getElementById('checkout-change-display');
+
+        function updateChangeDisplay() {
+            const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+            const receivedText = checkoutInput.value;
+            const received = checkoutInput.value === '' ? 0 : (parseFloat(checkoutInput.value) || 0);
+            const change = received - total;
+
+            const changeLabel = document.getElementById('checkout-change-label');
+            const debtSection = document.getElementById('checkout-debt-section');
+
+            if (change >= 0) {
+                if(changeLabel) changeLabel.textContent = 'Debes dar (Cambio):';
+                if(debtSection) debtSection.classList.add('hidden');
+                checkoutChangeDisplay.textContent = formatCurrency(change);
+                checkoutChangeDisplay.style.color = 'var(--success-color, #10b981)';
+            } else {
+                if(changeLabel) changeLabel.textContent = 'Falta (Por Cobrar):';
+                if(debtSection) debtSection.classList.remove('hidden');
+                checkoutChangeDisplay.textContent = formatCurrency(Math.abs(change));
+                checkoutChangeDisplay.style.color = 'var(--error-color, #ef4444)';
+            }
+        }
+
+        checkoutInput.addEventListener('input', updateChangeDisplay);
+        checkoutInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkoutConfirm.click();
+            if (e.key === 'Escape') checkoutCancel.click();
+        });
+
+        checkoutCancel.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            checkoutModal.classList.add('hidden');
+        });
+
+        checkoutConfirm.addEventListener('click', async () => {
+            const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+            let received = parseFloat(checkoutInput.value);
+            if(isNaN(received)) received = 0;
+
+            const debtInput = document.getElementById('checkout-debt-client');
+            let debtorName = debtInput && !debtInput.closest('.hidden') ? debtInput.value.trim() : '';
+
+            if (received < total && debtorName === '') {
+                showAlert('Debes especificar un deudor para el monto faltante', 'warning');
+                if(debtInput) debtInput.focus();
+                return;
+            }
+
+            checkoutModal.style.display = 'none';
+            checkoutModal.classList.add('hidden');
+            
+            let finalClientId = null;
+            if (debtorName) {
+                const existingClient = allClientsData.find(c => c.nombre.toLowerCase() === debtorName.toLowerCase());
+                if (existingClient) {
+                    finalClientId = existingClient.id;
+                } else if (received < total) {
+                     try {
+                         finalClientId = await createCliente({ nombre: debtorName });
+                         await loadClients(); // Refresh lists
+                     } catch(e) { console.log('Error creating client auto:', e); }
+                }
+            }
+
+            executeSaleProcess('efectivo', received, debtorName, finalClientId);
+        });
+
+        async function executeSaleProcess(paymentMethod, montoPagado = null, clienteNombre = null, clienteId = null) {
+            try {
+                processSaleBtn.disabled = true;
+                processSaleBtn.textContent = 'Procesando...';
+                if (checkoutConfirm) checkoutConfirm.disabled = true;
+
+                const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+                if (montoPagado === null) montoPagado = total;
+
+                let saleArgs = {
+                    items: cart,
+                    metodoPago: paymentMethod,
+                    montoPagado: montoPagado,
+                    saldoPendiente: total - montoPagado
+                };
+                if (clienteNombre) {
+                    saleArgs.clienteNombre = clienteNombre;
+                }
+                if (clienteId) {
+                    saleArgs.clienteId = clienteId;
+                }
+
+                const saleId = await createSale(saleArgs);
+
+                showAlert('¡Venta registrada exitosamente!', 'success');
+
+                // --- ACTUALIZACIÓN OPTIMISTA (OFFLINE FRIENDLY) ---
+
+                // 1. Actualizar stock localmente (en memoria) para que la UI refleje el cambio
+                // sin tener que esperar a que firebase responda al loadProducts
+                cart.forEach(cartItem => {
+                    const product = allProducts.find(p => p.id === cartItem.productoId);
+                    if (product) {
+                        product.stock -= cartItem.cantidad;
+                    }
+                });
+                // Refrescar lista de productos visualmente con los nuevos stocks
+                const activeProducts = allProducts.filter(p => p.activo !== false && p.stock > 0);
+                displayProducts(activeProducts);
+
+                // 2. Limpiar carrito
+                const itemsVendidos = [...cart]; // Copia para historial
+                cart = [];
+                updateCart();
+                if (cartPanel && cartPanel.classList.contains('active')) {
+                    cartPanel.classList.remove('active');
+                    if (cartOverlayBg) cartOverlayBg.classList.add('hidden');
+                }
+
+                // 3. Agregar venta al historial visualmente (simulada o recarga background)
+                // No bloqueamos esperando a la base de datos
+                loadSalesHistory().catch(err => console.log("Background load history failed", err));
+
+                // También lanzamos recarga de productos en background por si acaso
+                loadProducts().catch(err => console.log("Background load products failed", err));
+
+            } catch (error) {
+                console.error('Error al procesar venta:', error);
+                showAlert(error.message || 'Error al procesar la venta', 'error');
+            } finally {
+                processSaleBtn.disabled = false;
+                processSaleBtn.textContent = 'Procesar Venta';
+                checkoutConfirm.disabled = false;
+            }
+        }
+
+        const resetSearchBtn = document.getElementById('reset-search-btn');
+        if (resetSearchBtn) {
+            resetSearchBtn.addEventListener('click', () => {
+                productSearch.value = '';
+                const activeProducts = allProducts.filter(p => p.activo !== false && p.stock > 0);
+                displayProducts(activeProducts);
+                productSearch.focus();
+            });
+        }
+
+        // --- LÓGICA DE CIERRE DE CAJA ---
+        const cierreBtn = document.getElementById('cierre-caja-btn');
+        const cierreModal = document.getElementById('cierre-modal');
+        const cierreCancelBtn = document.getElementById('cierre-modal-cancel');
+        const cierreConfirmBtn = document.getElementById('cierre-modal-confirm');
+        const cierreRealInput = document.getElementById('cierre-real-input');
+        const cierreFondoInput = document.getElementById('cierre-fondo-input');
+        
+        let cierreDataActual = null;
+
+        if (cierreBtn) {
+            cierreBtn.addEventListener('click', async () => {
+                try {
+                    cierreBtn.disabled = true;
+                    // Mostrar cargando
+                    const originalText = cierreBtn.innerHTML;
+                    cierreBtn.innerHTML = '<i data-lucide="loader" class="spin" style="width:1em; height:1em; vertical-align: middle; animation: spin 2s linear infinite;"></i> Calculando...';
+
+                    // Obtener datos del día
+                    const [ventasHoy, gastosHoy] = await Promise.all([
+                        getTodaySales(),
+                        getTodayGastos() // Asegúrate de haber importado esta función de gastos.js
+                    ]);
+
+                    let ventasTotales = 0;
+                    let ventasEfectivo = 0;
+                    let ventasTarjeta = 0;
+                    let ventasTransferencia = 0;
+
+                    ventasHoy.forEach(v => {
+                        ventasTotales += (v.total || 0);
+                        if (v.metodoPago === 'efectivo') ventasEfectivo += (v.total || 0);
+                        else if (v.metodoPago === 'tarjeta') ventasTarjeta += (v.total || 0);
+                        else if (v.metodoPago === 'transferencia') ventasTransferencia += (v.total || 0);
+                        else ventasEfectivo += (v.total || 0); // fallback efectivo
+                    });
+
+                    let gastosEfectivo = 0;
+                    gastosHoy.forEach(g => {
+                        if (g.metodoPago === 'efectivo') gastosEfectivo += (g.monto || 0);
+                    });
+
+                    const fondoInicial = parseFloat(cierreFondoInput?.value) || 0;
+                    const efectivoEsperado = fondoInicial + ventasEfectivo - gastosEfectivo;
+
+                    // Llenar datos en el modal
+                    document.getElementById('cierre-ventas-totales').textContent = formatCurrency(ventasTotales);
+                    document.getElementById('cierre-ventas-efectivo').textContent = formatCurrency(ventasEfectivo);
+                    document.getElementById('cierre-ventas-otros').textContent = formatCurrency(ventasTarjeta + ventasTransferencia);
+                    document.getElementById('cierre-gastos').textContent = '-' + formatCurrency(gastosEfectivo);
+                    document.getElementById('cierre-esperado').textContent = formatCurrency(efectivoEsperado);
+
+                    cierreRealInput.value = '';
+                    document.getElementById('cierre-diferencia').textContent = formatCurrency(0);
+                    document.getElementById('cierre-diferencia').style.color = 'var(--text-primary)';
+
+                    cierreDataActual = {
+                        ventasTotales,
+                        ventasEfectivo,
+                        ventasTarjeta,
+                        ventasTransferencia,
+                        gastosEfectivo,
+                        fondoCaja: fondoInicial,
+                        efectivoEsperadoBase: ventasEfectivo - gastosEfectivo,
+                        efectivoEsperado
+                    };
+
+                    cierreModal.style.display = 'flex';
+                    cierreModal.classList.remove('hidden');
+                    
+                    if (window.lucide) window.lucide.createIcons({ root: cierreModal });
+
+                    setTimeout(() => cierreRealInput.focus(), 100);
+
+                } catch (error) {
+                    console.error('Error al preparar cierre:', error);
+                    showAlert('Error al calcular totales del día', 'error');
+                } finally {
+                    cierreBtn.disabled = false;
+                    cierreBtn.innerHTML = '<i data-lucide="lock" style="width:1em; height:1em; vertical-align: middle;"></i> Cierre de Caja';
+                    if (window.lucide) window.lucide.createIcons({ root: document.getElementById('cierre-caja-btn') });
+                }
+            });
+        }
+
+        if (cierreCancelBtn) {
+            cierreCancelBtn.addEventListener('click', () => {
+                cierreModal.style.display = 'none';
+                cierreModal.classList.add('hidden');
+            });
+        }
+
+        function recalcularCierre() {
+            if(!cierreDataActual) return;
+            const fondo = parseFloat(cierreFondoInput.value) || 0;
+            const real = parseFloat(cierreRealInput.value) || 0;
+            
+            cierreDataActual.fondoCaja = fondo;
+            cierreDataActual.efectivoEsperado = fondo + cierreDataActual.efectivoEsperadoBase;
+            document.getElementById('cierre-esperado').textContent = formatCurrency(cierreDataActual.efectivoEsperado);
+
+            const diff = real - cierreDataActual.efectivoEsperado;
+            const diffEl = document.getElementById('cierre-diferencia');
+            
+            diffEl.textContent = formatCurrency(diff);
+            if (diff > 0) diffEl.style.color = 'var(--success-color, #10b981)';
+            else if (diff < 0) diffEl.style.color = 'var(--error-color, #ef4444)';
+            else diffEl.style.color = 'var(--text-primary)';
+        }
+
+        if (cierreRealInput) {
+            cierreRealInput.addEventListener('input', recalcularCierre);
+        }
+
+        if (cierreFondoInput) {
+            cierreFondoInput.addEventListener('input', recalcularCierre);
+        }
+
+        if (cierreConfirmBtn) {
+            cierreConfirmBtn.addEventListener('click', async () => {
+                const real = parseFloat(cierreRealInput.value);
+                if (isNaN(real)) {
+                    showAlert('Ingresa el efectivo real en caja', 'warning');
+                    cierreRealInput.focus();
+                    return;
+                }
+
+                try {
+                    cierreConfirmBtn.disabled = true;
+                    cierreConfirmBtn.textContent = 'Guardando...';
+
+                    const diferencia = real - cierreDataActual.efectivoEsperado;
+
+                    const data = {
+                        ...cierreDataActual,
+                        efectivoReal: real,
+                        diferencia: diferencia
+                    };
+
+                    await createCorteCaja(data);
+
+                    showAlert('Cierre de caja guardado exitosamente', 'success');
+                    cierreModal.style.display = 'none';
+                    cierreModal.classList.add('hidden');
+
+                } catch (error) {
+                    console.error('Error guardando cierre:', error);
+                    showAlert('Error al guardar cierre de caja', 'error');
+                } finally {
+                    cierreConfirmBtn.disabled = false;
+                    cierreConfirmBtn.textContent = 'Guardar Cierre';
+                }
+            });
+        }
+
+        // Búsqueda normal (mientras escribe)
+        productSearch.addEventListener('input', debounce(async (e) => {
+            const query = e.target.value.trim();
+
+            if (query.length === 0) {
+                const activeProducts = allProducts.filter(p => p.activo !== false && p.stock > 0);
+                displayProducts(activeProducts);
+                return;
+            }
+
+            try {
+                const results = await searchProducts(query);
+                const activeResults = results.filter(p => p.activo !== false && p.stock > 0);
+                
+                // Si la búsqueda devuelve exactamente 1 producto Y es un escaneo de código
+                // O el usuario terminó de escribir y redujo a 1 producto
+                if (activeResults.length === 1) {
+                    const product = activeResults[0];
+                    
+                    // Si la búsqueda es exacta con el código de barras, o simplemente hay 1 resultado
+                    const isExactBarcode = product.codigoBarras && product.codigoBarras === query;
+                    const isSpecificEnough = query.length > 3 || isExactBarcode;
+                    
+                    if (isSpecificEnough) {
+                        // Usamos handleProductClick por si es a granel (abre modal)
+                        handleProductClick(product);
+                        
+                        // Limpiar búsqueda para el siguiente escaneo
+                        productSearch.value = '';
+                        
+                        // Mantener el producto escaneado a la vista para permitir su edición
+                        displayProducts([product]);
+                        
+                        // Feedback
+                        if (product.unidad === 'pza') {
+                            const row = document.querySelector('.cart-item:last-child');
+                            if (row) row.classList.add('flash-success');
+                            if (typeof playBeep === 'function') playBeep();
+                        }
+                        return;
+                    }
+                }
+
+                displayProducts(activeResults);
+            } catch (error) {
+                console.error('Error en búsqueda:', error);
+            }
+        }, 300));
+
+        // Atajos de Teclado Globales
+        document.addEventListener('keydown', (e) => {
+            // F10: Cobrar
+            if (e.key === 'F10') {
+                e.preventDefault();
+                if (cart.length > 0) processSaleBtn.click();
+            }
+            // F2: Foco en buscar (para escanear)
+            if (e.key === 'F2') {
+                e.preventDefault();
+                productSearch.focus();
+            }
+            // Esc: Limpiar
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                // Opcional: limpiar búsqueda o carrito
+                productSearch.value = '';
+                productSearch.focus();
+            }
+        });
+
+        // Event listeners para métodos de pago
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                option.querySelector('input').checked = true;
+            });
+        });
+
+        // Cargar historial de ventas
+        let lastVisibleSaleDoc = null;
+        let isLoadingMoreSales = false;
+        let hasMoreSales = true;
+        let accumulatedSales = [];
+
+        async function loadSalesHistory(highlightId = null, isLoadMore = false) {
+            try {
+                const salesHistoryBody = document.getElementById('sales-history-body');
+                
+                if (!isLoadMore) {
+                    lastVisibleSaleDoc = null;
+                    hasMoreSales = true;
+                    accumulatedSales = [];
+                    // Only show loading if we are doing a fresh load without existing content or explicit refresh
+                    if (!salesHistoryBody.children.length || salesHistoryBody.children[0].textContent === 'Cargando...') {
+                        salesHistoryBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Cargando...</td></tr>';
+                    }
+                } else {
+                    if (isLoadingMoreSales || !hasMoreSales) return;
+                    isLoadingMoreSales = true;
+                    // Fix: Add loading dots securely at the end without destroying existing rows
+                    const loadingRow = document.createElement('tr');
+                    loadingRow.id = 'sales-loading-row';
+                    loadingRow.innerHTML = `
+                        <td colspan="5">
+                            <div class="loader-grid-wrapper" style="display: flex; justify-content: center; padding: 1rem 0;">
+                                <div class="css-loader-grid">
+                                    <div class="css-loader-dot"></div><div class="css-loader-dot"></div><div class="css-loader-dot"></div><div class="css-loader-dot"></div><div class="css-loader-dot"></div>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+                    salesHistoryBody.appendChild(loadingRow);
+                    // Scroll down a bit so the dots are visible
+                    document.getElementById('history-section').scrollTop += 150;
+                }
+
+                // Obtener ventas (20 por página)
+                const { sales, lastDoc } = await getSalesPaginated(30, isLoadMore ? lastVisibleSaleDoc : null);
+                
+                if (sales.length < 30) {
+                    hasMoreSales = false;
+                }
+                lastVisibleSaleDoc = lastDoc;
+                
+                let currentBatch = sales;
+
+                const filterPending = document.getElementById('filter-pending-sales');
+                if (filterPending && filterPending.checked) {
+                    currentBatch = currentBatch.filter(s => s.estado === 'pendiente' || s.saldoPendiente > 0);
+                }
+
+                // Si hay un ID para resaltar y es fresh load, asegurarnos de que esté en la lista
+                if (highlightId && !isLoadMore) {
+                    const exists = currentBatch.some(s => s.id === highlightId);
+                    if (!exists) {
+                        try {
+                            const specificSale = await getSaleById(highlightId);
+                            if (specificSale) {
+                                currentBatch.push(specificSale);
+                                // Reordenar por fecha descendente
+                                currentBatch.sort((a, b) => {
+                                    const dateA = a.fecha instanceof Date ? a.fecha : (a.fecha?.toDate ? a.fecha.toDate() : new Date(0));
+                                    const dateB = b.fecha instanceof Date ? b.fecha : (b.fecha?.toDate ? b.fecha.toDate() : new Date(0));
+                                    return dateB - dateA;
+                                });
+                            }
+                        } catch (err) {
+                            console.log('No se pudo encontrar la venta específica:', highlightId);
+                        }
+                    }
+                }
+                
+                accumulatedSales = isLoadMore ? [...accumulatedSales, ...currentBatch] : currentBatch;
+
+                if (!accumulatedSales || accumulatedSales.length === 0) {
+                    salesHistoryBody.innerHTML = `
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: var(--spacing-xl); color: var(--text-muted);">
+                                No hay ventas registradas
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                const newHTML = accumulatedSales.map(sale => {
+                    const itemsCount = sale.items?.length || 0;
+                    const itemsList = sale.items?.map(item => item.nombre).join(', ') || '';
+
+                    // Manejar correctamente el timestamp
+                    let dateTime = 'N/A';
+                    if (sale.fecha) {
+                        const date = sale.fecha instanceof Date ? sale.fecha : sale.fecha.toDate();
+                        dateTime = date.toLocaleString('es-MX', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                    }
+
+                    const metodoPago = {
+                        'efectivo': '<i data-lucide="banknote" style="width:1em; height:1em; vertical-align: middle;"></i> Efectivo',
+                        'tarjeta': '<i data-lucide="credit-card" style="width:1em; height:1em; vertical-align: middle;"></i> Tarjeta',
+                        'transferencia': '<i data-lucide="building" style="width:1em; height:1em; vertical-align: middle;"></i> Transfer.'
+                    }[sale.metodoPago] || sale.metodoPago;
+
+                    const isHighlighted = sale.id === highlightId;
+                    let rowStyle = isHighlighted ? 'background-color: rgba(255, 0, 64, 0.15); border-left: 4px solid var(--primary-color);' : '';
+                    
+                    const isEliminada = sale.estado === 'eliminada';
+                    if (isEliminada) {
+                        rowStyle += ' opacity: 0.6; background-color: rgba(0,0,0,0.05);';
+                    }
+
+                    const isPending = sale.estado === 'pendiente' || (sale.saldoPendiente > 0);
+                    let statusHtml = '';
+                    if (isEliminada) {
+                        statusHtml = `<br><span style="color:var(--error-color); font-size:0.8rem; font-weight:bold; padding: 2px 5px; border: 1px solid var(--error-color); border-radius: 4px; display: inline-block; margin-top: 5px;">ANULADA</span>`;
+                    } else if (isPending) {
+                        statusHtml = `<br><span style="color:var(--error-color); font-size:0.8rem; font-weight:bold;">Fiado: ${formatCurrency(sale.saldoPendiente)}</span>`;
+                    }
+                    
+                    const abonoBtnHtml = (!isEliminada && isPending)
+                        ? `<button class="btn btn-outline btn-sm abonar-btn" data-id="${sale.id}" data-saldo="${sale.saldoPendiente}" style="margin-top: 5px; padding: 2px 8px; font-size: 0.75rem; border-color: var(--primary-color); color: var(--primary-color);">Abonar</button>`
+                        : '';
+                    
+                    const deleteBtnHtml = !isEliminada
+                        ? `<button class="btn btn-danger btn-sm delete-sale-btn" data-id="${sale.id}" style="margin-top: 5px; padding: 2px 8px; font-size: 0.75rem;">Eliminar</button>`
+                        : '';
+
+                    return `
+                        <tr data-id="${sale.id}" style="${rowStyle}" class="${isHighlighted ? 'highlighted-row' : ''}">
+                            <td>${dateTime}</td>
+                            <td>
+                                <strong style="${isEliminada ? 'text-decoration: line-through;' : ''}">${itemsCount} producto${itemsCount !== 1 ? 's' : ''}</strong>
+                                <br>
+                                <span class="text-muted" style="font-size: 0.75rem;">${itemsList.substring(0, 50)}${itemsList.length > 50 ? '...' : ''}</span>
+                                ${sale.cliente && sale.cliente !== 'Público general' ? `<br><span class="text-muted" style="font-size: 0.75rem;"><b>Cliente:</b> ${sale.cliente}</span>` : ''}
+                            </td>
+                            <td>${metodoPago}</td>
+                            <td style="${isEliminada ? 'text-decoration: line-through; color: var(--text-muted)' : ''}">
+                                <strong>${formatCurrency(sale.total)}</strong>
+                                ${statusHtml}
+                            </td>
+                            <td style="color: ${isEliminada ? 'var(--text-muted)' : 'var(--success-color)'};">
+                                <strong style="${isEliminada ? 'text-decoration: line-through;' : ''}">${formatCurrency(sale.ganancia)}</strong><br>
+                                ${abonoBtnHtml}
+                                ${abonoBtnHtml ? '<br>' : ''}
+                                ${deleteBtnHtml}
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+
+                salesHistoryBody.innerHTML = newHTML;
+
+                if (window.lucide) window.lucide.createIcons({ root: salesHistoryBody });
+
+                // Reset loading flag
+                if (isLoadMore) {
+                    isLoadingMoreSales = false;
+                }
+
+                // Event Listeners for Abonos
+                document.querySelectorAll('.abonar-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        openAbonoModal(btn.dataset.id, btn.dataset.saldo);
+                    });
+                });
+
+                // Event Listeners for Delete Sale
+                document.querySelectorAll('.delete-sale-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const saleId = e.target.dataset.id;
+                        
+                        const pass = prompt('Esta acción devolverá el stock y limpiará el gasto del cliente si aplica.\n\nIngrese contraseña de administrador para Eliminar esta venta:');
+                        if (pass !== '1234') {
+                            if (pass !== null) showAlert('Contraseña incorrecta', 'error');
+                            return;
+                        }
+
+                        if (confirm('¿Estás SEGURO de eliminar por completo esta venta?')) {
+                            try {
+                                btn.disabled = true;
+                                btn.textContent = '...';
+                                await deleteSale(saleId);
+                                showAlert('Venta eliminada. Stock y Cliente actualizados.', 'success');
+                                loadSalesHistory();
+                            } catch (err) {
+                                console.error(err);
+                                showAlert('Error al eliminar venta: ' + err.message, 'error');
+                                btn.disabled = false;
+                                btn.textContent = 'Eliminar';
+                            }
+                        }
+                    });
+                });
+
+                // Scroll to highlighted row
+                if (highlightId) {
+                    setTimeout(() => {
+                        const row = salesHistoryBody.querySelector(`tr[data-id="${highlightId}"]`);
+                        if (row) {
+                            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 500);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar historial de ventas:', error);
+                const salesHistoryBody = document.getElementById('sales-history-body');
+                if (!salesHistoryBody.children.length || salesHistoryBody.children[0].textContent === 'Cargando...') {
+                    salesHistoryBody.innerHTML = '<tr><td colspan="5" class="text-center" style="color:var(--error-color);">Error cargando ventas</td></tr>';
+                }
+                if (typeof isLoadingMoreSales !== 'undefined') isLoadingMoreSales = false;
+            }
+        }
+
+        // --- MANEJAR SCROLL PARA HISTORIAL DE VENTAS ---
+        const historyOverlaySec = document.getElementById('history-section');
+        if (historyOverlaySec) {
+            historyOverlaySec.addEventListener('scroll', () => {
+                // Si el usuario llega casi al final del contenedor con scroll
+                if (historyOverlaySec.scrollTop + historyOverlaySec.clientHeight >= historyOverlaySec.scrollHeight - 50) {
+                    if (typeof hasMoreSales !== 'undefined' && hasMoreSales && !isLoadingMoreSales) {
+                        loadSalesHistory(null, true);
+                    }
+                }
+            });
+        }
+
+        // Botón de refrescar historial
+        document.getElementById('refresh-history').addEventListener('click', () => loadSalesHistory());
+        
+        const filterPendingCheckbox = document.getElementById('filter-pending-sales');
+        if (filterPendingCheckbox) {
+            filterPendingCheckbox.addEventListener('change', () => loadSalesHistory());
+        }
+
+        // --- MOBILE FLOATING CART LOGIC ---
+        const floatingCartBtn = document.getElementById('floating-cart-btn');
+        const cartPanel = document.querySelector('.cart-panel');
+        const cartPanelClose = document.getElementById('cart-panel-close');
+        const cartOverlayBg = document.getElementById('cart-overlay-bg');
+
+        if (floatingCartBtn) {
+            let isDragging = false;
+            let dragged = false;
+
+            // Touch events for mobile dragging
+            floatingCartBtn.addEventListener("touchstart", (e) => {
+                isDragging = true;
+                dragged = false;
+            }, { passive: true });
+
+            document.addEventListener("touchmove", (e) => {
+                if (!isDragging) return;
+                dragged = true;
+                const touch = e.touches[0];
+                
+                // Calculate new positions
+                let newLeft = touch.clientX - 30;
+                let newTop = touch.clientY - 30;
+
+                // Add Boundaries so button can't be dragged off screen
+                const maxX = window.innerWidth - 60; // 60 is button width
+                const maxY = window.innerHeight - 60; // 60 is button height
+
+                if (newLeft < 0) newLeft = 0;
+                if (newTop < 0) newTop = 0;
+                if (newLeft > maxX) newLeft = maxX;
+                if (newTop > maxY) newTop = maxY;
+
+                floatingCartBtn.style.left = newLeft + 'px';
+                floatingCartBtn.style.top = newTop + 'px';
+                floatingCartBtn.style.bottom = 'auto'; 
+                floatingCartBtn.style.right = 'auto';
+            }, { passive: true });
+
+            document.addEventListener("touchend", (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                setTimeout(() => dragged = false, 50); // delay reset to prevent click
+            });
+
+            // Handle click
+            floatingCartBtn.addEventListener('click', (e) => {
+                if (dragged) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                cartPanel.classList.add('active');
+                if (cartOverlayBg) cartOverlayBg.classList.remove('hidden');
+            });
+        }
+
+        if (cartPanelClose) {
+            cartPanelClose.addEventListener('click', () => {
+                cartPanel.classList.remove('active');
+                if (cartOverlayBg) cartOverlayBg.classList.add('hidden');
+            });
+        }
+        if (cartOverlayBg) {
+            cartOverlayBg.addEventListener('click', () => {
+                cartPanel.classList.remove('active');
+                cartOverlayBg.classList.add('hidden');
+            });
+        }
+        // --- LOGICA DE ABONOS ---
+        const abonoModal = document.getElementById('abono-modal');
+        const abonoMontoInput = document.getElementById('abono-monto-input');
+        const abonoSaldoDisplay = document.getElementById('abono-saldo-display');
+        const abonoModalCancel = document.getElementById('abono-modal-cancel');
+        const abonoModalConfirm = document.getElementById('abono-modal-confirm');
+        
+        let currentAbonoSaleId = null;
+        let currentAbonoSaldo = 0;
+
+        window.openAbonoModal = function(saleId, saldo) {
+            currentAbonoSaleId = saleId;
+            currentAbonoSaldo = parseFloat(saldo);
+            abonoSaldoDisplay.textContent = formatCurrency(currentAbonoSaldo);
+            abonoMontoInput.value = '';
+            
+            abonoModal.style.display = 'flex';
+            abonoModal.classList.remove('hidden');
+            setTimeout(() => abonoMontoInput.focus(), 100);
+        };
+
+        if(abonoModalCancel) {
+            abonoModalCancel.addEventListener('click', () => {
+                abonoModal.style.display = 'none';
+                abonoModal.classList.add('hidden');
+            });
+        }
+
+        if(abonoModalConfirm) {
+            abonoModalConfirm.addEventListener('click', async () => {
+                const abonoAmount = parseFloat(abonoMontoInput.value) || 0;
+                if (abonoAmount <= 0) {
+                    showAlert('Ingresa un monto válido para abonar', 'warning');
+                    return;
+                }
+                if (abonoAmount > currentAbonoSaldo) {
+                    showAlert('El abono es mayor al saldo pendiente', 'warning');
+                    return;
+                }
+
+                try {
+                    abonoModalConfirm.disabled = true;
+                    abonoModalConfirm.textContent = 'Abonando...';
+                    
+                    await registrarAbonoVenta(currentAbonoSaleId, abonoAmount);
+                    showAlert('Abono registrado exitosamente', 'success');
+                    
+                    abonoModal.style.display = 'none';
+                    abonoModal.classList.add('hidden');
+                    
+                    loadSalesHistory();
+                } catch (error) {
+                    showAlert('Error al registrar abono', 'error');
+                } finally {
+                    abonoModalConfirm.disabled = false;
+                    abonoModalConfirm.textContent = 'Confirmar Abono';
+                }
+            });
+        }
+    </script>
+
+    <!-- Global Search Script -->
+    <script src="js/global-search.js?v=2.5"></script>
+    <script type="module" src="js/search-services.js"></script>
+
+    <!-- Animation & Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="/js/animations.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script src="js/mobile-menu.js?v=2.3"></script>
+    <script type="module" src="js/notes-widget.js?v=2.3"></script>
+    <script src="js/calc-widget.js"></script>
+    <script src="/js/pwa.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js?v=2.4"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="GestiÃ³n de Gastos - Sistema de gestiÃ³n para tienda">
+    <meta name="theme-color" content="#ff0040">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sistema Tienda">
+
+    <title>Gastos - Sistema Tienda</title>
+    <link rel="icon" href="/icon-192.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
+
+    <style>
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--error-color);
+        }
+
+        .stat-value.positive {
+            color: var(--success-color);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon"></div>
+            <span class="sidebar-brand-text">Sistema Tienda</span>
+            <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="inicio.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="home"></i></span>
+                <span class="text">Inicio</span>
+            </a>
+            <a href="dashboard.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="bar-chart-2"></i></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <a href="productos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="package"></i></span>
+                <span class="text">Productos</span>
+            </a>
+            <a href="ventas.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="shopping-cart"></i></span>
+                <span class="text">Ventas</span>
+            </a>
+            <a href="gastos.html" class="sidebar-item active">
+                <span class="sidebar-item-icon"><i data-lucide="receipt"></i></span>
+                <span class="text">Gastos</span>
+            </a>
+            <a href="reportes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="pie-chart"></i></span>
+                <span class="text">Reportes</span>
+            </a>
+            <a href="clientes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="users"></i></span>
+                <span class="text">Clientes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Desktop Topbar -->
+    <header class="topbar" id="topbar">
+        <!-- Global Search Bar -->
+        <div class="global-search-container" id="global-search-container">
+            <div class="global-search-wrapper">
+                <input type="text" class="global-search-input" id="global-search-input"
+                    placeholder="Buscar productos, clientes, ventas...">
+                <button class="global-search-btn"><i data-lucide="search" data-anim="pulse"
+                        style="width:1.2em; height:1.2em;"></i></button>
+                <button class="global-search-close" id="global-search-close">x</button>
+            </div>
+            <div class="global-search-results" id="global-search-results"></div>
+        </div>
+
+        <div class="navbar-user">
+            <!-- User Dropdown -->
+            <div class="navbar-user-dropdown">
+                <button class="navbar-user-btn" id="user-dropdown-btn">
+                    <div class="navbar-user-avatar" id="user-avatar">U</div>
+                    <span id="user-display-name">Usuario</span>
+                    <span class="navbar-user-arrow"></span>
+                </button>
+
+                <div class="navbar-dropdown-menu" id="user-dropdown-menu">
+                    <div class="navbar-dropdown-header">
+                        <div class="navbar-dropdown-email" id="dropdown-user-email">usuario@email.com</div>
+                        <div class="navbar-dropdown-role">Administrador</div>
+                    </div>
+
+                    <a href="#" class="navbar-dropdown-item" id="edit-profile-btn">
+                        <span><i data-lucide="user" style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Mi Perfil</span>
+                    </a>
+
+                    <a href="#" class="navbar-dropdown-item" id="settings-btn">
+                        <span><i data-lucide="settings"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Configuración</span>
+                    </a>
+
+                    <div class="navbar-dropdown-divider"></div>
+
+                    <button class="navbar-dropdown-item danger" id="dropdown-logout-btn">
+                        <span><i data-lucide="log-out"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Cerrar SesiÃ³n</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar (Only visible on mobile) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="inicio.html" class="navbar-brand">
+                <img src="images/brand-icon.png" alt="Icono" class="custom-navbar-icon"> Sistema Tienda
+            </a>
+
+            <button class="navbar-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="gastos.html" class="active">Gastos</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="section-header">
+                <div>
+                    <h1>Gestión de Gastos</h1>
+                    <p class="text-muted">Registra y controla tus gastos operativos e inventario</p>
+                </div>
+                <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                    <button class="btn btn-outline" id="reabasto-manual-btn">
+                        + Reabasto Manual
+                    </button>
+                    <button class="btn btn-secondary" id="scan-ticket-btn"
+                        style="background: var(--primary-color); color: white; border: none;">
+                        <i data-lucide="scan"
+                            style="width:1.2em; height:1.2em; vertical-align: middle; margin-right: 5px;"></i> Subir
+                        Ticket
+                    </button>
+                    <input type="file" id="ticket-file-input" accept="image/*,application/pdf" style="display: none;">
+
+                    <button class="btn btn-primary" id="add-expense-btn">
+                        + Registrar Gasto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-label">Gastos Hoy</div>
+                    <div class="stat-value" id="today-expenses">$0.00</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Gastos Este Mes</div>
+                    <div class="stat-value" id="month-expenses">$0.00</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Ventas Hoy</div>
+                    <div class="stat-value positive" id="today-sales">$0.00</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Ganancia Neta Hoy</div>
+                    <div class="stat-value positive" id="net-profit">$0.00</div>
+                </div>
+            </div>
+
+            <!-- Expenses History -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="section-header" style="margin-bottom: 0;">
+                            <div>
+                                <h3 class="card-title">Historial de Gastos</h3>
+                                <p class="card-subtitle">Últimos gastos registrados</p>
+                            </div>
+                            <button class="btn btn-outline btn-sm" id="refresh-expenses"><i data-lucide="refresh-cw"
+                                    style="width:1em; height:1em; vertical-align: middle;"></i> Actualizar</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="table" id="expenses-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha y Hora</th>
+                                        <th>Categoría</th>
+                                        <th>Descripción</th>
+                                        <th>Método</th>
+                                        <th>Monto</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="expenses-body">
+                                    <!-- Se llenará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Gasto -->
+    <div id="expense-modal" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Registrar Gasto</h3>
+                <button class="btn btn-outline btn-sm" id="close-modal-btn">✕</button>
+            </div>
+
+            <form id="expense-form">
+                <div class="modal-body">
+                    <div class="modal-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="expense-category">Categoría *</label>
+                            <select id="expense-category" class="form-input" required>
+                                <option value="">Seleccionar...</option>
+                                <!-- Se llenará dinámicamente -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="expense-amount">Monto *</label>
+                            <input type="number" id="expense-amount" class="form-input" step="0.01" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="expense-description">Descripción</label>
+                        <textarea id="expense-description" class="form-textarea" rows="3"></textarea>
+                    </div>
+
+                    <div class="modal-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="expense-date">Fecha</label>
+                            <input type="date" id="expense-date" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="expense-payment">Método de Pago</label>
+                            <select id="expense-payment" class="form-input">
+                                <option value="efectivo">Efectivo</option>
+                                <option value="tarjeta">Tarjeta</option>
+                                <option value="transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="expense-recurrent">
+                            <span>Gasto recurrente/mensual</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="save-btn">
+                        Guardar Gasto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Revisión IA / Reabasto -->
+    <div id="ai-review-modal" class="modal-overlay hidden">
+        <div class="modal" style="max-width: 800px; width: 90%;">
+            <div class="modal-header">
+                <h3 id="ai-modal-title">Revisar Ticket Escaneado</h3>
+                <button class="btn btn-outline btn-sm" id="close-ai-modal-btn">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-grid" style="margin-bottom: var(--spacing-lg);">
+                    <div class="form-group">
+                        <label class="form-label" for="ai-expense-date">Fecha de Compra</label>
+                        <input type="date" id="ai-expense-date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="ai-expense-total">Total Ticket</label>
+                        <input type="number" id="ai-expense-total" class="form-input" step="0.01" min="0" required>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-bottom: var(--spacing-sm);">
+                    <h4 style="margin: 0; font-size: 1.1rem;">Productos Detectados / A Ingresar</h4>
+                    <button type="button" class="btn btn-outline btn-sm" id="add-manual-product-btn">+ Añadir
+                        Fila</button>
+                </div>
+
+                <div class="table-container"
+                    style="max-height: 400px; overflow-y: auto; margin-bottom: var(--spacing-md); border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+                    <table class="table">
+                        <thead style="position: sticky; top: 0; background: var(--bg-primary); z-index: 1;">
+                            <tr>
+                                <th>Producto (Ticket)</th>
+                                <th>Mapeo Inventario</th>
+                                <th style="width: 70px;">Cant.</th>
+                                <th style="width: 90px;">P. Unit.</th>
+                                <th style="width: 90px;">Subtotal</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ai-products-body">
+                            <!-- Filas -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="ai-expense-payment">Método de Pago</label>
+                    <select id="ai-expense-payment" class="form-input" style="max-width: 300px;">
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="transferencia">Transferencia</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="justify-content: space-between;">
+                <div style="font-weight: 600; font-size: 1.1rem;">Gasto Total: <span id="ai-total-display">$0.00</span>
+                </div>
+                <div style="display: flex; gap: var(--spacing-sm);">
+                    <button type="button" class="btn btn-outline" id="cancel-ai-btn">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirm-ai-btn"
+                        style="background: var(--success-color); border-color: var(--success-color);">
+                        Confirmar e Ingresar Stock
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalles de Gasto -->
+    <div id="expense-details-modal" class="modal-overlay hidden">
+        <div class="modal" style="max-width: 700px; width: 90%;">
+            <div class="modal-header">
+                <h3>Detalles del Gasto</h3>
+                <button class="btn btn-outline btn-sm" id="close-details-btn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); background: var(--bg-secondary); padding: var(--spacing-md); border-radius: var(--border-radius);">
+                    <div><span class="text-muted">Fecha:</span> <strong id="det-fecha"></strong></div>
+                    <div><span class="text-muted">Categoría:</span> <strong id="det-categoria"></strong></div>
+                    <div><span class="text-muted">Método:</span> <strong id="det-metodo"></strong></div>
+                    <div><span class="text-muted">Total:</span> <strong id="det-total"
+                            style="color:var(--error-color);"></strong></div>
+                    <div style="grid-column: 1 / -1;"><span class="text-muted">Descripción:</span> <span
+                            id="det-descripcion"></span></div>
+                </div>
+
+                <div id="det-productos-container" class="hidden">
+                    <h4 style="margin-bottom: var(--spacing-sm);">Productos Registrados en el Ticket/Reabasto</h4>
+                    <div class="table-container"
+                        style="max-height: 250px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+                        <table class="table">
+                            <thead style="position: sticky; top: 0; background: var(--bg-primary); z-index: 1;">
+                                <tr>
+                                    <th>Producto</th>
+                                    <th style="width: 80px; text-align:center;">Cant.</th>
+                                    <th style="width: 100px; text-align:right;">P. Unit.</th>
+                                    <th style="width: 100px; text-align:right;">Costo Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="det-productos-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: flex-end;">
+                <button type="button" class="btn btn-primary" id="ok-details-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script type="module">
+        import { initializeFirebase, onAuthStateChanged } from './js/services/firebase.js';
+        import { logout } from './js/services/auth.js';
+        import {
+            createGasto,
+            getAllGastos,
+            searchGastos,
+            getTodayGastos,
+            getMonthGastos,
+            updateGasto,
+            deleteGasto,
+            calculateTotalGastos,
+            groupGastosByCategory,
+            CATEGORIAS_GASTOS
+        } from './js/services/gastos.js';
+        import { getTodaySales } from './js/services/sales.js';
+        import {
+            formatCurrency,
+            formatDate,
+            showAlert,
+            showLoading,
+            showConfirm
+        } from './js/utils/helpers.js';
+
+        // Servicios para Reabasto/Gemini
+        import { procesarTicketConGemini, fileToBase64 } from './js/services/gemini-service.js';
+        import { getAllProducts, updateProductStock, createProduct } from './js/services/products.js';
+
+        // Inicializar Firebase
+        initializeFirebase();
+
+        // Estado
+        let editingExpenseId = null;
+        let currentGastosLoaded = []; // Para almacenar los gastos rendereados en memoria
+
+        // Elementos del DOM
+        // Elementos del DOM
+        const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+        const addExpenseBtn = document.getElementById('add-expense-btn');
+        const refreshBtn = document.getElementById('refresh-expenses');
+        const expensesBody = document.getElementById('expenses-body');
+        const expenseModal = document.getElementById('expense-modal');
+        const expenseForm = document.getElementById('expense-form');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const categorySelect = document.getElementById('expense-category');
+
+        // Verificar autenticaciÃ³n
+        onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Poblar informaciÃ³n del usuario
+            if (window.populateUserInfo) {
+                window.populateUserInfo(user.email);
+            }
+
+            loadData();
+        });
+
+        // Cerrar sesión
+        if (dropdownLogoutBtn) {
+            dropdownLogoutBtn.addEventListener('click', async () => {
+                try {
+                    await logout();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    showAlert('Error al cerrar sesión', 'error');
+                }
+            });
+        }
+
+        // Cargar categorías
+        function loadCategories() {
+            categorySelect.innerHTML = '<option value="">Seleccionar...</option>';
+            CATEGORIAS_GASTOS.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // Cargar datos
+        async function loadData() {
+            try {
+                loadCategories();
+
+                // Cargar estadísticas
+                const [todayExpenses, monthExpenses, todaySales] = await Promise.all([
+                    getTodayGastos(),
+                    getMonthGastos(),
+                    getTodaySales()
+                ]);
+
+                updateStatistics(todayExpenses, monthExpenses, todaySales);
+
+                // Manejar búsqueda o carga normal
+                const params = new URLSearchParams(window.location.search);
+                const search = params.get('search');
+                const highlightId = params.get('highlight');
+                let allExpenses = [];
+
+                if (search) {
+                    allExpenses = await searchGastos(search);
+                } else {
+                    allExpenses = await getAllGastos(50);
+                }
+
+                currentGastosLoaded = allExpenses; // Guardar copia
+                displayExpenses(allExpenses);
+
+                if (highlightId) {
+                    const expense = allExpenses.find(e => e.id === highlightId);
+                    if (expense) {
+                        setTimeout(() => {
+                            const btn = document.querySelector(`.delete-btn[data-id="${highlightId}"]`);
+                            if (btn) {
+                                const row = btn.closest('tr');
+                                if (row) {
+                                    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    row.style.backgroundColor = 'rgba(255, 0, 64, 0.15)';
+                                    setTimeout(() => row.style.backgroundColor = '', 3000);
+                                }
+                            }
+                        }, 500);
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error al cargar datos:', error);
+                showAlert('Error al cargar datos', 'error');
+            }
+        }
+
+        // Actualizar estadísticas
+        function updateStatistics(todayExpenses, monthExpenses, todaySales) {
+            const todayExpensesTotal = calculateTotalGastos(todayExpenses);
+            const monthExpensesTotal = calculateTotalGastos(monthExpenses);
+            const todaySalesTotal = todaySales.reduce((sum, sale) => sum + sale.total, 0);
+            const todayProfit = todaySales.reduce((sum, sale) => sum + (sale.ganancia || 0), 0);
+            const netProfit = todayProfit - todayExpensesTotal;
+
+            document.getElementById('today-expenses').textContent = formatCurrency(todayExpensesTotal);
+            document.getElementById('month-expenses').textContent = formatCurrency(monthExpensesTotal);
+            document.getElementById('today-sales').textContent = formatCurrency(todaySalesTotal);
+
+            const netProfitEl = document.getElementById('net-profit');
+            netProfitEl.textContent = formatCurrency(netProfit);
+            netProfitEl.className = 'stat-value ' + (netProfit >= 0 ? 'positive' : '');
+        }
+
+        // Mostrar gastos
+        function displayExpenses(expenses) {
+            if (!expenses || expenses.length === 0) {
+                expensesBody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: var(--spacing-xl); color: var(--text-muted);">
+              No hay gastos registrados
+            </td>
+          </tr>
+        `;
+                return;
+            }
+
+            expensesBody.innerHTML = expenses.map(expense => {
+                const dateTime = expense.fecha ? formatDate(expense.fecha, 'datetime') : 'N/A';
+
+                const metodoPago = {
+                    'efectivo': '<i data-lucide="coins" style="width:1em; height:1em; vertical-align: middle;"></i> Efectivo',
+                    'tarjeta': '<i data-lucide="credit-card" style="width:1em; height:1em; vertical-align: middle;"></i> Tarjeta',
+                    'transferencia': '<i data-lucide="landmark" style="width:1em; height:1em; vertical-align: middle;"></i> Transfer.'
+                }[expense.metodoPago] || expense.metodoPago;
+
+                return `
+          <tr>
+            <td>${dateTime}</td>
+            <td>${expense.categoria}</td>
+            <td>${expense.descripcion || '-'}</td>
+            <td>${metodoPago}</td>
+            <td style="color: var(--error-color);"><strong>${formatCurrency(expense.monto)}</strong></td>
+            <td>
+              <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
+                <button class="btn btn-outline btn-sm view-details-btn" data-id="${expense.id}" title="Ver Detalles"><i data-lucide="eye" style="width:1.2em; height:1.2em;"></i></button>
+                <button class="btn btn-danger btn-sm delete-btn" data-id="${expense.id}" title="Eliminar"><i data-lucide="trash-2" style="width:1.2em; height:1.2em;"></i></button>
+              </div>
+            </td>
+          </tr>
+        `;
+            }).join('');
+
+            if (window.lucide) window.lucide.createIcons({ root: expensesBody });
+            // Animaciones separadas por rendimiento
+            // if (window.initGlobalAnimations) window.initGlobalAnimations(expensesBody);
+
+            // Event listeners para eliminar y detalles
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleDeleteExpense(btn.dataset.id));
+            });
+            document.querySelectorAll('.view-details-btn').forEach(btn => {
+                btn.addEventListener('click', () => openExpenseDetails(btn.dataset.id));
+            });
+        }
+
+        // Abrir modal para nuevo gasto
+        addExpenseBtn.addEventListener('click', () => {
+            editingExpenseId = null;
+            expenseForm.reset();
+            document.getElementById('modal-title').textContent = 'Registrar Gasto';
+            document.getElementById('expense-date').valueAsDate = new Date();
+            expenseModal.classList.remove('hidden');
+        });
+
+        // Cerrar modal
+        closeModalBtn.addEventListener('click', () => {
+            expenseModal.classList.add('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            expenseModal.classList.add('hidden');
+        });
+
+        // Guardar gasto
+        expenseForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const expenseData = {
+                categoria: document.getElementById('expense-category').value,
+                monto: document.getElementById('expense-amount').value,
+                descripcion: document.getElementById('expense-description').value,
+                metodoPago: document.getElementById('expense-payment').value,
+                recurrente: document.getElementById('expense-recurrent').checked
+            };
+
+            const dateInput = document.getElementById('expense-date').value;
+            if (dateInput) {
+                expenseData.fecha = new Date(dateInput + 'T12:00:00');
+            }
+
+            try {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Guardando...';
+
+                await createGasto(expenseData);
+                showAlert('Gasto registrado correctamente', 'success');
+
+                expenseModal.classList.add('hidden');
+
+                // Solo recargar si hay internet o si la persistencia responde rápido
+                // Para evitar bloqueos, no hacemos await del loadData
+                loadData().catch(console.error);
+
+            } catch (error) {
+                console.error('Error al guardar gasto:', error);
+                showAlert(error.message || 'Error al guardar gasto', 'error');
+            } finally {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Guardar Gasto';
+            }
+        });
+
+        // Eliminar gasto
+        function handleDeleteExpense(id) {
+            showConfirm(
+                '¿Estás seguro de que quieres eliminar este gasto?',
+                async () => {
+                    try {
+                        await deleteGasto(id);
+                        showAlert('Gasto eliminado correctamente', 'success');
+                        await loadData();
+                    } catch (error) {
+                        console.error('Error al eliminar gasto:', error);
+                        showAlert('Error al eliminar gasto', 'error');
+                    }
+                }
+            );
+        }
+
+        // Refrescar datos
+        refreshBtn.addEventListener('click', loadData);
+
+        // ==========================================
+        // LÓGICA DE DETALLES DEL GASTO
+        // ==========================================
+        const detailsModal = document.getElementById('expense-details-modal');
+        const closeDetailsBtn = document.getElementById('close-details-btn');
+        const okDetailsBtn = document.getElementById('ok-details-btn');
+
+        const closeDetailsModal = () => detailsModal.classList.add('hidden');
+        if (closeDetailsBtn) closeDetailsBtn.addEventListener('click', closeDetailsModal);
+        if (okDetailsBtn) okDetailsBtn.addEventListener('click', closeDetailsModal);
+
+        function openExpenseDetails(id) {
+            const expense = currentGastosLoaded.find(e => e.id === id);
+            if (!expense) return;
+
+            document.getElementById('det-fecha').textContent = expense.fecha ? formatDate(expense.fecha, 'datetime') : 'N/A';
+            document.getElementById('det-categoria').textContent = expense.categoria || '-';
+            document.getElementById('det-metodo').textContent = expense.metodoPago || '-';
+            document.getElementById('det-total').textContent = formatCurrency(expense.monto || 0);
+            document.getElementById('det-descripcion').textContent = expense.descripcion || '-';
+
+            const prodContainer = document.getElementById('det-productos-container');
+            const prodBody = document.getElementById('det-productos-body');
+
+            if (expense.productos && Array.isArray(expense.productos) && expense.productos.length > 0) {
+                prodContainer.classList.remove('hidden');
+                prodBody.innerHTML = expense.productos.map(p => {
+                    const cant = p.cantidadAñadida || 1;
+                    const cTotal = p.costoAsignado || 0;
+                    const pUnit = cant > 0 ? (cTotal / cant) : 0;
+                    return `
+                        <tr>
+                            <td>${p.nombre || 'Desconocido'}</td>
+                            <td style="text-align:center;">${cant}</td>
+                            <td style="text-align:right;">${formatCurrency(pUnit)}</td>
+                            <td style="text-align:right;">${formatCurrency(cTotal)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            } else {
+                prodContainer.classList.add('hidden');
+                prodBody.innerHTML = '';
+            }
+
+            detailsModal.classList.remove('hidden');
+        }
+
+        // ==========================================
+        // LÓGICA DE ESCANEO DE TICKETS Y REABASTO
+        // ==========================================
+
+        let inventarioActual = [];
+        let productosReabasto = [];
+        let aiModalMode = 'ai'; // 'ai' o 'manual'
+
+        // Elementos DOM de IA
+        const scanTicketBtn = document.getElementById('scan-ticket-btn');
+        const reabastoManualBtn = document.getElementById('reabasto-manual-btn');
+        const ticketFileInput = document.getElementById('ticket-file-input');
+        const aiReviewModal = document.getElementById('ai-review-modal');
+        const aiProductsBody = document.getElementById('ai-products-body');
+        const aiExpenseDate = document.getElementById('ai-expense-date');
+        const aiExpenseTotal = document.getElementById('ai-expense-total');
+        const aiExpensePayment = document.getElementById('ai-expense-payment');
+        const aiTotalDisplay = document.getElementById('ai-total-display');
+
+        // Cargar inventario para mapeo
+        async function cargarInventarioCompleto() {
+            try {
+                if (inventarioActual.length === 0) {
+                    inventarioActual = await getAllProducts(5000);
+                }
+            } catch (error) {
+                console.error("Error cargando inventario", error);
+                showAlert('No se pudo cargar el inventario para cruzar datos', 'warning');
+            }
+        }
+
+        // Subida de Ticket
+        if (scanTicketBtn) {
+            scanTicketBtn.addEventListener('click', async () => {
+                const overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.style.zIndex = '10000';
+                showLoading(overlay, 'Preparando sistema de IA...');
+                document.body.appendChild(overlay);
+
+                await cargarInventarioCompleto();
+                overlay.remove();
+
+                ticketFileInput.click();
+            });
+        }
+
+        if (ticketFileInput) {
+            ticketFileInput.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                ticketFileInput.value = '';
+
+                try {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'modal-overlay';
+                    overlay.style.zIndex = '10000';
+                    showLoading(overlay, 'Analizando ticket...');
+                    document.body.appendChild(overlay);
+
+                    const base64 = await fileToBase64(file);
+
+                    const jsonIA = await procesarTicketConGemini(base64, file.type, inventarioActual);
+
+                    overlay.remove();
+
+                    abrirModalRevision(jsonIA, 'ai');
+
+                } catch (error) {
+                    const overlay = document.querySelector('.modal-overlay[style*="z-index: 10000"]');
+                    if (overlay) overlay.remove();
+                    console.error(error);
+                    showAlert(`Error al analizar ticket: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        // Reabasto Manual Completo
+        if (reabastoManualBtn) {
+            reabastoManualBtn.addEventListener('click', async () => {
+                await cargarInventarioCompleto();
+                abrirModalRevision({
+                    fecha: new Date().toISOString().split('T')[0],
+                    total: 0,
+                    productos: []
+                }, 'manual');
+            });
+        }
+
+        function abrirModalRevision(datosIA, modo) {
+            aiModalMode = modo;
+            productosReabasto = (datosIA.productos || []).map(p => {
+                if (!p.productoMapeadoEnInventario) {
+                    p.productoMapeadoEnInventario = { id: 'NEW', nombre: (p.nombreOriginalTicket || 'Producto Nuevo') + ' (Revisar)' };
+                }
+                return p;
+            });
+
+            document.getElementById('ai-modal-title').textContent = modo === 'ai' ? 'Revisar Ticket Escaneado' : 'Reabastecimiento Manual';
+
+            if (datosIA.fecha && datosIA.fecha !== '1970-01-01') {
+                aiExpenseDate.value = datosIA.fecha;
+            } else {
+                aiExpenseDate.valueAsDate = new Date();
+            }
+
+            aiExpenseTotal.value = datosIA.total || 0;
+            aiExpensePayment.value = 'efectivo';
+
+            renderizarTablaReabasto();
+            if (aiReviewModal) aiReviewModal.classList.remove('hidden');
+        }
+
+        function renderizarTablaReabasto() {
+            if (!aiProductsBody) return;
+            aiProductsBody.innerHTML = '';
+
+            if (productosReabasto.length === 0) {
+                aiProductsBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">Sin productos añadidos. Usa "+ Añadir Fila".</td></tr>`;
+            } else {
+                productosReabasto.forEach((prod, index) => {
+                    const tr = document.createElement('tr');
+
+                    const optionsHtml = inventarioActual.map(inv => {
+                        const selected = (prod.productoMapeadoEnInventario && prod.productoMapeadoEnInventario.id === inv.id) ? 'selected' : '';
+                        return `<option value="${inv.id}" ${selected}>${inv.nombre} ($${inv.precio})</option>`;
+                    }).join('');
+
+                    const newSelected = (prod.productoMapeadoEnInventario && prod.productoMapeadoEnInventario.id === 'NEW') ? 'selected' : '';
+
+                    tr.innerHTML = `
+                        <td>
+                            <input type="text" class="form-input" style="padding: 4px; font-size: 0.9em;" value="${prod.nombreOriginalTicket || 'Producto Manual'}" placeholder="Nombre en ticket" onchange="actualizarProd(${index}, 'nombreOriginalTicket', this.value)">
+                        </td>
+                        <td>
+                            <select class="form-input" style="padding: 4px; font-size: 0.9em; width: 100%; min-width: 150px;" onchange="actualizarMapeo(${index}, this.value)">
+                                <option value="">-- No Registrar en Inventario --</option>
+                                <option value="NEW" ${newSelected}>-- Crear Producto Nuevo (Revisar) --</option>
+                                ${optionsHtml}
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" class="form-input" style="padding: 4px; width: 100%;" value="${prod.cantidadTotalUnidades || 1}" min="1" onchange="actualizarProd(${index}, 'cantidadTotalUnidades', this.value)">
+                        </td>
+                        <td>
+                            <input type="number" class="form-input" style="padding: 4px; width: 100%;" value="${prod.precioUnitarioLeido || 0}" step="0.01" onchange="actualizarProd(${index}, 'precioUnitarioLeido', this.value)">
+                        </td>
+                        <td>
+                            <input type="number" class="form-input" style="padding: 4px; width: 100%; font-weight: bold; background: var(--bg-secondary);" value="${prod.subtotal || 0}" step="0.01" readonly title="Se calcula automáticamente (Cant x P. Unit)">
+                        </td>
+                        <td style="text-align:center; width: 50px;">
+                            <button type="button" class="btn btn-outline btn-sm delete-row-btn" style="color:var(--error-color); border-color:var(--error-color); padding: 5px;" onclick="eliminarFilaReabasto(${index})">✕</button>
+                        </td>
+                    `;
+                    aiProductsBody.appendChild(tr);
+                });
+            }
+
+            actualizarTotalVisual();
+        }
+
+        window.actualizarProd = (index, campo, valor) => {
+            const val = (campo === 'cantidadTotalUnidades' || campo === 'precioUnitarioLeido' || campo === 'subtotal') ? parseFloat(valor) : valor;
+            productosReabasto[index][campo] = val;
+
+            // Si cambian cantidad o precio, recalculamos subtotal
+            if (campo === 'cantidadTotalUnidades' || campo === 'precioUnitarioLeido') {
+                const cant = parseFloat(productosReabasto[index].cantidadTotalUnidades) || 0;
+                const prec = parseFloat(productosReabasto[index].precioUnitarioLeido) || 0;
+                productosReabasto[index].subtotal = +(cant * prec).toFixed(2);
+                renderizarTablaReabasto(); // Repintar para reflejar subtotal bloqueado
+            } else if (campo === 'subtotal') {
+                actualizarTotalVisual();
+            }
+        };
+
+        window.actualizarMapeo = (index, invId) => {
+            if (!invId) {
+                productosReabasto[index].productoMapeadoEnInventario = null;
+                return;
+            }
+            if (invId === 'NEW') {
+                productosReabasto[index].productoMapeadoEnInventario = { id: 'NEW', nombre: (productosReabasto[index].nombreOriginalTicket || 'Producto Nuevo') + ' (Revisar)' };
+                return;
+            }
+            const invProd = inventarioActual.find(p => p.id === invId);
+            if (invProd) {
+                productosReabasto[index].productoMapeadoEnInventario = { id: invProd.id, nombre: invProd.nombre };
+            }
+        };
+
+        window.eliminarFilaReabasto = (index) => {
+            productosReabasto.splice(index, 1);
+            renderizarTablaReabasto();
+        };
+
+        function actualizarTotalVisual() {
+            let suma = productosReabasto.reduce((acc, p) => acc + (parseFloat(p.subtotal) || 0), 0);
+            if (aiTotalDisplay) aiTotalDisplay.textContent = formatCurrency(parseFloat(aiExpenseTotal.value) || suma);
+        }
+
+        if (aiExpenseTotal) aiExpenseTotal.addEventListener('input', actualizarTotalVisual);
+
+        const addManualBtn = document.getElementById('add-manual-product-btn');
+        if (addManualBtn) {
+            addManualBtn.addEventListener('click', () => {
+                productosReabasto.push({
+                    nombreOriginalTicket: '',
+                    cantidadTotalUnidades: 1,
+                    precioUnitarioLeido: 0,
+                    subtotal: 0,
+                    productoMapeadoEnInventario: null
+                });
+                renderizarTablaReabasto();
+            });
+        }
+
+        const forzarCierreAI = () => { if (aiReviewModal) aiReviewModal.classList.add('hidden'); }
+        const closeAiBtn = document.getElementById('close-ai-modal-btn');
+        if (closeAiBtn) closeAiBtn.addEventListener('click', forzarCierreAI);
+        const cancelAiBtn = document.getElementById('cancel-ai-btn');
+        if (cancelAiBtn) cancelAiBtn.addEventListener('click', forzarCierreAI);
+
+        const confirmAiBtn = document.getElementById('confirm-ai-btn');
+        if (confirmAiBtn) {
+            confirmAiBtn.addEventListener('click', async () => {
+                try {
+                    const montoTotal = parseFloat(aiExpenseTotal.value);
+                    if (isNaN(montoTotal) || montoTotal <= 0) {
+                        const totalCalculado = productosReabasto.reduce((acc, p) => acc + (parseFloat(p.subtotal) || 0), 0);
+                        if (totalCalculado <= 0) {
+                            throw new Error('Ingresa un monto total válido o subtotales para los productos.');
+                        }
+                        aiExpenseTotal.value = totalCalculado;
+                    }
+
+                    const productosValidos = productosReabasto.filter(p => p.productoMapeadoEnInventario && p.productoMapeadoEnInventario.id && p.cantidadTotalUnidades > 0);
+
+                    if (productosValidos.length === 0 && parseFloat(aiExpenseTotal.value) <= 0) {
+                        throw new Error('No hay productos válidos seleccionados ni monto a registrar.');
+                    }
+
+                    confirmAiBtn.disabled = true;
+                    confirmAiBtn.textContent = 'Guardando...';
+
+                    for (let prod of productosValidos) {
+                        if (prod.productoMapeadoEnInventario.id === 'NEW') {
+                            const calculatedCosto = (prod.subtotal && prod.cantidadTotalUnidades)
+                                ? (parseFloat(prod.subtotal) / parseFloat(prod.cantidadTotalUnidades))
+                                : 0;
+                            const newProductId = await createProduct({
+                                nombre: (prod.nombreOriginalTicket || 'Producto Desconocido') + ' (Revisar)',
+                                precio: calculatedCosto > 0 ? calculatedCosto * 1.3 : 0,
+                                costo: calculatedCosto,
+                                stock: 0,
+                                categoria: 'Sin Categoría'
+                            });
+                            prod.productoMapeadoEnInventario.id = newProductId;
+                            prod.productoMapeadoEnInventario.nombre = (prod.nombreOriginalTicket || 'Producto Desconocido') + ' (Revisar)';
+                        }
+                    }
+
+                    const promesasStock = productosValidos.map(prod =>
+                        updateProductStock(prod.productoMapeadoEnInventario.id, prod.cantidadTotalUnidades)
+                    );
+                    await Promise.all(promesasStock);
+
+                    const dateInput = aiExpenseDate.value;
+                    const gastoData = {
+                        categoria: 'Proveedores',
+                        monto: parseFloat(aiExpenseTotal.value),
+                        descripcion: aiModalMode === 'ai' ? 'Compra de inventario (Escaneo de Ticket)' : 'Reabasto manual de inventario',
+                        metodoPago: aiExpensePayment.value,
+                        recurrente: false,
+                        fecha: dateInput ? new Date(dateInput + 'T12:00:00') : new Date(),
+                        productos: productosValidos.map(p => ({
+                            idInventario: p.productoMapeadoEnInventario.id,
+                            nombre: p.productoMapeadoEnInventario.nombre,
+                            cantidadAñadida: p.cantidadTotalUnidades,
+                            costoAsignado: p.subtotal || 0
+                        }))
+                    };
+
+                    await createGasto(gastoData);
+
+                    showAlert(`Reabasto completado: ${productosValidos.length} productos actualizados.`, 'success');
+                    forzarCierreAI();
+                    loadData().catch(console.error);
+
+                } catch (error) {
+                    console.error(error);
+                    showAlert(error.message, 'error');
+                } finally {
+                    confirmAiBtn.disabled = false;
+                    confirmAiBtn.textContent = 'Confirmar e Ingresar Stock';
+                }
+            });
+        }
+    </script>
+
+    <!-- User Menu Script -->
+    <script src="js/user-menu.js"></script>
+
+    <!-- Global Search Script -->
+    <script src="js/global-search.js?v=2.5"></script>
+    <script type="module" src="js/search-services.js"></script>
+
+    <!-- Animation & Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="/js/animations.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script src="js/mobile-menu.js?v=2.3"></script>
+    <script type="module" src="js/notes-widget.js?v=2.3"></script>
+    <script src="js/calc-widget.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js?v=2.4"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+
+</html>

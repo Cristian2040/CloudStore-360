@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Gestión de Clientes - Sistema de gestión para tienda">
+    <meta name="theme-color" content="#ff0040">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sistema Tienda">
+
+    <title>Clientes - Sistema Tienda</title>
+    <link rel="icon" href="/icon-192.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
+
+    <style>
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand-icon"><img src="images/brand-icon.png" alt="Icono" class="custom-brand-icon"></div>
+            <span class="sidebar-brand-text">Sistema Tienda</span>
+            <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="inicio.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="home"></i></span>
+                <span class="text">Inicio</span>
+            </a>
+            <a href="dashboard.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="bar-chart-2"></i></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <a href="productos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="package"></i></span>
+                <span class="text">Productos</span>
+            </a>
+            <a href="ventas.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="shopping-cart"></i></span>
+                <span class="text">Ventas</span>
+            </a>
+            <a href="gastos.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="receipt"></i></span>
+                <span class="text">Gastos</span>
+            </a>
+            <a href="reportes.html" class="sidebar-item">
+                <span class="sidebar-item-icon"><i data-lucide="pie-chart"></i></span>
+                <span class="text">Reportes</span>
+            </a>
+            <a href="clientes.html" class="sidebar-item active">
+                <span class="sidebar-item-icon"><i data-lucide="users"></i></span>
+                <span class="text">Clientes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Desktop Topbar -->
+    <header class="topbar" id="topbar">
+        <!-- Global Search Bar -->
+        <div class="global-search-container" id="global-search-container">
+            <div class="global-search-wrapper">
+                <input type="text" class="global-search-input" id="global-search-input"
+                    placeholder="Buscar productos, clientes, ventas...">
+                <button class="global-search-btn"><i data-lucide="search" data-anim="pulse"
+                        style="width:1.2em; height:1.2em;"></i></button>
+                <button class="global-search-close" id="global-search-close">✕</button>
+            </div>
+            <div class="global-search-results" id="global-search-results"></div>
+        </div>
+
+        <div class="navbar-user">
+            <!-- User Dropdown -->
+            <div class="navbar-user-dropdown">
+                <button class="navbar-user-btn" id="user-dropdown-btn">
+                    <div class="navbar-user-avatar" id="user-avatar">U</div>
+                    <span id="user-display-name">Usuario</span>
+                    <span class="navbar-user-arrow">▼</span>
+                </button>
+
+                <div class="navbar-dropdown-menu" id="user-dropdown-menu">
+                    <div class="navbar-dropdown-header">
+                        <div class="navbar-dropdown-email" id="dropdown-user-email">usuario@email.com</div>
+                        <div class="navbar-dropdown-role">Administrador</div>
+                    </div>
+
+                    <a href="#" class="navbar-dropdown-item" id="edit-profile-btn">
+                        <span><i data-lucide="user" style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Mi Perfil</span>
+                    </a>
+
+                    <a href="#" class="navbar-dropdown-item" id="settings-btn">
+                        <span><i data-lucide="settings"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Configuración</span>
+                    </a>
+
+                    <div class="navbar-dropdown-divider"></div>
+
+                    <button class="navbar-dropdown-item danger" id="dropdown-logout-btn">
+                        <span><i data-lucide="log-out"
+                                style="width:1em; height:1em; vertical-align: middle;"></i></span>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar (Only visible on mobile) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="inicio.html" class="navbar-brand">
+                <img src="images/brand-icon.png" alt="Icono" class="custom-navbar-icon"> Sistema Tienda
+            </a>
+
+            <button class="navbar-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="gastos.html">Gastos</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="clientes.html" class="active">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="section-header">
+                <div>
+                    <h1>Gestión de Clientes</h1>
+                    <p class="text-muted">Administra tu cartera de clientes</p>
+                </div>
+                <button class="btn btn-primary" id="add-client-btn">
+                    + Nuevo Cliente
+                </button>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-label">Total Clientes</div>
+                    <div class="stat-value" id="total-clients">0</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Clientes Activos</div>
+                    <div class="stat-value" id="active-clients">0</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Gasto Total</div>
+                    <div class="stat-value" id="total-spent">$0.00</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-label">Promedio por Cliente</div>
+                    <div class="stat-value" id="avg-spent">$0.00</div>
+                </div>
+            </div>
+
+            <div class="search-box" style="margin-bottom: var(--spacing-xl); position: relative;">
+                <span class="search-icon"
+                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"><i
+                        data-lucide="search" style="width:1.2em; height:1.2em;"></i></span>
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Buscar cliente por nombre, teléfono o email..." style="padding-left: 3rem; padding-right: 3rem;" />
+                <button id="reset-search-btn" class="scan-btn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); padding: 0; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: transparent; border: none; z-index: 10;" title="Limpiar búsqueda">
+                    <i data-lucide="x" style="width:1.2em; height:1.2em;"></i>
+                </button>
+            </div>
+
+            <!-- Clients Table -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Clientes Registrados</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="table" id="clients-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Teléfono</th>
+                                        <th>Email</th>
+                                        <th>Compras</th>
+                                        <th>Total Gastado</th>
+                                        <th>Debe (Fiado)</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clients-body">
+                                    <!-- Se llenará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Cliente -->
+    <div id="client-modal" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Nuevo Cliente</h3>
+                <button class="btn btn-outline btn-sm" id="close-modal-btn">✕</button>
+            </div>
+
+            <form id="client-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="client-name">Nombre *</label>
+                        <input type="text" id="client-name" class="form-input" required>
+                    </div>
+
+                    <div class="modal-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="client-phone">Teléfono</label>
+                            <input type="tel" id="client-phone" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="client-email">Email</label>
+                            <input type="email" id="client-email" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="client-address">Dirección</label>
+                        <textarea id="client-address" class="form-textarea" rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="client-notes">Notas</label>
+                        <textarea id="client-notes" class="form-textarea" rows="3"></textarea>
+                    </div>
+
+                    <input type="hidden" id="client-id">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="save-btn">
+                        Guardar Cliente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script type="module">
+        import { initializeFirebase, onAuthStateChanged } from './js/services/firebase.js';
+        import { logout } from './js/services/auth.js';
+        import {
+            createCliente,
+            getAllClientes,
+            searchClientes,
+            updateCliente,
+            deleteCliente,
+            getEstadisticasClientes
+        } from './js/services/clientes.js';
+        import {
+            formatCurrency,
+            formatDate,
+            showAlert,
+            showConfirm,
+            debounce
+        } from './js/utils/helpers.js';
+
+        // Inicializar Firebase
+        initializeFirebase();
+
+        // Estado
+        let allClients = [];
+        let editingClientId = null;
+
+        // Elementos del DOM
+        // Elementos del DOM
+        const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+        const addClientBtn = document.getElementById('add-client-btn');
+        const searchInput = document.getElementById('search-input');
+        const clientsBody = document.getElementById('clients-body');
+        const clientModal = document.getElementById('client-modal');
+        const clientForm = document.getElementById('client-form');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        // Verificar autenticación
+        onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Poblar información del usuario
+            if (window.populateUserInfo) {
+                window.populateUserInfo(user.email);
+            }
+
+            loadData();
+        });
+
+        // Cerrar sesión
+        if (dropdownLogoutBtn) {
+            dropdownLogoutBtn.addEventListener('click', async () => {
+                try {
+                    await logout();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    showAlert('Error al cerrar sesión', 'error');
+                }
+            });
+        }
+
+        // Cargar datos
+        async function loadData() {
+            try {
+                const [clientes, stats] = await Promise.all([
+                    getAllClientes(),
+                    getEstadisticasClientes()
+                ]);
+
+                allClients = clientes;
+                updateStatistics(stats);
+                displayClients(clientes);
+
+                handleUrlParams();
+
+            } catch (error) {
+                console.error('Error al cargar datos:', error);
+                showAlert('Error al cargar datos', 'error');
+            }
+        }
+
+        // Manejar parámetros de URL para búsqueda global
+        function handleUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const search = params.get('search');
+            const highlightId = params.get('highlight');
+
+            if (search) {
+                searchInput.value = search;
+                const query = search.toLowerCase();
+                const filtered = allClients.filter(c =>
+                    c.nombre.toLowerCase().includes(query) ||
+                    (c.telefono && c.telefono.includes(query)) ||
+                    (c.email && c.email.toLowerCase().includes(query))
+                );
+                displayClients(filtered);
+            }
+
+            if (highlightId) {
+                const client = allClients.find(c => c.id === highlightId);
+                if (client) {
+                    // Resaltar en la tabla?
+                    // Como displayClients regenera la tabla, necesitamos encontrar la fila después
+                    setTimeout(() => {
+                        const btn = document.querySelector(`.edit-btn[data-id="${highlightId}"]`);
+                        if (btn) {
+                            const row = btn.closest('tr');
+                            if (row) {
+                                row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                row.style.backgroundColor = 'rgba(255, 0, 64, 0.15)';
+                                setTimeout(() => row.style.backgroundColor = '', 3000);
+                            }
+                        }
+                    }, 100);
+                    // Opcional: abrir modal directo
+                    // openEditModal(highlightId);
+                }
+            }
+        }
+
+        // Actualizar estadísticas
+        function updateStatistics(stats) {
+            document.getElementById('total-clients').textContent = stats.totalClientes;
+            document.getElementById('active-clients').textContent = stats.clientesActivos;
+            document.getElementById('total-spent').textContent = formatCurrency(stats.totalGastado);
+            document.getElementById('avg-spent').textContent = formatCurrency(stats.promedioGasto);
+        }
+
+        // Mostrar clientes
+        function displayClients(clients) {
+            if (!clients || clients.length === 0) {
+                clientsBody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align: center; padding: var(--spacing-xl); color: var(--text-muted);">
+              No hay clientes registrados
+            </td>
+          </tr>
+        `;
+                return;
+            }
+
+            clientsBody.innerHTML = clients.map(client => {
+                const deuda = client.deudaTotal || 0;
+                const deudaHtml = deuda > 0 
+                    ? `<strong style="color: var(--error-color);">${formatCurrency(deuda)}</strong>` 
+                    : `<span class="text-muted" style="font-size:0.9rem;">${formatCurrency(0)}</span>`;
+
+                return `
+          <tr>
+            <td><strong>${client.nombre}</strong></td>
+            <td>${client.telefono || '-'}</td>
+            <td>${client.email || '-'}</td>
+            <td>${client.cantidadCompras}</td>
+            <td><strong>${formatCurrency(client.totalCompras || 0)}</strong></td>
+            <td>${deudaHtml}</td>
+            <td>
+              <button class="btn btn-outline btn-sm edit-btn" data-id="${client.id}">Editar</button>
+              <button class="btn btn-danger btn-sm delete-btn" data-id="${client.id}">Eliminar</button>
+            </td>
+          </tr>
+        `;
+            }).join('');
+
+            // Event listeners
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', () => openEditModal(btn.dataset.id));
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleDeleteClient(btn.dataset.id));
+            });
+        }
+
+        // Búsqueda
+        const resetSearchBtn = document.getElementById('reset-search-btn');
+        if (resetSearchBtn) {
+            resetSearchBtn.addEventListener('click', () => {
+                const searchInput = document.getElementById('search-input');
+                searchInput.value = '';
+                displayClients(allClients);
+                searchInput.focus();
+            });
+        }
+
+        searchInput.addEventListener('input', debounce(async (e) => {
+            const query = e.target.value.trim();
+
+            if (!query) {
+                displayClients(allClients);
+                return;
+            }
+
+            try {
+                const results = await searchClientes(query);
+                displayClients(results);
+            } catch (error) {
+                console.error('Error al buscar:', error);
+            }
+        }, 300));
+
+        // Abrir modal nuevo cliente
+        addClientBtn.addEventListener('click', () => {
+            editingClientId = null;
+            clientForm.reset();
+            document.getElementById('modal-title').textContent = 'Nuevo Cliente';
+            clientModal.classList.remove('hidden');
+        });
+
+        // Abrir modal editar
+        async function openEditModal(id) {
+            editingClientId = id;
+            const client = allClients.find(c => c.id === id);
+
+            if (!client) return;
+
+            document.getElementById('client-id').value = id;
+            document.getElementById('client-name').value = client.nombre;
+            document.getElementById('client-phone').value = client.telefono || '';
+            document.getElementById('client-email').value = client.email || '';
+            document.getElementById('client-address').value = client.direccion || '';
+            document.getElementById('client-notes').value = client.notas || '';
+
+            document.getElementById('modal-title').textContent = 'Editar Cliente';
+            clientModal.classList.remove('hidden');
+        }
+
+        // Cerrar modal
+        closeModalBtn.addEventListener('click', () => {
+            clientModal.classList.add('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            clientModal.classList.add('hidden');
+        });
+
+        // Guardar cliente
+        clientForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const clientData = {
+                nombre: document.getElementById('client-name').value,
+                telefono: document.getElementById('client-phone').value,
+                email: document.getElementById('client-email').value,
+                direccion: document.getElementById('client-address').value,
+                notas: document.getElementById('client-notes').value
+            };
+
+            try {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Guardando...';
+
+                if (editingClientId) {
+                    await updateCliente(editingClientId, clientData);
+                    showAlert('Cliente actualizado correctamente', 'success');
+                } else {
+                    await createCliente(clientData);
+                    showAlert('Cliente creado correctamente', 'success');
+                }
+
+                clientModal.classList.add('hidden');
+                // No bloquear la UI esperando la recarga de datos
+                loadData().catch(console.error);
+
+            } catch (error) {
+                console.error('Error al guardar cliente:', error);
+                showAlert(error.message || 'Error al guardar cliente', 'error');
+            } finally {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Guardar Cliente';
+            }
+        });
+
+        // Eliminar cliente
+        function handleDeleteClient(id) {
+            showConfirm(
+                '¿Estás seguro de que quieres eliminar este cliente?',
+                async () => {
+                    try {
+                        await deleteCliente(id);
+                        showAlert('Cliente eliminado correctamente', 'success');
+                        await loadData();
+                    } catch (error) {
+                        console.error('Error al eliminar cliente:', error);
+                        showAlert('Error al eliminar cliente', 'error');
+                    }
+                }
+            );
+        }
+    </script>
+
+    <!-- User Menu Script -->
+    <script src="/js/user-menu.js"></script>
+
+    <!-- Global Search Script -->
+    <script src="js/global-search.js?v=2.5"></script>
+    <script type="module" src="js/search-services.js"></script>
+
+    <!-- Animation & Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="/js/animations.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script src="js/mobile-menu.js?v=2.3"></script>
+    <script type="module" src="js/notes-widget.js?v=2.3"></script>
+    <script src="js/calc-widget.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js?v=2.4"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+
+</html>
